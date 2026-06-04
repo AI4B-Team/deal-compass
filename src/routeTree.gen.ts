@@ -12,10 +12,12 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedSettingsRouteImport } from './routes/_authenticated/settings'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedDealsIndexRouteImport } from './routes/_authenticated/deals/index'
 import { Route as AuthenticatedBuyersIndexRouteImport } from './routes/_authenticated/buyers/index'
 import { Route as AuthenticatedDealsNewRouteImport } from './routes/_authenticated/deals/new'
+import { Route as AuthenticatedDealsIdRouteImport } from './routes/_authenticated/deals/$id'
 import { Route as AuthenticatedBuyersNewRouteImport } from './routes/_authenticated/buyers/new'
 import { Route as AuthenticatedBuyersIdRouteImport } from './routes/_authenticated/buyers/$id'
 
@@ -32,6 +34,11 @@ const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedSettingsRoute = AuthenticatedSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
   id: '/dashboard',
@@ -54,6 +61,11 @@ const AuthenticatedDealsNewRoute = AuthenticatedDealsNewRouteImport.update({
   path: '/deals/new',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedDealsIdRoute = AuthenticatedDealsIdRouteImport.update({
+  id: '/deals/$id',
+  path: '/deals/$id',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedBuyersNewRoute = AuthenticatedBuyersNewRouteImport.update({
   id: '/buyers/new',
   path: '/buyers/new',
@@ -69,8 +81,10 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/settings': typeof AuthenticatedSettingsRoute
   '/buyers/$id': typeof AuthenticatedBuyersIdRoute
   '/buyers/new': typeof AuthenticatedBuyersNewRoute
+  '/deals/$id': typeof AuthenticatedDealsIdRoute
   '/deals/new': typeof AuthenticatedDealsNewRoute
   '/buyers/': typeof AuthenticatedBuyersIndexRoute
   '/deals/': typeof AuthenticatedDealsIndexRoute
@@ -79,8 +93,10 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/settings': typeof AuthenticatedSettingsRoute
   '/buyers/$id': typeof AuthenticatedBuyersIdRoute
   '/buyers/new': typeof AuthenticatedBuyersNewRoute
+  '/deals/$id': typeof AuthenticatedDealsIdRoute
   '/deals/new': typeof AuthenticatedDealsNewRoute
   '/buyers': typeof AuthenticatedBuyersIndexRoute
   '/deals': typeof AuthenticatedDealsIndexRoute
@@ -91,8 +107,10 @@ export interface FileRoutesById {
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/auth': typeof AuthRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
+  '/_authenticated/settings': typeof AuthenticatedSettingsRoute
   '/_authenticated/buyers/$id': typeof AuthenticatedBuyersIdRoute
   '/_authenticated/buyers/new': typeof AuthenticatedBuyersNewRoute
+  '/_authenticated/deals/$id': typeof AuthenticatedDealsIdRoute
   '/_authenticated/deals/new': typeof AuthenticatedDealsNewRoute
   '/_authenticated/buyers/': typeof AuthenticatedBuyersIndexRoute
   '/_authenticated/deals/': typeof AuthenticatedDealsIndexRoute
@@ -103,8 +121,10 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/dashboard'
+    | '/settings'
     | '/buyers/$id'
     | '/buyers/new'
+    | '/deals/$id'
     | '/deals/new'
     | '/buyers/'
     | '/deals/'
@@ -113,8 +133,10 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/dashboard'
+    | '/settings'
     | '/buyers/$id'
     | '/buyers/new'
+    | '/deals/$id'
     | '/deals/new'
     | '/buyers'
     | '/deals'
@@ -124,8 +146,10 @@ export interface FileRouteTypes {
     | '/_authenticated'
     | '/auth'
     | '/_authenticated/dashboard'
+    | '/_authenticated/settings'
     | '/_authenticated/buyers/$id'
     | '/_authenticated/buyers/new'
+    | '/_authenticated/deals/$id'
     | '/_authenticated/deals/new'
     | '/_authenticated/buyers/'
     | '/_authenticated/deals/'
@@ -160,6 +184,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/settings': {
+      id: '/_authenticated/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof AuthenticatedSettingsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/dashboard': {
       id: '/_authenticated/dashboard'
       path: '/dashboard'
@@ -188,6 +219,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedDealsNewRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/deals/$id': {
+      id: '/_authenticated/deals/$id'
+      path: '/deals/$id'
+      fullPath: '/deals/$id'
+      preLoaderRoute: typeof AuthenticatedDealsIdRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/buyers/new': {
       id: '/_authenticated/buyers/new'
       path: '/buyers/new'
@@ -207,8 +245,10 @@ declare module '@tanstack/react-router' {
 
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
+  AuthenticatedSettingsRoute: typeof AuthenticatedSettingsRoute
   AuthenticatedBuyersIdRoute: typeof AuthenticatedBuyersIdRoute
   AuthenticatedBuyersNewRoute: typeof AuthenticatedBuyersNewRoute
+  AuthenticatedDealsIdRoute: typeof AuthenticatedDealsIdRoute
   AuthenticatedDealsNewRoute: typeof AuthenticatedDealsNewRoute
   AuthenticatedBuyersIndexRoute: typeof AuthenticatedBuyersIndexRoute
   AuthenticatedDealsIndexRoute: typeof AuthenticatedDealsIndexRoute
@@ -216,8 +256,10 @@ interface AuthenticatedRouteRouteChildren {
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
+  AuthenticatedSettingsRoute: AuthenticatedSettingsRoute,
   AuthenticatedBuyersIdRoute: AuthenticatedBuyersIdRoute,
   AuthenticatedBuyersNewRoute: AuthenticatedBuyersNewRoute,
+  AuthenticatedDealsIdRoute: AuthenticatedDealsIdRoute,
   AuthenticatedDealsNewRoute: AuthenticatedDealsNewRoute,
   AuthenticatedBuyersIndexRoute: AuthenticatedBuyersIndexRoute,
   AuthenticatedDealsIndexRoute: AuthenticatedDealsIndexRoute,
