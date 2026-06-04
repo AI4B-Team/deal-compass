@@ -14,7 +14,326 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      buyers: {
+        Row: {
+          arv_max: number | null
+          arv_min: number | null
+          buy_box_notes: string | null
+          buyer_tier: string
+          company: string | null
+          condition_tolerance: string | null
+          created_at: string
+          deal_types: string[]
+          deals_bought_count: number
+          email: string | null
+          financing_type: string | null
+          general_notes: string | null
+          id: string
+          last_contacted_date: string | null
+          last_purchase_date: string | null
+          max_concurrent_deals: number | null
+          min_baths: number | null
+          min_beds: number | null
+          min_spread: number | null
+          min_sqft: number | null
+          name: string
+          phone: string | null
+          preferred_contact_method: string | null
+          price_max: number | null
+          price_min: number | null
+          proof_of_funds: boolean
+          property_types: string[]
+          status: string
+          target_areas: string[]
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          arv_max?: number | null
+          arv_min?: number | null
+          buy_box_notes?: string | null
+          buyer_tier?: string
+          company?: string | null
+          condition_tolerance?: string | null
+          created_at?: string
+          deal_types?: string[]
+          deals_bought_count?: number
+          email?: string | null
+          financing_type?: string | null
+          general_notes?: string | null
+          id?: string
+          last_contacted_date?: string | null
+          last_purchase_date?: string | null
+          max_concurrent_deals?: number | null
+          min_baths?: number | null
+          min_beds?: number | null
+          min_spread?: number | null
+          min_sqft?: number | null
+          name: string
+          phone?: string | null
+          preferred_contact_method?: string | null
+          price_max?: number | null
+          price_min?: number | null
+          proof_of_funds?: boolean
+          property_types?: string[]
+          status?: string
+          target_areas?: string[]
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          arv_max?: number | null
+          arv_min?: number | null
+          buy_box_notes?: string | null
+          buyer_tier?: string
+          company?: string | null
+          condition_tolerance?: string | null
+          created_at?: string
+          deal_types?: string[]
+          deals_bought_count?: number
+          email?: string | null
+          financing_type?: string | null
+          general_notes?: string | null
+          id?: string
+          last_contacted_date?: string | null
+          last_purchase_date?: string | null
+          max_concurrent_deals?: number | null
+          min_baths?: number | null
+          min_beds?: number | null
+          min_spread?: number | null
+          min_sqft?: number | null
+          name?: string
+          phone?: string | null
+          preferred_contact_method?: string | null
+          price_max?: number | null
+          price_min?: number | null
+          proof_of_funds?: boolean
+          property_types?: string[]
+          status?: string
+          target_areas?: string[]
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      deal_matches: {
+        Row: {
+          buyer_id: string
+          contacted_at: string | null
+          created_at: string
+          deal_id: string
+          generated_pitch: string | null
+          id: string
+          interest_status: string
+          is_winner: boolean
+          match_reasons: string | null
+          match_score: number
+          match_tier: string
+          notes: string | null
+          pitch_subject: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          buyer_id: string
+          contacted_at?: string | null
+          created_at?: string
+          deal_id: string
+          generated_pitch?: string | null
+          id?: string
+          interest_status?: string
+          is_winner?: boolean
+          match_reasons?: string | null
+          match_score?: number
+          match_tier?: string
+          notes?: string | null
+          pitch_subject?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          buyer_id?: string
+          contacted_at?: string | null
+          created_at?: string
+          deal_id?: string
+          generated_pitch?: string | null
+          id?: string
+          interest_status?: string
+          is_winner?: boolean
+          match_reasons?: string | null
+          match_score?: number
+          match_tier?: string
+          notes?: string | null
+          pitch_subject?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "deal_matches_buyer_id_fkey"
+            columns: ["buyer_id"]
+            isOneToOne: false
+            referencedRelation: "buyers"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "deal_matches_deal_id_fkey"
+            columns: ["deal_id"]
+            isOneToOne: false
+            referencedRelation: "deals"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      deals: {
+        Row: {
+          address: string
+          arv: number | null
+          asking_price: number | null
+          assigned_buyer_id: string | null
+          assignment_fee: number | null
+          baths: number | null
+          beds: number | null
+          city: string | null
+          closing_deadline: string | null
+          condition: string | null
+          contract_date: string | null
+          contract_price: number | null
+          county: string | null
+          created_at: string
+          deal_notes: string | null
+          description: string | null
+          estimated_rehab: number | null
+          final_assignment_fee: number | null
+          id: string
+          inspection_deadline: string | null
+          intended_use: string | null
+          property_type: string | null
+          sqft: number | null
+          state: string | null
+          status: string
+          updated_at: string
+          user_id: string
+          year_built: number | null
+          zip: string | null
+        }
+        Insert: {
+          address: string
+          arv?: number | null
+          asking_price?: number | null
+          assigned_buyer_id?: string | null
+          assignment_fee?: number | null
+          baths?: number | null
+          beds?: number | null
+          city?: string | null
+          closing_deadline?: string | null
+          condition?: string | null
+          contract_date?: string | null
+          contract_price?: number | null
+          county?: string | null
+          created_at?: string
+          deal_notes?: string | null
+          description?: string | null
+          estimated_rehab?: number | null
+          final_assignment_fee?: number | null
+          id?: string
+          inspection_deadline?: string | null
+          intended_use?: string | null
+          property_type?: string | null
+          sqft?: number | null
+          state?: string | null
+          status?: string
+          updated_at?: string
+          user_id: string
+          year_built?: number | null
+          zip?: string | null
+        }
+        Update: {
+          address?: string
+          arv?: number | null
+          asking_price?: number | null
+          assigned_buyer_id?: string | null
+          assignment_fee?: number | null
+          baths?: number | null
+          beds?: number | null
+          city?: string | null
+          closing_deadline?: string | null
+          condition?: string | null
+          contract_date?: string | null
+          contract_price?: number | null
+          county?: string | null
+          created_at?: string
+          deal_notes?: string | null
+          description?: string | null
+          estimated_rehab?: number | null
+          final_assignment_fee?: number | null
+          id?: string
+          inspection_deadline?: string | null
+          intended_use?: string | null
+          property_type?: string | null
+          sqft?: number | null
+          state?: string | null
+          status?: string
+          updated_at?: string
+          user_id?: string
+          year_built?: number | null
+          zip?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "deals_assigned_buyer_id_fkey"
+            columns: ["assigned_buyer_id"]
+            isOneToOne: false
+            referencedRelation: "buyers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      user_settings: {
+        Row: {
+          brand_name: string | null
+          created_at: string
+          default_market: string | null
+          default_state: string | null
+          signature: string | null
+          updated_at: string
+          user_id: string
+          weight_condition: number
+          weight_price: number
+          weight_size: number
+          weight_spread: number
+          weight_strategy: number
+        }
+        Insert: {
+          brand_name?: string | null
+          created_at?: string
+          default_market?: string | null
+          default_state?: string | null
+          signature?: string | null
+          updated_at?: string
+          user_id: string
+          weight_condition?: number
+          weight_price?: number
+          weight_size?: number
+          weight_spread?: number
+          weight_strategy?: number
+        }
+        Update: {
+          brand_name?: string | null
+          created_at?: string
+          default_market?: string | null
+          default_state?: string | null
+          signature?: string | null
+          updated_at?: string
+          user_id?: string
+          weight_condition?: number
+          weight_price?: number
+          weight_size?: number
+          weight_spread?: number
+          weight_strategy?: number
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
