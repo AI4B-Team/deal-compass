@@ -137,7 +137,7 @@ function DealDetail() {
 
   return (
     <div>
-      <Link to="/deals" className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-1 mb-4"><ArrowLeft className="w-3 h-3" /> All deals</Link>
+      <Link to="/deals" className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-1 mb-4"><ArrowLeft className="w-3 h-3" /> All Deals</Link>
 
       <div className="glass rounded-2xl p-5 sm:p-6 shadow-elevated mb-6">
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
