@@ -236,6 +236,62 @@ function DealDetail() {
         )}
       </div>
 
+      {/* Auto-Marketing */}
+      <div className="glass rounded-2xl shadow-elevated mt-6 p-5">
+        <div className="flex items-start justify-between gap-4 flex-wrap mb-4">
+          <div>
+            <h2 className="font-semibold flex items-center gap-2"><Send className="w-4 h-4 text-primary" /> Auto-Market This Deal</h2>
+            <p className="text-xs text-muted-foreground mt-0.5">
+              {settings?.auto_market_enabled
+                ? `Global: ON · ${settings.auto_market_channels} · ${settings.auto_market_target_mode === "top_n" ? `top ${settings.auto_market_top_n}` : settings.auto_market_target_mode === "threshold" ? `score ≥ ${settings.auto_market_min_score}` : "all matches"}`
+                : "Global auto-marketing is off. Enable it in Settings, or just blast this one deal."}
+            </p>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 text-xs">
+              <span className="text-muted-foreground">Override:</span>
+              <Switch
+                checked={deal.auto_market_override === true}
+                onCheckedChange={(v) => setOverride(v ? true : null)}
+              />
+              <span>{deal.auto_market_override === true ? "Force On" : "Follow Global"}</span>
+            </div>
+            <Button onClick={runAutoMarket} disabled={marketing || matches.length === 0} className="grad-primary text-primary-foreground">
+              <Zap className="w-4 h-4 mr-1" /> {marketing ? "Sending…" : "Auto-Market Now"}
+            </Button>
+          </div>
+        </div>
+
+        {outreach.length === 0 ? (
+          <div className="text-xs text-muted-foreground p-3 rounded-lg bg-[color:var(--surface-2)]/40">
+            No outreach yet. Click <span className="font-semibold">Auto-Market Now</span> to blast this deal to matched buyers, or reach out manually from each match above.
+          </div>
+        ) : (
+          <div className="space-y-2">
+            {outreach.slice(0, 20).map((o: any) => (
+              <div key={o.id} className="flex items-start gap-3 p-3 rounded-lg bg-[color:var(--surface-2)]/40 text-xs">
+                {o.channel === "email" ? <Mail className="w-3.5 h-3.5 mt-0.5 text-primary" /> : <MessageSquare className="w-3.5 h-3.5 mt-0.5 text-primary" />}
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="font-semibold">{o.buyers?.name ?? "Buyer"}</span>
+                    <span className="text-muted-foreground">→ {o.recipient ?? "(no contact)"}</span>
+                    <StatusPill status={o.status} />
+                  </div>
+                  {o.subject && <div className="mt-1 font-medium">{o.subject}</div>}
+                  {o.body && <div className="mt-1 text-muted-foreground line-clamp-2 whitespace-pre-wrap">{o.body}</div>}
+                  {o.error_message && <div className="mt-1 text-destructive">{o.error_message}</div>}
+                </div>
+                {o.body && (
+                  <Button size="sm" variant="ghost" onClick={() => { navigator.clipboard.writeText(o.body); toast.success("Copied"); }}>
+                    <Copy className="w-3.5 h-3.5" />
+                  </Button>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
       <div className="mt-6">
         <PropertyIntelligencePanel address={deal.address} userId={deal.user_id} />
       </div>
