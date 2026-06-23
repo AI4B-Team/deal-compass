@@ -190,7 +190,7 @@ function DealDetail() {
               <div className="border-t border-border">
                 <button onClick={() => setShowStretch(!showStretch)} className="w-full px-5 py-3 flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
                   {showStretch ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
-                  Stretch matches ({stretched.length}) — close but failed a gate
+                  Stretch Matches ({stretched.length}) — close but failed a gate
                 </button>
                 {showStretch && (
                   <div className="divide-y divide-border">
