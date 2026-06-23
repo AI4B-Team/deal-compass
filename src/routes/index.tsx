@@ -290,14 +290,14 @@ function LandingPage() {
       <section id="pricing" className="py-16 sm:py-20 px-4 sm:px-8">
         <div className="bg-primary text-primary-foreground rounded-[28px] mx-auto max-w-[1116px] px-8 sm:px-10 py-16 sm:py-[72px] text-center">
           <h2 className="text-2xl sm:text-[34px] font-bold tracking-tight mb-3.5">
-            Ready to match every deal, every time?
+            Ready To Match Every Deal, Every Time?
           </h2>
           <p className="text-base sm:text-base opacity-90 mb-7 max-w-xl mx-auto">
             Join wholesalers closing faster with buyer-type-aware AI matching.
           </p>
           <Link to="/auth">
             <Button className="bg-background text-primary hover:bg-surface-2 h-12 px-8 rounded-full text-base font-medium">
-              Start free <ArrowRight className="w-4 h-4 ml-1.5" />
+              Start Free <ArrowRight className="w-4 h-4 ml-1.5" />
             </Button>
           </Link>
         </div>
