@@ -249,6 +249,7 @@ function LandingPage() {
                 <CompareRow ok={false}>No ranking</CompareRow>
                 <CompareRow ok={false}>No buyer intent data</CompareRow>
                 <CompareRow ok={false}>Manual follow-up</CompareRow>
+                <CompareRow ok={false}>No auto marketing</CompareRow>
                 <CompareRow ok={false}>Hope someone bites</CompareRow>
               </ul>
             </div>
@@ -276,6 +277,7 @@ function LandingPage() {
                 <CompareRow ok>AI buyer ranking</CompareRow>
                 <CompareRow ok>Match explanations</CompareRow>
                 <CompareRow ok>Smart targeting</CompareRow>
+                <CompareRow ok>Auto marketing</CompareRow>
               </ul>
             </div>
           </div>
