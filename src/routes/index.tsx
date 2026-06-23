@@ -793,3 +793,49 @@ function Testimonial({ quote, name, role }: { quote: string; name: string; role:
     </div>
   );
 }
+
+function PortfolioStat({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="bg-card rounded-lg p-3 border border-border">
+      <div className="text-[10px] uppercase tracking-wider text-muted-foreground">{label}</div>
+      <div className="text-base font-bold number mt-0.5">{value}</div>
+    </div>
+  );
+}
+
+function LinkedDealRow({ addr, type, price, date }: { addr: string; type: string; price: string; date: string }) {
+  const clr =
+    type === "flip" ? "bg-[color:var(--primary-soft)] text-primary" :
+    type === "rental" ? "bg-blue-100 text-blue-900" :
+    "bg-amber-100 text-amber-900";
+  return (
+    <div className="px-5 sm:px-6 py-3 flex items-center justify-between gap-4">
+      <div className="min-w-0 flex-1">
+        <div className="font-medium text-sm flex items-center gap-2 flex-wrap">
+          <MapPin className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
+          <span className="truncate">{addr}</span>
+          <span className={`text-[10px] font-bold uppercase px-2 py-0.5 rounded-full ${clr}`}>{type}</span>
+          <span className="inline-flex items-center gap-1 text-[10px] text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded">
+            <ShieldCheck className="w-2.5 h-2.5" /> Verified
+          </span>
+        </div>
+      </div>
+      <div className="text-right shrink-0">
+        <div className="text-sm font-semibold number">{price}</div>
+        <div className="text-[10px] text-muted-foreground">{date}</div>
+      </div>
+    </div>
+  );
+}
+
+function IntelCard({ icon: Icon, title, copy }: { icon: any; title: string; copy: string }) {
+  return (
+    <div className="bg-card rounded-2xl border border-border p-6 hover:shadow-elevated transition-shadow">
+      <div className="w-10 h-10 rounded-lg bg-[color:var(--primary-soft)] flex items-center justify-center mb-4">
+        <Icon className="w-5 h-5 text-primary" />
+      </div>
+      <h3 className="font-bold text-lg mb-2">{title}</h3>
+      <p className="text-sm text-muted-foreground leading-relaxed">{copy}</p>
+    </div>
+  );
+}
