@@ -122,7 +122,7 @@ function LandingPage() {
                 <div className="bg-white/5 rounded-xl p-4 border border-border/40">
                   <div className="flex justify-between items-start mb-4">
                     <div>
-                      <div className="text-[10px] text-primary font-bold mb-1 uppercase tracking-widest">Active Deal</div>
+                      <div className="text-[10px] text-primary font-bold mb-1 uppercase tracking-widest">Active deal</div>
                       <div className="font-semibold">1244 Maplewood Terrace</div>
                     </div>
                     <div className="bg-primary/20 text-primary text-[10px] px-2 py-1 rounded font-bold uppercase">
