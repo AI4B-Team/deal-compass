@@ -1,5 +1,5 @@
 import { Link, useRouterState, useNavigate } from "@tanstack/react-router";
-import { LayoutDashboard, Users, Briefcase, Settings, LogOut, Building2, Menu, X } from "lucide-react";
+import { LayoutDashboard, Users, Briefcase, Settings, LogOut, Compass, Menu, X } from "lucide-react";
 import { useState, type ReactNode } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -22,6 +22,18 @@ export function AppShell({ children }: { children: ReactNode }) {
     navigate({ to: "/auth" });
   };
 
+  const Brand = ({ size = 7 }: { size?: number }) => (
+    <div className="flex items-center gap-2">
+      <div
+        className="rounded-[7px] bg-primary flex items-center justify-center"
+        style={{ width: `${size * 4}px`, height: `${size * 4}px` }}
+      >
+        <Compass className="text-primary-foreground" style={{ width: 16, height: 16 }} />
+      </div>
+      <span className="font-bold tracking-tight">Deal Compass</span>
+    </div>
+  );
+
   const NavItems = ({ onClick }: { onClick?: () => void }) => (
     <nav className="flex flex-col gap-1 px-3">
       {nav.map((n) => {
@@ -35,8 +47,8 @@ export function AppShell({ children }: { children: ReactNode }) {
             className={cn(
               "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all",
               active
-                ? "bg-[color:var(--surface-2)] text-foreground shadow-elevated"
-                : "text-muted-foreground hover:text-foreground hover:bg-[color:var(--surface)]"
+                ? "bg-primary-soft text-primary"
+                : "text-muted-foreground hover:text-foreground hover:bg-surface"
             )}
           >
             <Icon className="w-4 h-4" />
@@ -48,40 +60,42 @@ export function AppShell({ children }: { children: ReactNode }) {
   );
 
   return (
-    <div className="min-h-screen flex">
+    <div className="min-h-screen flex bg-background">
       {/* Sidebar — desktop */}
-      <aside className="hidden lg:flex w-64 shrink-0 flex-col border-r border-border bg-[color:var(--surface)]/40 backdrop-blur">
-        <div className="px-6 py-5 flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg grad-primary flex items-center justify-center">
-            <Building2 className="w-4 h-4 text-primary-foreground" />
-          </div>
-          <span className="font-semibold tracking-tight">Disposition</span>
+      <aside className="hidden lg:flex w-64 shrink-0 flex-col border-r border-border bg-surface">
+        <div className="px-6 py-5">
+          <Brand />
         </div>
-        <div className="mt-4 flex-1"><NavItems /></div>
+        <div className="mt-4 flex-1">
+          <NavItems />
+        </div>
         <div className="p-3 border-t border-border">
-          <Button variant="ghost" onClick={signOut} className="w-full justify-start text-muted-foreground hover:text-foreground">
+          <Button
+            variant="ghost"
+            onClick={signOut}
+            className="w-full justify-start text-muted-foreground hover:text-foreground"
+          >
             <LogOut className="w-4 h-4 mr-2" /> Sign out
           </Button>
         </div>
       </aside>
 
       {/* Mobile top bar */}
-      <div className="lg:hidden fixed top-0 left-0 right-0 z-30 glass border-b border-border px-4 h-14 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-lg grad-primary flex items-center justify-center">
-            <Building2 className="w-4 h-4 text-primary-foreground" />
-          </div>
-          <span className="font-semibold">Disposition</span>
-        </div>
+      <div className="lg:hidden fixed top-0 left-0 right-0 z-30 bg-background/90 backdrop-blur border-b border-border px-4 h-14 flex items-center justify-between">
+        <Brand />
         <Button variant="ghost" size="icon" onClick={() => setOpen(!open)}>
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </Button>
       </div>
       {open && (
-        <div className="lg:hidden fixed inset-0 top-14 z-20 bg-background/95 backdrop-blur pt-4">
+        <div className="lg:hidden fixed inset-0 top-14 z-20 bg-background pt-4">
           <NavItems onClick={() => setOpen(false)} />
           <div className="px-3 mt-4">
-            <Button variant="ghost" onClick={signOut} className="w-full justify-start text-muted-foreground">
+            <Button
+              variant="ghost"
+              onClick={signOut}
+              className="w-full justify-start text-muted-foreground"
+            >
               <LogOut className="w-4 h-4 mr-2" /> Sign out
             </Button>
           </div>
@@ -94,3 +108,4 @@ export function AppShell({ children }: { children: ReactNode }) {
     </div>
   );
 }
+
