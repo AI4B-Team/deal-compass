@@ -99,7 +99,7 @@ function AuthPage() {
               disabled={loading}
               className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-full"
             >
-              {loading ? "..." : mode === "signin" ? "Sign in" : "Create account"}
+              {loading ? "..." : mode === "signin" ? "Sign In" : "Create Account"}
               <ArrowRight className="w-4 h-4 ml-1" />
             </Button>
           </form>
@@ -109,7 +109,7 @@ function AuthPage() {
               onClick={() => setMode(mode === "signin" ? "signup" : "signin")}
               className="text-primary hover:underline font-medium"
             >
-              {mode === "signin" ? "Create one" : "Sign in"}
+              {mode === "signin" ? "Create One" : "Sign In"}
             </button>
           </div>
         </div>
