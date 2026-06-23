@@ -54,7 +54,7 @@ function LandingPage() {
           </div>
           <div className="hidden md:flex gap-8 text-sm text-muted-foreground">
             <a href="#features" className="hover:text-foreground transition-colors">Product</a>
-            <a href="#buyers" className="hover:text-foreground transition-colors">Buyer network</a>
+            <a href="#buyers" className="hover:text-foreground transition-colors">Buyer Network</a>
             <a href="#marketplace" className="hover:text-foreground transition-colors">Marketplace</a>
             <a href="#pricing" className="hover:text-foreground transition-colors">Pricing</a>
           </div>
@@ -63,11 +63,11 @@ function LandingPage() {
               to="/auth"
               className="hidden sm:inline-flex h-9 items-center px-4 rounded-full text-sm font-medium hover:text-primary transition-colors"
             >
-              Sign in
+              Sign In
             </Link>
             <Link to="/auth">
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-full px-5 text-sm font-medium gap-1.5">
-                Start free <ArrowRight className="w-3.5 h-3.5" />
+                Start Free <ArrowRight className="w-3.5 h-3.5" />
               </Button>
             </Link>
           </div>
