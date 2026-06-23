@@ -113,7 +113,7 @@ function LandingPage() {
                 {/* Deal card */}
                 <div className="bg-background border border-border rounded-2xl p-5">
                   <div className="text-[11px] font-bold uppercase tracking-wider text-primary mb-1.5">
-                    Active deal
+                    Active Deal
                   </div>
                   <div className="text-[17px] font-bold mb-3.5">
                     42 Ridgeline Trail, Lot 12 — San Antonio, TX
@@ -123,13 +123,13 @@ function LandingPage() {
                       className="text-[11px] font-medium px-2.5 py-1 rounded-full"
                       style={{ background: "var(--buyer-cash-bg)", color: "var(--buyer-cash-fg)" }}
                     >
-                      Vacant land · 2.4 acres
+                      Vacant Land · 2.4 Acres
                     </span>
                     <span
                       className="text-[11px] font-medium px-2.5 py-1 rounded-full"
                       style={{ background: "var(--buyer-builder-bg)", color: "var(--buyer-builder-fg)" }}
                     >
-                      Zoned residential
+                      Zoned Residential
                     </span>
                   </div>
                   <MatchRow initials="RB" name="Ridgeline Builders LLC" score="97 · A" tier="a" />
