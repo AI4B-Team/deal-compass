@@ -35,17 +35,39 @@ function DealDetail() {
   const [marketing, setMarketing] = useState(false);
   const [showStretch, setShowStretch] = useState(false);
   const autoMarket = useServerFn(autoMarketDeal);
-  const [editing, setEditing] = useState(false);
-  const [running, setRunning] = useState(false);
-  const [showStretch, setShowStretch] = useState(false);
 
   const load = useCallback(async () => {
     const { data: d } = await supabase.from("deals").select("*").eq("id", id).single();
     setDeal(d);
     const { data: m } = await supabase.from("deal_matches").select("*, buyers(*)").eq("deal_id", id).order("match_score", { ascending: false });
     setMatches(m ?? []);
+    const { data: o } = await supabase.from("deal_outreach").select("*, buyers(name)").eq("deal_id", id).order("created_at", { ascending: false });
+    setOutreach(o ?? []);
+    const { data: s } = await supabase.from("user_settings").select("*").maybeSingle();
+    setSettings(s);
   }, [id]);
   useEffect(() => { load(); }, [load]);
+
+  const runAutoMarket = async () => {
+    if (!deal) return;
+    if (matches.length === 0) { toast.error("Run matching first"); return; }
+    setMarketing(true);
+    try {
+      const r = await autoMarket({ data: { dealId: id } });
+      toast.success(`Outreach complete — ${r.sent} sent, ${r.drafted} drafted, ${r.skipped} skipped`);
+      load();
+    } catch (e: any) {
+      toast.error(e.message ?? "Auto-marketing failed");
+    } finally {
+      setMarketing(false);
+    }
+  };
+
+  const setOverride = async (val: boolean | null) => {
+    await supabase.from("deals").update({ auto_market_override: val }).eq("id", id);
+    load();
+  };
+
 
   const findBuyers = async () => {
     if (!deal) return;
