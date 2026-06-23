@@ -224,7 +224,7 @@ function LandingPage() {
         <div className="max-w-[1100px] mx-auto px-6 sm:px-8">
           <div className="text-center max-w-[680px] mx-auto mb-14">
             <h2 className="text-3xl sm:text-[42px] font-bold tracking-tight mb-3.5">
-              Why Deal Compass Beats <span className="text-primary">Traditional Buyer Lists</span>
+              Why Deal Compass Beats <span className="text-primary">Buyer Lists & Software</span>
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
               Same address. Two completely different outcomes.
