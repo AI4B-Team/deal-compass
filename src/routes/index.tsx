@@ -201,7 +201,7 @@ function LandingPage() {
         <div className="max-w-[1180px] mx-auto px-6 sm:px-8">
           <div className="text-center max-w-[620px] mx-auto mb-14">
             <h2 className="text-3xl sm:text-[38px] font-bold tracking-tight mb-3.5">
-              Built for speed. Designed for closers.
+              Built For Speed. Designed For Closers.
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
               Everything from buyer intelligence to public deal pages — refined into one workspace.
@@ -210,30 +210,30 @@ function LandingPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             <FeatureCard
               icon={Target}
-              title="Smart matching"
+              title="Smart Matching"
               badge="v2"
               copy="Deterministic + behavioral scoring across cash, landlord, flip, and land/builder buy boxes — weighted, explainable, 0–100."
             />
             <FeatureCard
               icon={MapPin}
-              title="Buyer search by address"
+              title="Buyer Search By Address"
               copy="Drop any address, instantly surface the highest-probability buyers nearby, skiptraced and ranked."
             />
             <FeatureCard
               icon={Globe}
-              title="Public marketplace"
+              title="Public Marketplace"
               badge="New"
               copy="Branded, mobile-ready deal pages buyers can browse, favorite, and request address access to."
             />
             <FeatureCard
               icon={UserPlus}
-              title="Buyer self-onboarding"
+              title="Buyer Self-Onboarding"
               badge="New"
               copy="Buyers submit their own buy box — AI parses free-text criteria straight into structured fields."
             />
             <FeatureCard
               icon={Activity}
-              title="Engagement tracking"
+              title="Engagement Tracking"
               badge="New"
               copy="See who viewed, clicked, and lingered on a deal — call your warmest buyer first."
             />
@@ -245,18 +245,18 @@ function LandingPage() {
             />
             <FeatureCard
               icon={MessageSquare}
-              title="In-platform messaging & offers"
+              title="In-Platform Messaging & Offers"
               badge="New"
               copy="Buyers submit offers and negotiate directly — no more chasing texts across five apps."
             />
             <FeatureCard
               icon={Briefcase}
-              title="Buyer portfolios"
+              title="Buyer Portfolios"
               copy="Full purchase history per buyer — profit, ARV%, hold time, and what they're likely to buy next."
             />
             <FeatureCard
               icon={Plug}
-              title="CRM, SMS & dialer"
+              title="CRM, SMS & Dialer"
               badge="New"
               copy="Push and pull from your existing CRM and dialer stack without leaving Deal Compass."
             />
