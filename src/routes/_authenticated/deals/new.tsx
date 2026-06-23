@@ -3,7 +3,7 @@ import { DealForm } from "@/components/DealForm";
 import { PageHeader } from "@/components/PageHeader";
 
 export const Route = createFileRoute("/_authenticated/deals/new")({
-  head: () => ({ meta: [{ title: "New deal" }] }),
+  head: () => ({ meta: [{ title: "New Deal — Deal Compass" }] }),
   component: NewDeal,
 });
 
