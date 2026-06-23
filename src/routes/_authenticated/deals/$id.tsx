@@ -5,13 +5,16 @@ import { PageHeader } from "@/components/PageHeader";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ArrowLeft, Trash2, Pencil, Sparkles, Zap, Trophy, Copy, ChevronDown, ChevronRight } from "lucide-react";
+import { ArrowLeft, Trash2, Pencil, Sparkles, Zap, Trophy, Copy, ChevronDown, ChevronRight, Send, Mail, MessageSquare } from "lucide-react";
 import { fmtMoney, daysUntil, urgencyColor } from "@/lib/format";
 import { rankBuyers, DEFAULT_WEIGHTS, type MatchResult } from "@/lib/matching";
 import { TierBadge } from "@/components/TierBadge";
 import { DealForm } from "@/components/DealForm";
+import { Switch } from "@/components/ui/switch";
 import { toast } from "sonner";
 import { PropertyIntelligencePanel } from "@/components/PropertyIntelligencePanel";
+import { useServerFn } from "@tanstack/react-start";
+import { autoMarketDeal } from "@/lib/api/auto-market.functions";
 
 export const Route = createFileRoute("/_authenticated/deals/$id")({
   head: () => ({ meta: [{ title: "Deal" }] }),
@@ -25,17 +28,46 @@ function DealDetail() {
   const navigate = useNavigate();
   const [deal, setDeal] = useState<any>(null);
   const [matches, setMatches] = useState<any[]>([]);
+  const [outreach, setOutreach] = useState<any[]>([]);
+  const [settings, setSettings] = useState<any>(null);
   const [editing, setEditing] = useState(false);
   const [running, setRunning] = useState(false);
+  const [marketing, setMarketing] = useState(false);
   const [showStretch, setShowStretch] = useState(false);
+  const autoMarket = useServerFn(autoMarketDeal);
 
   const load = useCallback(async () => {
     const { data: d } = await supabase.from("deals").select("*").eq("id", id).single();
     setDeal(d);
     const { data: m } = await supabase.from("deal_matches").select("*, buyers(*)").eq("deal_id", id).order("match_score", { ascending: false });
     setMatches(m ?? []);
+    const { data: o } = await supabase.from("deal_outreach").select("*, buyers(name)").eq("deal_id", id).order("created_at", { ascending: false });
+    setOutreach(o ?? []);
+    const { data: s } = await supabase.from("user_settings").select("*").maybeSingle();
+    setSettings(s);
   }, [id]);
   useEffect(() => { load(); }, [load]);
+
+  const runAutoMarket = async () => {
+    if (!deal) return;
+    if (matches.length === 0) { toast.error("Run matching first"); return; }
+    setMarketing(true);
+    try {
+      const r = await autoMarket({ data: { dealId: id } });
+      toast.success(`Outreach complete — ${r.sent} sent, ${r.drafted} drafted, ${r.skipped} skipped`);
+      load();
+    } catch (e: any) {
+      toast.error(e.message ?? "Auto-marketing failed");
+    } finally {
+      setMarketing(false);
+    }
+  };
+
+  const setOverride = async (val: boolean | null) => {
+    await supabase.from("deals").update({ auto_market_override: val }).eq("id", id);
+    load();
+  };
+
 
   const findBuyers = async () => {
     if (!deal) return;
@@ -204,6 +236,62 @@ function DealDetail() {
         )}
       </div>
 
+      {/* Auto-Marketing */}
+      <div className="glass rounded-2xl shadow-elevated mt-6 p-5">
+        <div className="flex items-start justify-between gap-4 flex-wrap mb-4">
+          <div>
+            <h2 className="font-semibold flex items-center gap-2"><Send className="w-4 h-4 text-primary" /> Auto-Market This Deal</h2>
+            <p className="text-xs text-muted-foreground mt-0.5">
+              {settings?.auto_market_enabled
+                ? `Global: ON · ${settings.auto_market_channels} · ${settings.auto_market_target_mode === "top_n" ? `top ${settings.auto_market_top_n}` : settings.auto_market_target_mode === "threshold" ? `score ≥ ${settings.auto_market_min_score}` : "all matches"}`
+                : "Global auto-marketing is off. Enable it in Settings, or just blast this one deal."}
+            </p>
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 text-xs">
+              <span className="text-muted-foreground">Override:</span>
+              <Switch
+                checked={deal.auto_market_override === true}
+                onCheckedChange={(v) => setOverride(v ? true : null)}
+              />
+              <span>{deal.auto_market_override === true ? "Force On" : "Follow Global"}</span>
+            </div>
+            <Button onClick={runAutoMarket} disabled={marketing || matches.length === 0} className="grad-primary text-primary-foreground">
+              <Zap className="w-4 h-4 mr-1" /> {marketing ? "Sending…" : "Auto-Market Now"}
+            </Button>
+          </div>
+        </div>
+
+        {outreach.length === 0 ? (
+          <div className="text-xs text-muted-foreground p-3 rounded-lg bg-[color:var(--surface-2)]/40">
+            No outreach yet. Click <span className="font-semibold">Auto-Market Now</span> to blast this deal to matched buyers, or reach out manually from each match above.
+          </div>
+        ) : (
+          <div className="space-y-2">
+            {outreach.slice(0, 20).map((o: any) => (
+              <div key={o.id} className="flex items-start gap-3 p-3 rounded-lg bg-[color:var(--surface-2)]/40 text-xs">
+                {o.channel === "email" ? <Mail className="w-3.5 h-3.5 mt-0.5 text-primary" /> : <MessageSquare className="w-3.5 h-3.5 mt-0.5 text-primary" />}
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="font-semibold">{o.buyers?.name ?? "Buyer"}</span>
+                    <span className="text-muted-foreground">→ {o.recipient ?? "(no contact)"}</span>
+                    <StatusPill status={o.status} />
+                  </div>
+                  {o.subject && <div className="mt-1 font-medium">{o.subject}</div>}
+                  {o.body && <div className="mt-1 text-muted-foreground line-clamp-2 whitespace-pre-wrap">{o.body}</div>}
+                  {o.error_message && <div className="mt-1 text-destructive">{o.error_message}</div>}
+                </div>
+                {o.body && (
+                  <Button size="sm" variant="ghost" onClick={() => { navigator.clipboard.writeText(o.body); toast.success("Copied"); }}>
+                    <Copy className="w-3.5 h-3.5" />
+                  </Button>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
       <div className="mt-6">
         <PropertyIntelligencePanel address={deal.address} userId={deal.user_id} />
       </div>
@@ -268,4 +356,16 @@ function MatchRow({ m, onUpdate, onPitch, onWin }: { m: any; onUpdate: any; onPi
       )}
     </div>
   );
+}
+
+function StatusPill({ status }: { status: string }) {
+  const map: Record<string, string> = {
+    sent: "bg-emerald-500/15 text-emerald-500",
+    drafted: "bg-amber-500/15 text-amber-500",
+    queued: "bg-blue-500/15 text-blue-500",
+    failed: "bg-destructive/15 text-destructive",
+    skipped_no_contact: "bg-muted text-muted-foreground",
+  };
+  const cls = map[status] ?? "bg-muted text-muted-foreground";
+  return <span className={`px-1.5 py-0.5 rounded text-[10px] uppercase tracking-wider ${cls}`}>{status.replace(/_/g, " ")}</span>;
 }

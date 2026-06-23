@@ -280,6 +280,69 @@ export type Database = {
           },
         ]
       }
+      deal_outreach: {
+        Row: {
+          body: string | null
+          buyer_id: string
+          channel: string
+          created_at: string
+          deal_id: string
+          error_message: string | null
+          id: string
+          match_score: number | null
+          recipient: string | null
+          status: string
+          subject: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          body?: string | null
+          buyer_id: string
+          channel: string
+          created_at?: string
+          deal_id: string
+          error_message?: string | null
+          id?: string
+          match_score?: number | null
+          recipient?: string | null
+          status?: string
+          subject?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          body?: string | null
+          buyer_id?: string
+          channel?: string
+          created_at?: string
+          deal_id?: string
+          error_message?: string | null
+          id?: string
+          match_score?: number | null
+          recipient?: string | null
+          status?: string
+          subject?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "deal_outreach_buyer_id_fkey"
+            columns: ["buyer_id"]
+            isOneToOne: false
+            referencedRelation: "buyers"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "deal_outreach_deal_id_fkey"
+            columns: ["deal_id"]
+            isOneToOne: false
+            referencedRelation: "deals"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       deals: {
         Row: {
           address: string
@@ -287,6 +350,9 @@ export type Database = {
           asking_price: number | null
           assigned_buyer_id: string | null
           assignment_fee: number | null
+          auto_market_override: boolean | null
+          auto_market_status: string
+          auto_marketed_at: string | null
           baths: number | null
           beds: number | null
           city: string | null
@@ -318,6 +384,9 @@ export type Database = {
           asking_price?: number | null
           assigned_buyer_id?: string | null
           assignment_fee?: number | null
+          auto_market_override?: boolean | null
+          auto_market_status?: string
+          auto_marketed_at?: string | null
           baths?: number | null
           beds?: number | null
           city?: string | null
@@ -349,6 +418,9 @@ export type Database = {
           asking_price?: number | null
           assigned_buyer_id?: string | null
           assignment_fee?: number | null
+          auto_market_override?: boolean | null
+          auto_market_status?: string
+          auto_marketed_at?: string | null
           baths?: number | null
           beds?: number | null
           city?: string | null
@@ -523,6 +595,15 @@ export type Database = {
       }
       user_settings: {
         Row: {
+          auto_market_channels: string
+          auto_market_content_mode: string
+          auto_market_email_template: string | null
+          auto_market_enabled: boolean
+          auto_market_min_score: number
+          auto_market_sms_template: string | null
+          auto_market_target_mode: string
+          auto_market_top_n: number
+          auto_market_trigger: string
           brand_name: string | null
           created_at: string
           default_market: string | null
@@ -537,6 +618,15 @@ export type Database = {
           weight_strategy: number
         }
         Insert: {
+          auto_market_channels?: string
+          auto_market_content_mode?: string
+          auto_market_email_template?: string | null
+          auto_market_enabled?: boolean
+          auto_market_min_score?: number
+          auto_market_sms_template?: string | null
+          auto_market_target_mode?: string
+          auto_market_top_n?: number
+          auto_market_trigger?: string
           brand_name?: string | null
           created_at?: string
           default_market?: string | null
@@ -551,6 +641,15 @@ export type Database = {
           weight_strategy?: number
         }
         Update: {
+          auto_market_channels?: string
+          auto_market_content_mode?: string
+          auto_market_email_template?: string | null
+          auto_market_enabled?: boolean
+          auto_market_min_score?: number
+          auto_market_sms_template?: string | null
+          auto_market_target_mode?: string
+          auto_market_top_n?: number
+          auto_market_trigger?: string
           brand_name?: string | null
           created_at?: string
           default_market?: string | null
