@@ -203,6 +203,10 @@ function DealDetail() {
           </div>
         )}
       </div>
+
+      <div className="mt-6">
+        <PropertyIntelligencePanel address={deal.address} userId={deal.user_id} />
+      </div>
     </div>
   );
 }
