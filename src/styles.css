@@ -18,6 +18,7 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-primary-soft: var(--primary-soft);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
@@ -39,89 +40,108 @@
   --color-tier-stretch: var(--tier-stretch);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-buyer-cash-bg: var(--buyer-cash-bg);
+  --color-buyer-cash-fg: var(--buyer-cash-fg);
+  --color-buyer-landlord-bg: var(--buyer-landlord-bg);
+  --color-buyer-landlord-fg: var(--buyer-landlord-fg);
+  --color-buyer-flipper-bg: var(--buyer-flipper-bg);
+  --color-buyer-flipper-fg: var(--buyer-flipper-fg);
+  --color-buyer-builder-bg: var(--buyer-builder-bg);
+  --color-buyer-builder-fg: var(--buyer-builder-fg);
+  --font-sans: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 :root {
-  --radius: 0.75rem;
+  --radius: 0.875rem;
 
-  /* Dark, premium SaaS — graphite base, electric emerald accent (money/closing), warm amber for urgency */
-  --background: oklch(0.16 0.012 250);
-  --foreground: oklch(0.97 0.005 250);
+  /* Real brand system — Apple-style light, single red accent */
+  --background: #ffffff;
+  --foreground: #111111;
 
-  --surface: oklch(0.20 0.012 250);
-  --surface-2: oklch(0.235 0.014 250);
+  --surface: #fafafa;
+  --surface-2: #f3f3f3;
 
-  --card: oklch(0.205 0.013 250);
-  --card-foreground: oklch(0.97 0.005 250);
-  --popover: oklch(0.21 0.013 250);
-  --popover-foreground: oklch(0.97 0.005 250);
+  --card: #ffffff;
+  --card-foreground: #111111;
+  --popover: #ffffff;
+  --popover-foreground: #111111;
 
-  --primary: oklch(0.78 0.17 158);          /* emerald */
-  --primary-foreground: oklch(0.16 0.04 158);
+  --primary: #cc0000;
+  --primary-foreground: #ffffff;
+  --primary-soft: #fcebeb;
 
-  --secondary: oklch(0.27 0.015 250);
-  --secondary-foreground: oklch(0.97 0.005 250);
+  --secondary: #fafafa;
+  --secondary-foreground: #111111;
 
-  --muted: oklch(0.25 0.012 250);
-  --muted-foreground: oklch(0.68 0.015 250);
+  --muted: #fafafa;
+  --muted-foreground: #666666;
 
-  --accent: oklch(0.30 0.025 250);
-  --accent-foreground: oklch(0.97 0.005 250);
+  --accent: #fcebeb;
+  --accent-foreground: #cc0000;
 
-  --destructive: oklch(0.65 0.21 25);
-  --destructive-foreground: oklch(0.98 0.01 25);
+  --destructive: #cc0000;
+  --destructive-foreground: #ffffff;
 
-  --success: oklch(0.78 0.17 158);
-  --success-foreground: oklch(0.16 0.04 158);
-  --warning: oklch(0.78 0.16 70);
-  --warning-foreground: oklch(0.18 0.04 70);
+  --success: #0f6e56;
+  --success-foreground: #ffffff;
+  --warning: #854f0b;
+  --warning-foreground: #ffffff;
 
-  --tier-a: oklch(0.78 0.17 158);    /* emerald */
-  --tier-b: oklch(0.74 0.13 220);    /* cool blue */
-  --tier-c: oklch(0.74 0.10 280);    /* lavender */
-  --tier-stretch: oklch(0.65 0.02 250); /* muted */
+  /* Buyer-type tag palette (mirrors HTML reference) */
+  --buyer-cash-bg: #eaf3de;
+  --buyer-cash-fg: #173404;
+  --buyer-landlord-bg: #e6f1fb;
+  --buyer-landlord-fg: #042c53;
+  --buyer-flipper-bg: #fcebeb;
+  --buyer-flipper-fg: #501313;
+  --buyer-builder-bg: #faeeda;
+  --buyer-builder-fg: #412402;
 
-  --border: oklch(0.30 0.015 250 / 60%);
-  --input: oklch(0.28 0.015 250);
-  --ring: oklch(0.78 0.17 158);
+  --tier-a: #0f6e56;
+  --tier-b: #854f0b;
+  --tier-c: #185fa5;
+  --tier-stretch: #888888;
 
-  --chart-1: oklch(0.78 0.17 158);
-  --chart-2: oklch(0.74 0.13 220);
-  --chart-3: oklch(0.78 0.16 70);
-  --chart-4: oklch(0.74 0.10 280);
-  --chart-5: oklch(0.65 0.21 25);
+  --border: #eeeeee;
+  --input: #eeeeee;
+  --ring: #cc0000;
+
+  --chart-1: #cc0000;
+  --chart-2: #185fa5;
+  --chart-3: #854f0b;
+  --chart-4: #0f6e56;
+  --chart-5: #888888;
 }
 
 @layer base {
   * { border-color: var(--color-border); }
-  html, body { background-color: var(--color-background); color: var(--color-foreground); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
-  body {
-    background-image:
-      radial-gradient(1200px 600px at 80% -10%, oklch(0.78 0.17 158 / 0.08), transparent 60%),
-      radial-gradient(900px 500px at -10% 10%, oklch(0.74 0.13 220 / 0.06), transparent 60%);
-    background-attachment: fixed;
+  html, body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  h1, h2, h3 { letter-spacing: -0.02em; font-weight: 600; }
+  h1, h2, h3, h4 { letter-spacing: -0.02em; font-weight: 700; }
+  h1 { letter-spacing: -0.03em; }
 }
 
 @layer utilities {
+  .pill { border-radius: 980px; }
+  .number { font-feature-settings: "tnum" 1, "lnum" 1; }
+  .shadow-soft { box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.12); }
+  .shadow-card-hover { box-shadow: 0 10px 30px -10px rgba(204, 0, 0, 0.12); }
+  /* Legacy aliases — map old dark-theme utilities onto the new Apple-light system */
   .glass {
-    background: linear-gradient(180deg, oklch(0.22 0.013 250 / 0.85), oklch(0.18 0.012 250 / 0.65));
-    backdrop-filter: blur(12px);
-    border: 1px solid oklch(0.35 0.015 250 / 0.4);
+    background: var(--card);
+    border: 1px solid var(--border);
   }
   .grad-primary {
-    background-image: linear-gradient(135deg, oklch(0.82 0.16 158), oklch(0.68 0.16 175));
+    background-color: var(--primary);
+    color: var(--primary-foreground);
   }
-  .text-grad {
-    background-image: linear-gradient(135deg, oklch(0.92 0.12 158), oklch(0.85 0.13 200));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-  .ring-focus { outline: none; box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--ring); }
-  .shadow-elevated { box-shadow: 0 1px 0 0 oklch(1 0 0 / 0.04) inset, 0 20px 50px -20px oklch(0 0 0 / 0.6); }
-  .number { font-feature-settings: "tnum" 1, "lnum" 1; }
+  .text-grad { color: var(--primary); }
+  .shadow-elevated { box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 8px 24px -12px rgba(0,0,0,0.08); }
 }
+

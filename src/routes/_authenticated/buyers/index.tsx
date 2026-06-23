@@ -8,7 +8,7 @@ import { Plus, Phone, Mail, Search } from "lucide-react";
 import { fmtMoney } from "@/lib/format";
 
 export const Route = createFileRoute("/_authenticated/buyers/")({
-  head: () => ({ meta: [{ title: "Buyers — Disposition" }] }),
+  head: () => ({ meta: [{ title: "Buyers — Deal Compass" }] }),
   component: BuyersList,
 });
 

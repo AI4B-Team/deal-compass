@@ -7,7 +7,7 @@ import { fmtMoney, daysUntil, urgencyColor } from "@/lib/format";
 import { Briefcase, Users, Plus, Clock, TrendingUp, AlertCircle } from "lucide-react";
 
 export const Route = createFileRoute("/_authenticated/dashboard")({
-  head: () => ({ meta: [{ title: "Dashboard — Disposition" }] }),
+  head: () => ({ meta: [{ title: "Dashboard — Deal Compass" }] }),
   component: Dashboard,
 });
 
