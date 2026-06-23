@@ -269,17 +269,17 @@ function LandingPage() {
         <div className="max-w-[1180px] mx-auto px-6 sm:px-8">
           <div className="text-center max-w-[680px] mx-auto mb-14">
             <h2 className="text-3xl sm:text-[38px] font-bold tracking-tight">
-              Three steps from locked deal to signed assignment
+              Three Steps From Locked Deal To Signed Assignment
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Step n={1} title="Submit the deal">
+            <Step n={1} title="Submit The Deal">
               Address, price, condition or land details — the engine classifies it instantly.
             </Step>
-            <Step n={2} title="AI matches every buyer type">
+            <Step n={2} title="AI Matches Every Buyer Type">
               Cash, landlord, flip, and builder buyers ranked side by side with reasons.
             </Step>
-            <Step n={3} title="Buyers respond in-platform">
+            <Step n={3} title="Buyers Respond In-Platform">
               Offers, messages, and proof of funds land in one pipeline — pick the winner.
             </Step>
           </div>
