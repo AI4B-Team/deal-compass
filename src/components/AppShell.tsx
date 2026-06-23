@@ -1,5 +1,5 @@
 import { Link, useRouterState, useNavigate } from "@tanstack/react-router";
-import { LayoutDashboard, Users, Briefcase, Settings, LogOut, Compass, Menu, X } from "lucide-react";
+import { LayoutDashboard, Users, Briefcase, Settings, LogOut, Compass, Menu, X, Search } from "lucide-react";
 import { useState, type ReactNode } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 
 const nav = [
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { to: "/marketplace", label: "Marketplace", icon: Search },
   { to: "/buyers", label: "Buyers", icon: Users },
   { to: "/deals", label: "Deals", icon: Briefcase },
   { to: "/settings", label: "Settings", icon: Settings },

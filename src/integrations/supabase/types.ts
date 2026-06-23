@@ -14,6 +14,95 @@ export type Database = {
   }
   public: {
     Tables: {
+      buyer_transactions: {
+        Row: {
+          acreage: number | null
+          address: string
+          arv_at_purchase: number | null
+          baths: number | null
+          beds: number | null
+          buyer_id: string
+          city: string | null
+          confidence: string
+          created_at: string
+          deal_type: string
+          id: string
+          last_verified_at: string | null
+          lat: number | null
+          lng: number | null
+          property_type: string | null
+          purchase_date: string | null
+          purchase_price: number | null
+          sold_date: string | null
+          sold_price: number | null
+          source: string | null
+          sqft: number | null
+          state: string | null
+          updated_at: string
+          zip: string | null
+        }
+        Insert: {
+          acreage?: number | null
+          address: string
+          arv_at_purchase?: number | null
+          baths?: number | null
+          beds?: number | null
+          buyer_id: string
+          city?: string | null
+          confidence?: string
+          created_at?: string
+          deal_type: string
+          id?: string
+          last_verified_at?: string | null
+          lat?: number | null
+          lng?: number | null
+          property_type?: string | null
+          purchase_date?: string | null
+          purchase_price?: number | null
+          sold_date?: string | null
+          sold_price?: number | null
+          source?: string | null
+          sqft?: number | null
+          state?: string | null
+          updated_at?: string
+          zip?: string | null
+        }
+        Update: {
+          acreage?: number | null
+          address?: string
+          arv_at_purchase?: number | null
+          baths?: number | null
+          beds?: number | null
+          buyer_id?: string
+          city?: string | null
+          confidence?: string
+          created_at?: string
+          deal_type?: string
+          id?: string
+          last_verified_at?: string | null
+          lat?: number | null
+          lng?: number | null
+          property_type?: string | null
+          purchase_date?: string | null
+          purchase_price?: number | null
+          sold_date?: string | null
+          sold_price?: number | null
+          source?: string | null
+          sqft?: number | null
+          state?: string | null
+          updated_at?: string
+          zip?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "buyer_transactions_buyer_id_fkey"
+            columns: ["buyer_id"]
+            isOneToOne: false
+            referencedRelation: "buyers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       buyers: {
         Row: {
           arv_max: number | null
@@ -37,6 +126,8 @@ export type Database = {
           min_spread: number | null
           min_sqft: number | null
           name: string
+          offers_closed_count: number
+          offers_made_count: number
           phone: string | null
           preferred_contact_method: string | null
           price_max: number | null
@@ -70,6 +161,8 @@ export type Database = {
           min_spread?: number | null
           min_sqft?: number | null
           name: string
+          offers_closed_count?: number
+          offers_made_count?: number
           phone?: string | null
           preferred_contact_method?: string | null
           price_max?: number | null
@@ -103,6 +196,8 @@ export type Database = {
           min_spread?: number | null
           min_sqft?: number | null
           name?: string
+          offers_closed_count?: number
+          offers_made_count?: number
           phone?: string | null
           preferred_contact_method?: string | null
           price_max?: number | null
@@ -289,6 +384,143 @@ export type Database = {
           },
         ]
       }
+      property_records: {
+        Row: {
+          acreage: number | null
+          address: string
+          annual_property_tax: number | null
+          apn: string | null
+          baths: number | null
+          beds: number | null
+          county: string | null
+          created_at: string
+          data_source: string | null
+          est_current_value: number | null
+          id: string
+          interest_rate_est: number | null
+          is_absentee_owner: boolean | null
+          last_assessment: number | null
+          last_assessment_year: number | null
+          last_purchase_date: string | null
+          last_purchase_price: number | null
+          last_synced_at: string | null
+          lender_name: string | null
+          loan_amount: number | null
+          loan_balance_est: number | null
+          loan_origination_date: string | null
+          monthly_payment_est: number | null
+          owner_entity: string | null
+          owner_mailing_address: string | null
+          sqft: number | null
+          updated_at: string
+          user_id: string
+          year_built: number | null
+        }
+        Insert: {
+          acreage?: number | null
+          address: string
+          annual_property_tax?: number | null
+          apn?: string | null
+          baths?: number | null
+          beds?: number | null
+          county?: string | null
+          created_at?: string
+          data_source?: string | null
+          est_current_value?: number | null
+          id?: string
+          interest_rate_est?: number | null
+          is_absentee_owner?: boolean | null
+          last_assessment?: number | null
+          last_assessment_year?: number | null
+          last_purchase_date?: string | null
+          last_purchase_price?: number | null
+          last_synced_at?: string | null
+          lender_name?: string | null
+          loan_amount?: number | null
+          loan_balance_est?: number | null
+          loan_origination_date?: string | null
+          monthly_payment_est?: number | null
+          owner_entity?: string | null
+          owner_mailing_address?: string | null
+          sqft?: number | null
+          updated_at?: string
+          user_id: string
+          year_built?: number | null
+        }
+        Update: {
+          acreage?: number | null
+          address?: string
+          annual_property_tax?: number | null
+          apn?: string | null
+          baths?: number | null
+          beds?: number | null
+          county?: string | null
+          created_at?: string
+          data_source?: string | null
+          est_current_value?: number | null
+          id?: string
+          interest_rate_est?: number | null
+          is_absentee_owner?: boolean | null
+          last_assessment?: number | null
+          last_assessment_year?: number | null
+          last_purchase_date?: string | null
+          last_purchase_price?: number | null
+          last_synced_at?: string | null
+          lender_name?: string | null
+          loan_amount?: number | null
+          loan_balance_est?: number | null
+          loan_origination_date?: string | null
+          monthly_payment_est?: number | null
+          owner_entity?: string | null
+          owner_mailing_address?: string | null
+          sqft?: number | null
+          updated_at?: string
+          user_id?: string
+          year_built?: number | null
+        }
+        Relationships: []
+      }
+      property_transaction_history: {
+        Row: {
+          buyer_name: string | null
+          created_at: string
+          id: string
+          price: number | null
+          property_record_id: string
+          sale_date: string | null
+          sale_type: string | null
+          seller_name: string | null
+        }
+        Insert: {
+          buyer_name?: string | null
+          created_at?: string
+          id?: string
+          price?: number | null
+          property_record_id: string
+          sale_date?: string | null
+          sale_type?: string | null
+          seller_name?: string | null
+        }
+        Update: {
+          buyer_name?: string | null
+          created_at?: string
+          id?: string
+          price?: number | null
+          property_record_id?: string
+          sale_date?: string | null
+          sale_type?: string | null
+          seller_name?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "property_transaction_history_property_record_id_fkey"
+            columns: ["property_record_id"]
+            isOneToOne: false
+            referencedRelation: "property_records"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       user_settings: {
         Row: {
           brand_name: string | null
@@ -336,7 +568,31 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      buyer_portfolio_stats: {
+        Row: {
+          avg_days_between_purchases: number | null
+          avg_flip_duration_days: number | null
+          avg_purchase_arv_pct: number | null
+          avg_purchase_price: number | null
+          buyer_id: string | null
+          est_portfolio_value: number | null
+          flip_count: number | null
+          land_count: number | null
+          main_property_type: string | null
+          rental_count: number | null
+          total_count: number | null
+          wholetail_count: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "buyer_transactions_buyer_id_fkey"
+            columns: ["buyer_id"]
+            isOneToOne: false
+            referencedRelation: "buyers"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Functions: {
       [_ in never]: never
