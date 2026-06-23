@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Trash2, Pencil, Phone, Mail } from "lucide-react";
 import { fmtMoney } from "@/lib/format";
 import { toast } from "sonner";
+import { LinkedDealsPanel } from "@/components/LinkedDealsPanel";
 
 export const Route = createFileRoute("/_authenticated/buyers/$id")({
   head: () => ({ meta: [{ title: "Buyer" }] }),
