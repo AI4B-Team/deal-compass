@@ -188,27 +188,27 @@ function LandingPage() {
             />
             <FeatureCard
               icon={Target}
-              title="Smart Matching"
+              title="Smart matching"
               description="Drop in a deal and instantly see which buyers it fits. Deterministic scoring from 0–100 with zero guesswork."
             />
             <FeatureCard
               icon={Sparkles}
-              title="AI Pitches"
+              title="AI pitches"
               description="Generate personalized SMS and email outreach for every top match. Each pitch references the buyer's exact criteria."
             />
             <FeatureCard
               icon={Briefcase}
-              title="Deal Pipeline"
+              title="Deal pipeline"
               description="Track every deal from locked to closed. Monitor inspection periods, closing deadlines, and assignment fees at a glance."
             />
             <FeatureCard
               icon={Zap}
-              title="Instant Ranking"
+              title="Instant ranking"
               description="See your buyers ranked A-tier, B-tier, C-tier, or stretch — so you know exactly who to call first."
             />
             <FeatureCard
               icon={BarChart3}
-              title="Pipeline Intelligence"
+              title="Pipeline intelligence"
               description="Know your pipeline value, deals closing this week, and buyer engagement — all from one elegant dashboard."
             />
           </div>
