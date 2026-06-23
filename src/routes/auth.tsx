@@ -63,7 +63,7 @@ function AuthPage() {
         </div>
         <div className="bg-background border border-border rounded-2xl p-8 shadow-soft">
           <h1 className="text-2xl font-bold mb-1 tracking-tight">
-            {mode === "signin" ? "Welcome back" : "Create your account"}
+            {mode === "signin" ? "Welcome Back" : "Create Your Account"}
           </h1>
           <p className="text-sm text-muted-foreground mb-6">
             {mode === "signin"
@@ -99,7 +99,7 @@ function AuthPage() {
               disabled={loading}
               className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-full"
             >
-              {loading ? "..." : mode === "signin" ? "Sign in" : "Create account"}
+              {loading ? "..." : mode === "signin" ? "Sign In" : "Create Account"}
               <ArrowRight className="w-4 h-4 ml-1" />
             </Button>
           </form>
@@ -109,13 +109,13 @@ function AuthPage() {
               onClick={() => setMode(mode === "signin" ? "signup" : "signin")}
               className="text-primary hover:underline font-medium"
             >
-              {mode === "signin" ? "Create one" : "Sign in"}
+              {mode === "signin" ? "Create One" : "Sign In"}
             </button>
           </div>
         </div>
         <p className="text-xs text-muted-foreground text-center mt-6">
           <Link to="/" className="hover:text-foreground">
-            ← Back home
+            ← Back Home
           </Link>
         </p>
       </div>

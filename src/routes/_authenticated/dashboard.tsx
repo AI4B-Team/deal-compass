@@ -50,23 +50,23 @@ function Dashboard() {
       />
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4 mb-8">
-        <Stat icon={Briefcase} label="Active deals" value={activeCount} />
-        <Stat icon={AlertCircle} label="Closing this week" value={urgent} accent={urgent > 0} />
-        <Stat icon={Users} label="Buyers in list" value={buyersCount} />
-        <Stat icon={TrendingUp} label="Pipeline value" value={fmtMoney(pipelineValue)} />
+        <Stat icon={Briefcase} label="Active Deals" value={activeCount} />
+        <Stat icon={AlertCircle} label="Closing This Week" value={urgent} accent={urgent > 0} />
+        <Stat icon={Users} label="Buyers In List" value={buyersCount} />
+        <Stat icon={TrendingUp} label="Pipeline Value" value={fmtMoney(pipelineValue)} />
       </div>
 
       <div className="glass rounded-2xl overflow-hidden shadow-elevated">
         <div className="px-5 py-4 border-b border-border flex items-center justify-between">
-          <h2 className="font-semibold flex items-center gap-2"><Clock className="w-4 h-4 text-primary" /> Deals by deadline</h2>
-          <Link to="/deals" className="text-xs text-muted-foreground hover:text-foreground">View all →</Link>
+          <h2 className="font-semibold flex items-center gap-2"><Clock className="w-4 h-4 text-primary" /> Deals By Deadline</h2>
+          <Link to="/deals" className="text-xs text-muted-foreground hover:text-foreground">View All →</Link>
         </div>
         {loading ? (
           <div className="p-8 text-center text-sm text-muted-foreground">Loading…</div>
         ) : deals.length === 0 ? (
           <div className="p-12 text-center">
             <p className="text-muted-foreground mb-4">No active deals yet.</p>
-            <Link to="/deals/new"><Button className="grad-primary text-primary-foreground">Add your first deal</Button></Link>
+            <Link to="/deals/new"><Button className="grad-primary text-primary-foreground">Add Your First Deal</Button></Link>
           </div>
         ) : (
           <div className="divide-y divide-border">

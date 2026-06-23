@@ -47,14 +47,14 @@ function Settings() {
     <div>
       <PageHeader title="Settings" subtitle="Tune the matching engine and your pitch branding." />
       <div className="space-y-6 max-w-3xl">
-        <Section title="Market defaults">
+        <Section title="Market Defaults">
           <div className="grid grid-cols-2 gap-4">
             <Field label="Default state"><Input value={f.default_state ?? ""} onChange={(e) => set("default_state", e.target.value)} /></Field>
             <Field label="Default market"><Input value={f.default_market ?? ""} onChange={(e) => set("default_market", e.target.value)} /></Field>
           </div>
         </Section>
 
-        <Section title="Match weights" subtitle={`Total: ${total} (does not need to sum to 100)`}>
+        <Section title="Match Weights" subtitle={`Total: ${total} (does not need to sum to 100)`}>
           <div className="grid grid-cols-2 sm:grid-cols-5 gap-4">
             <Field label="Price"><Input type="number" value={f.weight_price} onChange={(e) => set("weight_price", Number(e.target.value))} /></Field>
             <Field label="Strategy"><Input type="number" value={f.weight_strategy} onChange={(e) => set("weight_strategy", Number(e.target.value))} /></Field>
@@ -64,13 +64,13 @@ function Settings() {
           </div>
         </Section>
 
-        <Section title="Pitch branding">
+        <Section title="Pitch Branding">
           <Field label="Brand / business name"><Input value={f.brand_name ?? ""} onChange={(e) => set("brand_name", e.target.value)} /></Field>
           <div className="mt-4"><Field label="Signature (added to pitches)"><Textarea rows={3} value={f.signature ?? ""} onChange={(e) => set("signature", e.target.value)} /></Field></div>
         </Section>
 
         <div className="flex justify-end">
-          <Button onClick={save} className="grad-primary text-primary-foreground"><Save className="w-4 h-4 mr-1" /> Save settings</Button>
+          <Button onClick={save} className="grad-primary text-primary-foreground"><Save className="w-4 h-4 mr-1" /> Save Settings</Button>
         </div>
       </div>
     </div>

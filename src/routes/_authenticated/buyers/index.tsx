@@ -54,7 +54,7 @@ function BuyersList() {
       ) : filtered.length === 0 ? (
         <div className="glass rounded-2xl p-12 text-center">
           <p className="text-muted-foreground mb-4">{buyers.length === 0 ? "No buyers yet. Build your list." : "No matches."}</p>
-          {buyers.length === 0 && <Link to="/buyers/new"><Button className="grad-primary text-primary-foreground">Add first buyer</Button></Link>}
+          {buyers.length === 0 && <Link to="/buyers/new"><Button className="grad-primary text-primary-foreground">Add First Buyer</Button></Link>}
         </div>
       ) : (
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">

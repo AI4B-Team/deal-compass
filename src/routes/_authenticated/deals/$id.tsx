@@ -124,7 +124,7 @@ function DealDetail() {
     return (
       <div>
         <Link to="/deals/$id" params={{ id }} className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-1 mb-4"><ArrowLeft className="w-3 h-3" /> Back</Link>
-        <PageHeader title={`Edit deal`} />
+        <PageHeader title={`Edit Deal`} />
         <DealForm initial={deal} onSaved={() => { setEditing(false); load(); }} />
       </div>
     );
@@ -137,7 +137,7 @@ function DealDetail() {
 
   return (
     <div>
-      <Link to="/deals" className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-1 mb-4"><ArrowLeft className="w-3 h-3" /> All deals</Link>
+      <Link to="/deals" className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-1 mb-4"><ArrowLeft className="w-3 h-3" /> All Deals</Link>
 
       <div className="glass rounded-2xl p-5 sm:p-6 shadow-elevated mb-6">
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
@@ -169,16 +169,16 @@ function DealDetail() {
       <div className="glass rounded-2xl shadow-elevated overflow-hidden">
         <div className="px-5 py-4 border-b border-border flex items-center justify-between flex-wrap gap-2">
           <div>
-            <h2 className="font-semibold flex items-center gap-2"><Zap className="w-4 h-4 text-primary" /> Buyer matches</h2>
+            <h2 className="font-semibold flex items-center gap-2"><Zap className="w-4 h-4 text-primary" /> Buyer Matches</h2>
             <p className="text-xs text-muted-foreground mt-0.5">Ranked deterministically against every buyer in your list.</p>
           </div>
           <Button onClick={findBuyers} disabled={running} className="grad-primary text-primary-foreground">
-            <Zap className="w-4 h-4 mr-1" /> {running ? "Matching…" : matches.length ? "Re-run match" : "Find buyers"}
+            <Zap className="w-4 h-4 mr-1" /> {running ? "Matching…" : matches.length ? "Re-Run Match" : "Find Buyers"}
           </Button>
         </div>
 
         {matches.length === 0 ? (
-          <div className="p-12 text-center text-sm text-muted-foreground">Click "Find buyers" to score every buyer against this deal.</div>
+          <div className="p-12 text-center text-sm text-muted-foreground">Click "Find Buyers" to score every buyer against this deal.</div>
         ) : (
           <div>
             <div className="divide-y divide-border">
@@ -190,7 +190,7 @@ function DealDetail() {
               <div className="border-t border-border">
                 <button onClick={() => setShowStretch(!showStretch)} className="w-full px-5 py-3 flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
                   {showStretch ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
-                  Stretch matches ({stretched.length}) — close but failed a gate
+                  Stretch Matches ({stretched.length}) — close but failed a gate
                 </button>
                 {showStretch && (
                   <div className="divide-y divide-border">
@@ -255,7 +255,7 @@ function MatchRow({ m, onUpdate, onPitch, onWin }: { m: any; onUpdate: any; onPi
                 <Copy className="w-4 h-4 mr-1" /> Copy
               </Button>
             )}
-            {!m.is_winner && <Button size="sm" variant="outline" className="ml-auto" onClick={() => onWin(m)}><Trophy className="w-4 h-4 mr-1" /> Mark winner</Button>}
+            {!m.is_winner && <Button size="sm" variant="outline" className="ml-auto" onClick={() => onWin(m)}><Trophy className="w-4 h-4 mr-1" /> Mark Winner</Button>}
           </div>
           {m.pitch_subject && <div className="text-xs"><span className="text-muted-foreground">Subject:</span> <span className="font-medium">{m.pitch_subject}</span></div>}
           {m.generated_pitch && <Textarea value={m.generated_pitch} onChange={(e) => onUpdate(m.id, { generated_pitch: e.target.value })} rows={6} className="text-sm" />}

@@ -35,14 +35,14 @@ function DealsList() {
       <PageHeader
         title="Deals"
         subtitle="Your disposition pipeline."
-        action={<Link to="/deals/new"><Button className="grad-primary text-primary-foreground"><Plus className="w-4 h-4 mr-1" /> New deal</Button></Link>}
+        action={<Link to="/deals/new"><Button className="grad-primary text-primary-foreground"><Plus className="w-4 h-4 mr-1" /> New Deal</Button></Link>}
       />
       {loading ? (
         <div className="text-sm text-muted-foreground">Loading…</div>
       ) : deals.length === 0 ? (
         <div className="glass rounded-2xl p-12 text-center">
           <p className="text-muted-foreground mb-4">No deals yet.</p>
-          <Link to="/deals/new"><Button className="grad-primary text-primary-foreground">Add your first deal</Button></Link>
+          <Link to="/deals/new"><Button className="grad-primary text-primary-foreground">Add Your First Deal</Button></Link>
         </div>
       ) : (
         <div className="grid gap-3">

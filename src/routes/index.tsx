@@ -54,7 +54,7 @@ function LandingPage() {
           </div>
           <div className="hidden md:flex gap-8 text-sm text-muted-foreground">
             <a href="#features" className="hover:text-foreground transition-colors">Product</a>
-            <a href="#buyers" className="hover:text-foreground transition-colors">Buyer network</a>
+            <a href="#buyers" className="hover:text-foreground transition-colors">Buyer Network</a>
             <a href="#marketplace" className="hover:text-foreground transition-colors">Marketplace</a>
             <a href="#pricing" className="hover:text-foreground transition-colors">Pricing</a>
           </div>
@@ -63,11 +63,11 @@ function LandingPage() {
               to="/auth"
               className="hidden sm:inline-flex h-9 items-center px-4 rounded-full text-sm font-medium hover:text-primary transition-colors"
             >
-              Sign in
+              Sign In
             </Link>
             <Link to="/auth">
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-full px-5 text-sm font-medium gap-1.5">
-                Start free <ArrowRight className="w-3.5 h-3.5" />
+                Start Free <ArrowRight className="w-3.5 h-3.5" />
               </Button>
             </Link>
           </div>
@@ -88,7 +88,7 @@ function LandingPage() {
           <div className="flex flex-wrap justify-center gap-3.5 mb-14">
             <Link to="/auth">
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90 h-12 px-7 rounded-full text-base font-medium">
-                Start matching free
+                Start Matching Free
               </Button>
             </Link>
             <a href="#features">
@@ -96,7 +96,7 @@ function LandingPage() {
                 variant="outline"
                 className="h-12 px-7 rounded-full text-base font-medium border-border bg-background hover:bg-surface-2"
               >
-                Submit a deal
+                Submit A Deal
               </Button>
             </a>
           </div>
@@ -113,7 +113,7 @@ function LandingPage() {
                 {/* Deal card */}
                 <div className="bg-background border border-border rounded-2xl p-5">
                   <div className="text-[11px] font-bold uppercase tracking-wider text-primary mb-1.5">
-                    Active deal
+                    Active Deal
                   </div>
                   <div className="text-[17px] font-bold mb-3.5">
                     42 Ridgeline Trail, Lot 12 — San Antonio, TX
@@ -123,13 +123,13 @@ function LandingPage() {
                       className="text-[11px] font-medium px-2.5 py-1 rounded-full"
                       style={{ background: "var(--buyer-cash-bg)", color: "var(--buyer-cash-fg)" }}
                     >
-                      Vacant land · 2.4 acres
+                      Vacant Land · 2.4 Acres
                     </span>
                     <span
                       className="text-[11px] font-medium px-2.5 py-1 rounded-full"
                       style={{ background: "var(--buyer-builder-bg)", color: "var(--buyer-builder-fg)" }}
                     >
-                      Zoned residential
+                      Zoned Residential
                     </span>
                   </div>
                   <MatchRow initials="RB" name="Ridgeline Builders LLC" score="97 · A" tier="a" />
@@ -138,9 +138,9 @@ function LandingPage() {
                 </div>
                 {/* Side stats */}
                 <div className="flex flex-col gap-3">
-                  <Stat label="Buyer types reached" value="4" />
-                  <Stat label="Match score" value="97%" valueColor="var(--success)" />
-                  <Stat label="Time to first offer" value="3 hrs" />
+                  <Stat label="Buyer Types Reached" value="4" />
+                  <Stat label="Match Score" value="97%" valueColor="var(--success)" />
+                  <Stat label="Time To First Offer" value="3 hrs" />
                 </div>
               </div>
             </div>
@@ -151,7 +151,7 @@ function LandingPage() {
       {/* Trust strip */}
       <section className="py-12 border-t border-surface-2">
         <p className="text-center text-xs tracking-[0.08em] uppercase text-muted-foreground">
-          Built for wholesalers moving cash, rental, and land deals nationwide
+          Built For Wholesalers Moving Cash, Rental, And Land Deals Nationwide
         </p>
       </section>
 
@@ -160,7 +160,7 @@ function LandingPage() {
         <div className="max-w-[1180px] mx-auto px-6 sm:px-8">
           <div className="text-center max-w-[620px] mx-auto mb-14">
             <h2 className="text-3xl sm:text-[38px] font-bold tracking-tight mb-3.5">
-              One engine. Every buyer type.
+              One Engine. Every Buyer Type.
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
               Most dispo tools only know cash buyers. Deal Compass scores landlords, builders,
@@ -171,7 +171,7 @@ function LandingPage() {
             <BuyerTypeCard
               icon={Banknote}
               tone="cash"
-              title="Cash buyers"
+              title="Cash Buyers"
               copy="Flip & wholesale spread, ARV, rehab tolerance, proof of funds."
             />
             <BuyerTypeCard
@@ -189,7 +189,7 @@ function LandingPage() {
             <BuyerTypeCard
               icon={Building2}
               tone="builder"
-              title="Builders & land"
+              title="Builders & Land"
               copy="Acreage, zoning, utilities, topo, entitlements, lot count, build typology."
             />
           </div>
@@ -201,7 +201,7 @@ function LandingPage() {
         <div className="max-w-[1180px] mx-auto px-6 sm:px-8">
           <div className="text-center max-w-[620px] mx-auto mb-14">
             <h2 className="text-3xl sm:text-[38px] font-bold tracking-tight mb-3.5">
-              Built for speed. Designed for closers.
+              Built For Speed. Designed For Closers.
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
               Everything from buyer intelligence to public deal pages — refined into one workspace.
@@ -210,30 +210,30 @@ function LandingPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             <FeatureCard
               icon={Target}
-              title="Smart matching"
+              title="Smart Matching"
               badge="v2"
               copy="Deterministic + behavioral scoring across cash, landlord, flip, and land/builder buy boxes — weighted, explainable, 0–100."
             />
             <FeatureCard
               icon={MapPin}
-              title="Buyer search by address"
+              title="Buyer Search By Address"
               copy="Drop any address, instantly surface the highest-probability buyers nearby, skiptraced and ranked."
             />
             <FeatureCard
               icon={Globe}
-              title="Public marketplace"
+              title="Public Marketplace"
               badge="New"
               copy="Branded, mobile-ready deal pages buyers can browse, favorite, and request address access to."
             />
             <FeatureCard
               icon={UserPlus}
-              title="Buyer self-onboarding"
+              title="Buyer Self-Onboarding"
               badge="New"
               copy="Buyers submit their own buy box — AI parses free-text criteria straight into structured fields."
             />
             <FeatureCard
               icon={Activity}
-              title="Engagement tracking"
+              title="Engagement Tracking"
               badge="New"
               copy="See who viewed, clicked, and lingered on a deal — call your warmest buyer first."
             />
@@ -245,18 +245,18 @@ function LandingPage() {
             />
             <FeatureCard
               icon={MessageSquare}
-              title="In-platform messaging & offers"
+              title="In-Platform Messaging & Offers"
               badge="New"
               copy="Buyers submit offers and negotiate directly — no more chasing texts across five apps."
             />
             <FeatureCard
               icon={Briefcase}
-              title="Buyer portfolios"
+              title="Buyer Portfolios"
               copy="Full purchase history per buyer — profit, ARV%, hold time, and what they're likely to buy next."
             />
             <FeatureCard
               icon={Plug}
-              title="CRM, SMS & dialer"
+              title="CRM, SMS & Dialer"
               badge="New"
               copy="Push and pull from your existing CRM and dialer stack without leaving Deal Compass."
             />
@@ -269,17 +269,17 @@ function LandingPage() {
         <div className="max-w-[1180px] mx-auto px-6 sm:px-8">
           <div className="text-center max-w-[680px] mx-auto mb-14">
             <h2 className="text-3xl sm:text-[38px] font-bold tracking-tight">
-              Three steps from locked deal to signed assignment
+              Three Steps From Locked Deal To Signed Assignment
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Step n={1} title="Submit the deal">
+            <Step n={1} title="Submit The Deal">
               Address, price, condition or land details — the engine classifies it instantly.
             </Step>
-            <Step n={2} title="AI matches every buyer type">
+            <Step n={2} title="AI Matches Every Buyer Type">
               Cash, landlord, flip, and builder buyers ranked side by side with reasons.
             </Step>
-            <Step n={3} title="Buyers respond in-platform">
+            <Step n={3} title="Buyers Respond In-Platform">
               Offers, messages, and proof of funds land in one pipeline — pick the winner.
             </Step>
           </div>
@@ -290,14 +290,14 @@ function LandingPage() {
       <section id="pricing" className="py-16 sm:py-20 px-4 sm:px-8">
         <div className="bg-primary text-primary-foreground rounded-[28px] mx-auto max-w-[1116px] px-8 sm:px-10 py-16 sm:py-[72px] text-center">
           <h2 className="text-2xl sm:text-[34px] font-bold tracking-tight mb-3.5">
-            Ready to match every deal, every time?
+            Ready To Match Every Deal, Every Time?
           </h2>
           <p className="text-base sm:text-base opacity-90 mb-7 max-w-xl mx-auto">
             Join wholesalers closing faster with buyer-type-aware AI matching.
           </p>
           <Link to="/auth">
             <Button className="bg-background text-primary hover:bg-surface-2 h-12 px-8 rounded-full text-base font-medium">
-              Start free <ArrowRight className="w-4 h-4 ml-1.5" />
+              Start Free <ArrowRight className="w-4 h-4 ml-1.5" />
             </Button>
           </Link>
         </div>
@@ -305,7 +305,7 @@ function LandingPage() {
 
       {/* Footer */}
       <footer className="py-12 text-center text-sm text-muted-foreground">
-        © {new Date().getFullYear()} Deal Compass — Built for serious wholesalers.
+        © {new Date().getFullYear()} Deal Compass — Built For Serious Wholesalers.
       </footer>
     </div>
   );
