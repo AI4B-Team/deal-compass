@@ -78,8 +78,8 @@ function LandingPage() {
       <section className="pt-24 pb-16 px-6 sm:px-8 text-center">
         <div className="max-w-[1180px] mx-auto">
           <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-bold leading-[1.08] tracking-[-0.03em] max-w-[780px] mx-auto mb-5">
-            Every Deal Finds Its. <br />
-            <span className="text-primary">Perfect Buyer.</span>
+            Every Deal. <br />
+            Finds Its <span className="text-primary">Perfect Buyer.</span>
           </h1>
           <p className="text-base sm:text-lg text-muted-foreground max-w-[600px] mx-auto mb-9 leading-relaxed">
             Cash buyers, landlords, flippers, and builders — one AI engine that scores, ranks,
