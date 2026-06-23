@@ -167,7 +167,7 @@ export function BuyerForm({ initial, onSaved }: { initial?: Buyer; onSaved: (id:
 
       <div className="flex justify-end gap-2 sticky bottom-4">
         <Button onClick={save} disabled={saving} className="grad-primary text-primary-foreground hover:opacity-90 shadow-elevated">
-          <Save className="w-4 h-4 mr-1" /> {saving ? "Saving…" : "Save buyer"}
+          <Save className="w-4 h-4 mr-1" /> {saving ? "Saving…" : "Save Buyer"}
         </Button>
       </div>
     </div>
