@@ -33,7 +33,7 @@ function LandingPage() {
             </Link>
             <Link to="/auth">
               <Button className="grad-primary text-primary-foreground hover:opacity-90 h-9">
-                Get Started <ArrowRight className="w-4 h-4 ml-1" />
+                Get started <ArrowRight className="w-4 h-4 ml-1" />
               </Button>
             </Link>
           </div>
@@ -90,12 +90,12 @@ function LandingPage() {
             <div className="flex items-center gap-8 pt-6 mt-2 border-t border-border/40">
               <div className="pt-6">
                 <div className="text-2xl font-bold number">$4.2B+</div>
-                <div className="text-muted-foreground text-sm">Deals Disposed</div>
+                <div className="text-muted-foreground text-sm">Deals disposed</div>
               </div>
               <div className="w-px h-10 bg-border/60 mt-6" />
               <div className="pt-6">
                 <div className="text-2xl font-bold number">12k+</div>
-                <div className="text-muted-foreground text-sm">Active Buyers</div>
+                <div className="text-muted-foreground text-sm">Active buyers</div>
               </div>
             </div>
           </div>
@@ -122,11 +122,11 @@ function LandingPage() {
                 <div className="bg-white/5 rounded-xl p-4 border border-border/40">
                   <div className="flex justify-between items-start mb-4">
                     <div>
-                      <div className="text-[10px] text-primary font-bold mb-1 uppercase tracking-widest">Active Deal</div>
+                      <div className="text-[10px] text-primary font-bold mb-1 uppercase tracking-widest">Active deal</div>
                       <div className="font-semibold">1244 Maplewood Terrace</div>
                     </div>
                     <div className="bg-primary/20 text-primary text-[10px] px-2 py-1 rounded font-bold uppercase">
-                      98% Match
+                      98% match
                     </div>
                   </div>
                   <div className="grid grid-cols-3 gap-2">
@@ -152,7 +152,7 @@ function LandingPage() {
                 {/* Engagement bar */}
                 <div className="space-y-2 pt-1">
                   <div className="flex justify-between text-[10px] text-muted-foreground font-bold uppercase tracking-widest">
-                    <span>Buyer Engagement</span>
+                    <span>Buyer engagement</span>
                     <span>82%</span>
                   </div>
                   <div className="w-full bg-white/5 h-1.5 rounded-full overflow-hidden">
@@ -188,27 +188,27 @@ function LandingPage() {
             />
             <FeatureCard
               icon={Target}
-              title="Smart Matching"
+              title="Smart matching"
               description="Drop in a deal and instantly see which buyers it fits. Deterministic scoring from 0–100 with zero guesswork."
             />
             <FeatureCard
               icon={Sparkles}
-              title="AI Pitches"
+              title="AI pitches"
               description="Generate personalized SMS and email outreach for every top match. Each pitch references the buyer's exact criteria."
             />
             <FeatureCard
               icon={Briefcase}
-              title="Deal Pipeline"
+              title="Deal pipeline"
               description="Track every deal from locked to closed. Monitor inspection periods, closing deadlines, and assignment fees at a glance."
             />
             <FeatureCard
               icon={Zap}
-              title="Instant Ranking"
+              title="Instant ranking"
               description="See your buyers ranked A-tier, B-tier, C-tier, or stretch — so you know exactly who to call first."
             />
             <FeatureCard
               icon={BarChart3}
-              title="Pipeline Intelligence"
+              title="Pipeline intelligence"
               description="Know your pipeline value, deals closing this week, and buyer engagement — all from one elegant dashboard."
             />
           </div>
