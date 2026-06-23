@@ -305,7 +305,7 @@ function LandingPage() {
 
       {/* Footer */}
       <footer className="py-12 text-center text-sm text-muted-foreground">
-        © {new Date().getFullYear()} Deal Compass — Built for serious wholesalers.
+        © {new Date().getFullYear()} Deal Compass — Built For Serious Wholesalers.
       </footer>
     </div>
   );
