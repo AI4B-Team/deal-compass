@@ -30,6 +30,11 @@ import {
   Brain,
   Star,
   Clock,
+  ShieldCheck,
+  PiggyBank,
+  Link2,
+  Home,
+  Receipt,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
