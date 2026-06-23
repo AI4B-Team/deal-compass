@@ -178,7 +178,7 @@ function DealDetail() {
         </div>
 
         {matches.length === 0 ? (
-          <div className="p-12 text-center text-sm text-muted-foreground">Click "Find buyers" to score every buyer against this deal.</div>
+          <div className="p-12 text-center text-sm text-muted-foreground">Click "Find Buyers" to score every buyer against this deal.</div>
         ) : (
           <div>
             <div className="divide-y divide-border">
