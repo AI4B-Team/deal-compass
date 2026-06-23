@@ -117,6 +117,10 @@ function BuyerDetail() {
           </div>
         )}
       </div>
+
+      <div className="mt-4">
+        <LinkedDealsPanel buyerId={id} />
+      </div>
     </div>
   );
 }
