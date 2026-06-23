@@ -3,7 +3,7 @@ import { BuyerForm } from "@/components/BuyerForm";
 import { PageHeader } from "@/components/PageHeader";
 
 export const Route = createFileRoute("/_authenticated/buyers/new")({
-  head: () => ({ meta: [{ title: "Add Buyer" }] }),
+  head: () => ({ meta: [{ title: "Add buyer" }] }),
   component: NewBuyer,
 });
 
