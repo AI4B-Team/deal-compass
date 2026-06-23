@@ -5,13 +5,16 @@ import { PageHeader } from "@/components/PageHeader";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ArrowLeft, Trash2, Pencil, Sparkles, Zap, Trophy, Copy, ChevronDown, ChevronRight } from "lucide-react";
+import { ArrowLeft, Trash2, Pencil, Sparkles, Zap, Trophy, Copy, ChevronDown, ChevronRight, Send, Mail, MessageSquare } from "lucide-react";
 import { fmtMoney, daysUntil, urgencyColor } from "@/lib/format";
 import { rankBuyers, DEFAULT_WEIGHTS, type MatchResult } from "@/lib/matching";
 import { TierBadge } from "@/components/TierBadge";
 import { DealForm } from "@/components/DealForm";
+import { Switch } from "@/components/ui/switch";
 import { toast } from "sonner";
 import { PropertyIntelligencePanel } from "@/components/PropertyIntelligencePanel";
+import { useServerFn } from "@tanstack/react-start";
+import { autoMarketDeal } from "@/lib/api/auto-market.functions";
 
 export const Route = createFileRoute("/_authenticated/deals/$id")({
   head: () => ({ meta: [{ title: "Deal" }] }),
