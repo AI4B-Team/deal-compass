@@ -88,7 +88,7 @@ function LandingPage() {
           <div className="flex flex-wrap justify-center gap-3.5 mb-14">
             <Link to="/auth">
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90 h-12 px-7 rounded-full text-base font-medium">
-                Start matching free
+                Start Matching Free
               </Button>
             </Link>
             <a href="#features">
@@ -96,7 +96,7 @@ function LandingPage() {
                 variant="outline"
                 className="h-12 px-7 rounded-full text-base font-medium border-border bg-background hover:bg-surface-2"
               >
-                Submit a deal
+                Submit A Deal
               </Button>
             </a>
           </div>
