@@ -126,7 +126,7 @@ function LandingPage() {
                       <div className="font-semibold">1244 Maplewood Terrace</div>
                     </div>
                     <div className="bg-primary/20 text-primary text-[10px] px-2 py-1 rounded font-bold uppercase">
-                      98% Match
+                      98% match
                     </div>
                   </div>
                   <div className="grid grid-cols-3 gap-2">
