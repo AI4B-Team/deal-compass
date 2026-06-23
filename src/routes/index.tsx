@@ -9,25 +9,37 @@ import {
   Key,
   Hammer,
   Building2,
+  Trees,
   Target,
   MapPin,
   Globe,
-  UserPlus,
   Activity,
   Calculator,
   MessageSquare,
   Briefcase,
   Plug,
+  Search,
+  FileText,
+  Sparkles,
+  Inbox,
+  Trophy,
+  Check,
+  X,
+  Users,
+  Map,
+  Brain,
+  Star,
+  Clock,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Deal Compass — Every deal finds its perfect buyer" },
+      { title: "Deal Compass — Stop Blasting Deals. Start Matching Buyers." },
       {
         name: "description",
         content:
-          "Cash buyers, landlords, flippers, and builders — one AI engine that scores, ranks, and reaches every buyer type for every wholesale deal.",
+          "AI-powered buyer matching for wholesalers. Submit any property — Deal Compass ranks cash buyers, landlords, flippers, builders, and land investors based on what they actually buy.",
       },
     ],
   }),
@@ -45,7 +57,7 @@ function LandingPage() {
     <div className="min-h-screen bg-background text-foreground">
       {/* Nav */}
       <nav className="sticky top-0 z-50 bg-background/85 backdrop-blur-md border-b border-border">
-        <div className="max-w-[1180px] mx-auto px-6 sm:px-8 h-16 flex items-center justify-between">
+        <div className="max-w-[1200px] mx-auto px-6 sm:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2 font-bold tracking-tight">
             <div className="w-7 h-7 rounded-[7px] bg-primary flex items-center justify-center">
               <Compass className="w-4 h-4 text-primary-foreground" />
@@ -53,10 +65,10 @@ function LandingPage() {
             <span>Deal Compass</span>
           </div>
           <div className="hidden md:flex gap-8 text-sm text-muted-foreground">
-            <a href="#features" className="hover:text-foreground transition-colors">Product</a>
-            <a href="#buyers" className="hover:text-foreground transition-colors">Buyer Network</a>
-            <a href="#marketplace" className="hover:text-foreground transition-colors">Marketplace</a>
-            <a href="#pricing" className="hover:text-foreground transition-colors">Pricing</a>
+            <a href="#why" className="hover:text-foreground transition-colors">Why Us</a>
+            <a href="#buyers" className="hover:text-foreground transition-colors">Buyer Types</a>
+            <a href="#features" className="hover:text-foreground transition-colors">Features</a>
+            <a href="#process" className="hover:text-foreground transition-colors">How It Works</a>
           </div>
           <div className="flex items-center gap-2">
             <Link
@@ -67,7 +79,7 @@ function LandingPage() {
             </Link>
             <Link to="/auth">
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-full px-5 text-sm font-medium gap-1.5">
-                Start Free <ArrowRight className="w-3.5 h-3.5" />
+                Find Buyers Now <ArrowRight className="w-3.5 h-3.5" />
               </Button>
             </Link>
           </div>
@@ -75,73 +87,120 @@ function LandingPage() {
       </nav>
 
       {/* Hero */}
-      <section className="pt-24 pb-16 px-6 sm:px-8 text-center">
-        <div className="max-w-[1180px] mx-auto">
-          <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-bold leading-[1.08] tracking-[-0.03em] max-w-[780px] mx-auto mb-5">
-            Every Deal. <br />
-            Finds Its <span className="text-primary">Perfect Buyer.</span>
+      <section className="pt-20 sm:pt-24 pb-16 px-6 sm:px-8 text-center">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="inline-flex items-center gap-2 text-[12px] font-medium text-primary bg-primary-soft px-3 py-1.5 rounded-full mb-6">
+            <Sparkles className="w-3.5 h-3.5" />
+            AI Buyer Matching For Wholesalers
+          </div>
+          <h1 className="text-4xl sm:text-5xl lg:text-[60px] font-bold leading-[1.05] tracking-[-0.03em] max-w-[860px] mx-auto mb-6">
+            Stop Blasting Deals. <br />
+            <span className="text-primary">Start Matching Buyers.</span>
           </h1>
-          <p className="text-base sm:text-lg text-muted-foreground max-w-[600px] mx-auto mb-9 leading-relaxed">
-            Cash buyers, landlords, flippers, and builders — one AI engine that scores, ranks,
-            and reaches every buyer type for every deal you submit.
+          <p className="text-base sm:text-lg text-muted-foreground max-w-[680px] mx-auto mb-9 leading-relaxed">
+            Submit any property and Deal Compass automatically ranks cash buyers, landlords,
+            flippers, builders, and land investors based on what they actually buy.
           </p>
-          <div className="flex flex-wrap justify-center gap-3.5 mb-14">
+          <div className="flex flex-wrap justify-center gap-3.5 mb-10">
             <Link to="/auth">
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90 h-12 px-7 rounded-full text-base font-medium">
-                Start Matching Free
+                Find Buyers Now <ArrowRight className="w-4 h-4 ml-1.5" />
               </Button>
             </Link>
-            <a href="#features">
+            <Link to="/auth">
               <Button
                 variant="outline"
                 className="h-12 px-7 rounded-full text-base font-medium border-border bg-background hover:bg-surface-2"
               >
                 Submit A Deal
               </Button>
-            </a>
+            </Link>
           </div>
 
-          {/* Product shot */}
-          <div className="bg-surface border border-border rounded-3xl p-2 max-w-[1000px] mx-auto shadow-soft">
-            <div className="bg-background rounded-[22px] p-7 text-left">
-              <div className="flex gap-1.5 mb-5">
-                <span className="w-2.5 h-2.5 rounded-full bg-border" />
-                <span className="w-2.5 h-2.5 rounded-full bg-border" />
-                <span className="w-2.5 h-2.5 rounded-full bg-border" />
+          {/* Trust metrics */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-[820px] mx-auto mb-14">
+            <TrustMetric icon={Users} label="50,000+ Buyers" />
+            <TrustMetric icon={Map} label="All 50 States" />
+            <TrustMetric icon={Brain} label="AI-Powered Matching" />
+            <TrustMetric icon={Target} label="Ranked Automatically" />
+          </div>
+
+          {/* Hero mockup — buyer matching interface */}
+          <div className="bg-surface border border-border rounded-3xl p-2 max-w-[1080px] mx-auto shadow-soft text-left">
+            <div className="bg-background rounded-[22px] p-5 sm:p-7">
+              <div className="flex items-center justify-between mb-5">
+                <div className="flex gap-1.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-border" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-border" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-border" />
+                </div>
+                <div className="text-[11px] text-muted-foreground font-medium hidden sm:block">
+                  app.dealcompass.com / deals / ridgeline-trail-12
+                </div>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-[1.3fr_1fr] gap-5">
-                {/* Deal card */}
-                <div className="bg-background border border-border rounded-2xl p-5">
-                  <div className="text-[11px] font-bold uppercase tracking-wider text-primary mb-1.5">
+
+              {/* Property header */}
+              <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-5 pb-5 border-b border-border">
+                <div>
+                  <div className="text-[11px] font-bold uppercase tracking-wider text-primary mb-1">
                     Active Deal
                   </div>
-                  <div className="text-[17px] font-bold mb-3.5">
-                    42 Ridgeline Trail, Lot 12 — San Antonio, TX
+                  <div className="text-[20px] sm:text-[22px] font-bold leading-tight">
+                    42 Ridgeline Trail, Lot 12
                   </div>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    <span
-                      className="text-[11px] font-medium px-2.5 py-1 rounded-full"
-                      style={{ background: "var(--buyer-cash-bg)", color: "var(--buyer-cash-fg)" }}
-                    >
-                      Vacant Land · 2.4 Acres
-                    </span>
-                    <span
-                      className="text-[11px] font-medium px-2.5 py-1 rounded-full"
-                      style={{ background: "var(--buyer-builder-bg)", color: "var(--buyer-builder-fg)" }}
-                    >
-                      Zoned Residential
-                    </span>
-                  </div>
-                  <MatchRow initials="RB" name="Ridgeline Builders LLC" score="97 · A" tier="a" />
-                  <MatchRow initials="TX" name="Texas Land Partners" score="93 · A" tier="a" />
-                  <MatchRow initials="JM" name="Jordan Mireles — Buy &amp; Hold" score="71 · B" tier="b" />
+                  <div className="text-sm text-muted-foreground mt-0.5">San Antonio, TX</div>
                 </div>
-                {/* Side stats */}
-                <div className="flex flex-col gap-3">
-                  <Stat label="Buyer Types Reached" value="4" />
-                  <Stat label="Match Score" value="97%" valueColor="var(--success)" />
-                  <Stat label="Time To First Offer" value="3 hrs" />
+                <div className="flex flex-wrap gap-2">
+                  <Tag tone="cash">Vacant Land · 2.4 Acres</Tag>
+                  <Tag tone="builder">Zoned Residential</Tag>
                 </div>
+              </div>
+
+              <div className="flex items-center justify-between mb-3">
+                <div className="text-[13px] font-semibold">Top Buyer Matches</div>
+                <div className="text-[11px] text-muted-foreground">Ranked by AI</div>
+              </div>
+
+              <div className="grid gap-2.5">
+                <MatchCard
+                  initials="TX"
+                  name="Texas Land Partners"
+                  type="Land Investor"
+                  score={93}
+                  response="~ 2 hrs"
+                  probability="High"
+                  reasons={[
+                    "Bought 17 lots in last 12 months",
+                    "Average lot size 1–5 acres",
+                    "Active in San Antonio",
+                  ]}
+                />
+                <MatchCard
+                  initials="RB"
+                  name="Redline Builders LLC"
+                  type="Builder"
+                  score={89}
+                  response="~ 4 hrs"
+                  probability="High"
+                  reasons={[
+                    "Builds infill homes",
+                    "Buys residential lots",
+                    "Purchased nearby recently",
+                  ]}
+                />
+                <MatchCard
+                  initials="JM"
+                  name="Jordan Morales"
+                  type="Landlord"
+                  score={78}
+                  response="~ 1 day"
+                  probability="Medium"
+                  reasons={[
+                    "Buy & hold investor",
+                    "Prefers rental corridors",
+                    "Strong closing history",
+                  ]}
+                />
               </div>
             </div>
           </div>
@@ -149,157 +208,279 @@ function LandingPage() {
       </section>
 
       {/* Trust strip */}
-      <section className="py-12 border-t border-surface-2">
+      <section className="py-10 border-t border-surface-2">
         <p className="text-center text-xs tracking-[0.08em] uppercase text-muted-foreground">
-          Built For Wholesalers Moving Cash, Rental, And Land Deals Nationwide
+          Built For Wholesalers Moving Cash, Rental, Flip, And Land Deals Nationwide
         </p>
       </section>
 
+      {/* Differentiation — comparison */}
+      <section id="why" className="py-20 sm:py-24 bg-surface">
+        <div className="max-w-[1100px] mx-auto px-6 sm:px-8">
+          <div className="text-center max-w-[680px] mx-auto mb-14">
+            <h2 className="text-3xl sm:text-[42px] font-bold tracking-tight mb-3.5">
+              Why Deal Compass Beats <span className="text-primary">Traditional Buyer Lists</span>
+            </h2>
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+              Same address. Two completely different outcomes.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {/* Traditional */}
+            <div className="bg-background border border-border rounded-2xl p-7">
+              <div className="flex items-center gap-2 mb-5">
+                <div className="w-9 h-9 rounded-full bg-surface-2 text-muted-foreground flex items-center justify-center">
+                  <Inbox className="w-4 h-4" />
+                </div>
+                <div>
+                  <div className="text-[15px] font-bold">Traditional Buyer Lists</div>
+                  <div className="text-xs text-muted-foreground">The old way</div>
+                </div>
+              </div>
+              <ul className="space-y-3">
+                <CompareRow ok={false}>Cash buyers only</CompareRow>
+                <CompareRow ok={false}>Same blast sent to everyone</CompareRow>
+                <CompareRow ok={false}>No ranking</CompareRow>
+                <CompareRow ok={false}>No buyer intent data</CompareRow>
+                <CompareRow ok={false}>Manual follow-up</CompareRow>
+                <CompareRow ok={false}>Hope someone bites</CompareRow>
+              </ul>
+            </div>
+
+            {/* Deal Compass */}
+            <div className="bg-background border-2 border-primary rounded-2xl p-7 relative shadow-card-hover">
+              <span className="absolute -top-3 right-6 text-[10px] font-bold tracking-wider uppercase bg-primary text-primary-foreground px-2.5 py-1 rounded-full">
+                Deal Compass
+              </span>
+              <div className="flex items-center gap-2 mb-5">
+                <div className="w-9 h-9 rounded-full bg-primary text-primary-foreground flex items-center justify-center">
+                  <Compass className="w-4 h-4" />
+                </div>
+                <div>
+                  <div className="text-[15px] font-bold">AI Buyer Matching</div>
+                  <div className="text-xs text-muted-foreground">The Deal Compass way</div>
+                </div>
+              </div>
+              <ul className="space-y-3">
+                <CompareRow ok>Cash buyers</CompareRow>
+                <CompareRow ok>Landlords</CompareRow>
+                <CompareRow ok>Flippers</CompareRow>
+                <CompareRow ok>Builders</CompareRow>
+                <CompareRow ok>Land investors</CompareRow>
+                <CompareRow ok>AI buyer ranking</CompareRow>
+                <CompareRow ok>Match explanations</CompareRow>
+                <CompareRow ok>Smart targeting</CompareRow>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Buyer types */}
-      <section id="buyers" className="py-20 sm:py-24 bg-surface">
-        <div className="max-w-[1180px] mx-auto px-6 sm:px-8">
-          <div className="text-center max-w-[620px] mx-auto mb-14">
-            <h2 className="text-3xl sm:text-[38px] font-bold tracking-tight mb-3.5">
+      <section id="buyers" className="py-20 sm:py-24">
+        <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
+          <div className="text-center max-w-[680px] mx-auto mb-14">
+            <h2 className="text-3xl sm:text-[42px] font-bold tracking-tight mb-3.5">
               One Engine. Every Buyer Type.
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-              Most dispo tools only know cash buyers. Deal Compass scores landlords, builders,
-              and flippers with criteria built for how they actually buy.
+              Most dispo tools only know cash buyers. Deal Compass scores every buyer that
+              matters — with the criteria they actually use to buy.
             </p>
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
             <BuyerTypeCard
               icon={Banknote}
               tone="cash"
               title="Cash Buyers"
-              copy="Flip & wholesale spread, ARV, rehab tolerance, proof of funds."
+              need="Speed, spread, proof of funds."
             />
             <BuyerTypeCard
               icon={Key}
               tone="landlord"
               title="Landlords"
-              copy="Cap rate, rent comps, cash-on-cash, tenant occupancy preference."
+              need="Rent estimates, occupancy, cash flow."
             />
             <BuyerTypeCard
               icon={Hammer}
               tone="flipper"
               title="Flippers"
-              copy="Condition tolerance, rehab budget bands, days-to-flip pace."
+              need="Margin, renovation scope, resale value."
             />
             <BuyerTypeCard
               icon={Building2}
               tone="builder"
-              title="Builders & Land"
-              copy="Acreage, zoning, utilities, topo, entitlements, lot count, build typology."
+              title="Builders"
+              need="Lot dimensions, zoning, density."
+            />
+            <BuyerTypeCard
+              icon={Trees}
+              tone="cash"
+              title="Land Investors"
+              need="Access, utilities, entitlement potential."
             />
           </div>
         </div>
       </section>
 
       {/* Features */}
-      <section id="features" className="py-20 sm:py-24">
-        <div className="max-w-[1180px] mx-auto px-6 sm:px-8">
-          <div className="text-center max-w-[620px] mx-auto mb-14">
-            <h2 className="text-3xl sm:text-[38px] font-bold tracking-tight mb-3.5">
-              Built For Speed. Designed For Closers.
+      <section id="features" className="py-20 sm:py-24 bg-surface">
+        <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
+          <div className="text-center max-w-[680px] mx-auto mb-14">
+            <h2 className="text-3xl sm:text-[42px] font-bold tracking-tight mb-3.5">
+              Everything You Need To Dispo Deals Faster
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
-              Everything from buyer intelligence to public deal pages — refined into one workspace.
+              From the moment a deal is locked up to the moment it's assigned.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             <FeatureCard
               icon={Target}
-              title="Smart Matching"
-              badge="v2"
-              copy="Deterministic + behavioral scoring across cash, landlord, flip, and land/builder buy boxes — weighted, explainable, 0–100."
+              title="AI Buyer Matching"
+              copy="Automatically ranks buyers based on purchase history and behavior."
+            />
+            <FeatureCard
+              icon={Sparkles}
+              title="Why This Buyer Matched"
+              copy="See exactly why each buyer was selected — every score is explainable."
             />
             <FeatureCard
               icon={MapPin}
               title="Buyer Search By Address"
-              copy="Drop any address, instantly surface the highest-probability buyers nearby, skiptraced and ranked."
+              copy="Find buyers actively purchasing near your deal, ranked and skiptraced."
             />
             <FeatureCard
               icon={Globe}
-              title="Public Marketplace"
+              title="Public Deal Marketplace"
               badge="New"
-              copy="Branded, mobile-ready deal pages buyers can browse, favorite, and request address access to."
+              copy="Publish deals to a branded public page buyers can browse and request access to."
             />
             <FeatureCard
-              icon={UserPlus}
-              title="Buyer Self-Onboarding"
-              badge="New"
-              copy="Buyers submit their own buy box — AI parses free-text criteria straight into structured fields."
+              icon={MessageSquare}
+              title="In-Platform Messaging"
+              copy="Chat directly with buyers — no more chasing texts across five apps."
+            />
+            <FeatureCard
+              icon={FileText}
+              title="Offer Management"
+              copy="Track offers and negotiations in one place from first contact to close."
             />
             <FeatureCard
               icon={Activity}
               title="Engagement Tracking"
-              badge="New"
-              copy="See who viewed, clicked, and lingered on a deal — call your warmest buyer first."
+              copy="See opens, views, clicks, and activity — call your warmest buyer first."
             />
             <FeatureCard
               icon={Calculator}
               title="Comps & MAO"
-              badge="New"
-              copy="ARV from comps and rent data, MAO calculator, and land per-acre valuation for raw lots."
-            />
-            <FeatureCard
-              icon={MessageSquare}
-              title="In-Platform Messaging & Offers"
-              badge="New"
-              copy="Buyers submit offers and negotiate directly — no more chasing texts across five apps."
+              copy="Estimate ARV, repairs, and offer ranges from real comp and rent data."
             />
             <FeatureCard
               icon={Briefcase}
-              title="Buyer Portfolios"
-              copy="Full purchase history per buyer — profit, ARV%, hold time, and what they're likely to buy next."
+              title="Buyer Profiles"
+              copy="View purchase history, preferences, and buying patterns for every buyer."
             />
             <FeatureCard
               icon={Plug}
-              title="CRM, SMS & Dialer"
-              badge="New"
-              copy="Push and pull from your existing CRM and dialer stack without leaving Deal Compass."
+              title="CRM & SMS"
+              copy="Manage conversations and follow-up without leaving Deal Compass."
+            />
+            <FeatureCard
+              icon={Search}
+              title="Smart Buyer Discovery"
+              copy="Surface new buyers actively closing in the markets you wholesale."
+            />
+            <FeatureCard
+              icon={Inbox}
+              title="Unified Pipeline"
+              copy="Every deal, every buyer, every conversation — one workspace."
             />
           </div>
         </div>
       </section>
 
-      {/* How it works */}
-      <section className="py-20 sm:py-24 bg-surface">
-        <div className="max-w-[1180px] mx-auto px-6 sm:px-8">
-          <div className="text-center max-w-[680px] mx-auto mb-14">
-            <h2 className="text-3xl sm:text-[38px] font-bold tracking-tight">
-              Three Steps From Locked Deal To Signed Assignment
+      {/* Process */}
+      <section id="process" className="py-20 sm:py-24">
+        <div className="max-w-[1100px] mx-auto px-6 sm:px-8">
+          <div className="text-center max-w-[760px] mx-auto mb-14">
+            <h2 className="text-3xl sm:text-[42px] font-bold tracking-tight">
+              From Locked-Up Deal To Buyer In Minutes
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Step n={1} title="Submit The Deal">
-              Address, price, condition or land details — the engine classifies it instantly.
-            </Step>
-            <Step n={2} title="AI Matches Every Buyer Type">
-              Cash, landlord, flip, and builder buyers ranked side by side with reasons.
-            </Step>
-            <Step n={3} title="Buyers Respond In-Platform">
-              Offers, messages, and proof of funds land in one pipeline — pick the winner.
-            </Step>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+            <Step n={1} title="Submit The Deal" copy="Enter address, property details, and photos." />
+            <Step n={2} title="AI Matches Buyers" copy="Deal Compass ranks the buyers most likely to purchase." />
+            <Step n={3} title="Buyers Engage" copy="Interested buyers receive the opportunity." />
+            <Step n={4} title="Receive Offers" copy="Track offers, negotiations, and activity." />
+            <Step n={5} title="Choose Your Buyer" copy="Accept the best offer and close." />
           </div>
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Social proof */}
+      <section className="py-20 sm:py-24 bg-surface">
+        <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
+          <div className="text-center max-w-[680px] mx-auto mb-12">
+            <h2 className="text-3xl sm:text-[42px] font-bold tracking-tight mb-3.5">
+              Wholesalers Are Closing Faster With Deal Compass
+            </h2>
+          </div>
+
+          {/* Metrics strip */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10 max-w-[980px] mx-auto">
+            <MetricStat value="50,000+" label="Active Buyers" />
+            <MetricStat value="< 24h" label="Average Time To Offer" />
+            <MetricStat value="93%" label="Match Accuracy" />
+            <MetricStat value="50" label="States Covered" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <Testimonial
+              quote="$42,000 assignment fee. Found the buyer in under 24 hours."
+              name="Marcus W."
+              role="Wholesaler · Dallas, TX"
+            />
+            <Testimonial
+              quote="Deal Compass showed buyers I never would have contacted."
+              name="Priya R."
+              role="Dispo Manager · Phoenix, AZ"
+            />
+            <Testimonial
+              quote="The buyer explanations alone changed our dispo process."
+              name="Jordan T."
+              role="Acquisitions Lead · Atlanta, GA"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
       <section id="pricing" className="py-16 sm:py-20 px-4 sm:px-8">
         <div className="bg-primary text-primary-foreground rounded-[28px] mx-auto max-w-[1116px] px-8 sm:px-10 py-16 sm:py-[72px] text-center">
-          <h2 className="text-2xl sm:text-[34px] font-bold tracking-tight mb-3.5">
-            Ready To Match Every Deal, Every Time?
+          <h2 className="text-2xl sm:text-[38px] font-bold tracking-tight mb-3.5 leading-tight">
+            Every Deal Has A Buyer. <br className="hidden sm:block" />
+            We'll Help You Find Them.
           </h2>
-          <p className="text-base sm:text-base opacity-90 mb-7 max-w-xl mx-auto">
-            Join wholesalers closing faster with buyer-type-aware AI matching.
+          <p className="text-base sm:text-lg opacity-90 mb-8 max-w-xl mx-auto">
+            Stop blasting deals and start matching them.
           </p>
-          <Link to="/auth">
-            <Button className="bg-background text-primary hover:bg-surface-2 h-12 px-8 rounded-full text-base font-medium">
-              Start Free <ArrowRight className="w-4 h-4 ml-1.5" />
-            </Button>
-          </Link>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link to="/auth">
+              <Button className="bg-background text-primary hover:bg-surface-2 h-12 px-8 rounded-full text-base font-medium">
+                Find Buyers Now <ArrowRight className="w-4 h-4 ml-1.5" />
+              </Button>
+            </Link>
+            <Link to="/auth">
+              <Button
+                variant="outline"
+                className="h-12 px-8 rounded-full text-base font-medium bg-transparent border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10"
+              >
+                Book A Demo
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -311,41 +492,131 @@ function LandingPage() {
   );
 }
 
-function Stat({ label, value, valueColor }: { label: string; value: string; valueColor?: string }) {
+/* ───────────────────────── sub-components ───────────────────────── */
+
+function TrustMetric({ icon: Icon, label }: { icon: typeof Users; label: string }) {
   return (
-    <div className="bg-surface rounded-xl p-3.5">
-      <div className="text-[11px] text-muted-foreground mb-1">{label}</div>
-      <div className="text-xl font-bold" style={valueColor ? { color: valueColor } : undefined}>
+    <div className="flex items-center justify-center gap-2 text-sm font-medium text-foreground">
+      <Icon className="w-4 h-4 text-primary" />
+      <span>{label}</span>
+    </div>
+  );
+}
+
+function Tag({
+  tone,
+  children,
+}: {
+  tone: "cash" | "landlord" | "flipper" | "builder";
+  children: React.ReactNode;
+}) {
+  return (
+    <span
+      className="text-[11px] font-medium px-2.5 py-1 rounded-full"
+      style={{ background: `var(--buyer-${tone}-bg)`, color: `var(--buyer-${tone}-fg)` }}
+    >
+      {children}
+    </span>
+  );
+}
+
+function MatchCard({
+  initials,
+  name,
+  type,
+  score,
+  response,
+  probability,
+  reasons,
+}: {
+  initials: string;
+  name: string;
+  type: string;
+  score: number;
+  response: string;
+  probability: string;
+  reasons: string[];
+}) {
+  const probColor =
+    probability === "High" ? "var(--success)" : probability === "Medium" ? "var(--warning)" : "var(--muted-foreground)";
+  return (
+    <div className="border border-border rounded-2xl p-4 sm:p-5 hover:border-primary/40 transition-colors">
+      <div className="flex items-start gap-4">
+        <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground text-[12px] font-bold flex items-center justify-center shrink-0">
+          {initials}
+        </div>
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-2 flex-wrap">
+            <div className="font-semibold text-[15px]">{name}</div>
+            <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground bg-surface-2 px-2 py-0.5 rounded-full">
+              {type}
+            </span>
+          </div>
+          <ul className="mt-2 space-y-1">
+            {reasons.map((r) => (
+              <li key={r} className="text-[12.5px] text-muted-foreground flex items-start gap-1.5">
+                <Check className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />
+                {r}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="text-right shrink-0">
+          <div className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Score</div>
+          <div className="text-[24px] font-bold leading-none number text-primary">{score}</div>
+        </div>
+      </div>
+      <div className="mt-3 pt-3 border-t border-border grid grid-cols-3 gap-2 text-center">
+        <MiniStat icon={Clock} label="Response" value={response} />
+        <MiniStat label="Probability" value={probability} valueColor={probColor} />
+        <MiniStat label="Type" value={type} />
+      </div>
+    </div>
+  );
+}
+
+function MiniStat({
+  icon: Icon,
+  label,
+  value,
+  valueColor,
+}: {
+  icon?: typeof Clock;
+  label: string;
+  value: string;
+  valueColor?: string;
+}) {
+  return (
+    <div>
+      <div className="text-[9.5px] font-medium uppercase tracking-wider text-muted-foreground flex items-center justify-center gap-1">
+        {Icon && <Icon className="w-3 h-3" />} {label}
+      </div>
+      <div
+        className="text-[12.5px] font-semibold mt-0.5"
+        style={valueColor ? { color: valueColor } : undefined}
+      >
         {value}
       </div>
     </div>
   );
 }
 
-function MatchRow({
-  initials,
-  name,
-  score,
-  tier,
-}: {
-  initials: string;
-  name: string;
-  score: string;
-  tier: "a" | "b";
-}) {
-  const tierColor = tier === "a" ? "var(--success)" : "var(--warning)";
+function CompareRow({ ok, children }: { ok: boolean; children: React.ReactNode }) {
   return (
-    <div className="flex items-center justify-between py-2.5 border-t border-surface-2 first:border-t-0 text-[13px]">
-      <div className="flex items-center gap-2 font-medium">
-        <div className="w-[26px] h-[26px] rounded-full bg-primary text-primary-foreground text-[11px] font-bold flex items-center justify-center">
-          {initials}
-        </div>
-        {name}
-      </div>
-      <div className="font-bold text-[13px]" style={{ color: tierColor }}>
-        {score}
-      </div>
-    </div>
+    <li className="flex items-center gap-2.5 text-[14px]">
+      {ok ? (
+        <span className="w-5 h-5 rounded-full bg-primary-soft text-primary flex items-center justify-center shrink-0">
+          <Check className="w-3 h-3" />
+        </span>
+      ) : (
+        <span className="w-5 h-5 rounded-full bg-surface-2 text-muted-foreground flex items-center justify-center shrink-0">
+          <X className="w-3 h-3" />
+        </span>
+      )}
+      <span className={ok ? "text-foreground" : "text-muted-foreground line-through decoration-muted-foreground/40"}>
+        {children}
+      </span>
+    </li>
   );
 }
 
@@ -353,25 +624,26 @@ function BuyerTypeCard({
   icon: Icon,
   tone,
   title,
-  copy,
+  need,
 }: {
   icon: typeof Banknote;
   tone: "cash" | "landlord" | "flipper" | "builder";
   title: string;
-  copy: string;
+  need: string;
 }) {
   const bg = `var(--buyer-${tone}-bg)`;
   const fg = `var(--buyer-${tone}-fg)`;
   return (
-    <div className="bg-background border border-border rounded-2xl p-6 text-center">
+    <div className="bg-background border border-border rounded-2xl p-6 text-center hover:border-primary/40 transition-colors">
       <div
         className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3.5"
         style={{ background: bg, color: fg }}
       >
         <Icon className="w-5 h-5" />
       </div>
-      <h4 className="text-[15px] font-bold mb-1.5">{title}</h4>
-      <p className="text-[12.5px] text-muted-foreground leading-relaxed">{copy}</p>
+      <h4 className="text-[15px] font-bold mb-2">{title}</h4>
+      <div className="text-[10px] uppercase tracking-wider text-muted-foreground mb-1">Need</div>
+      <p className="text-[12.5px] text-foreground leading-relaxed">{need}</p>
     </div>
   );
 }
@@ -388,7 +660,7 @@ function FeatureCard({
   badge?: string;
 }) {
   return (
-    <div className="border border-border rounded-[18px] p-7 transition-all hover:border-primary hover:shadow-card-hover">
+    <div className="bg-background border border-border rounded-[18px] p-7 transition-all hover:border-primary hover:shadow-card-hover">
       <div className="w-11 h-11 rounded-xl bg-primary-soft text-primary flex items-center justify-center mb-4">
         <Icon className="w-[22px] h-[22px]" />
       </div>
@@ -405,16 +677,44 @@ function FeatureCard({
   );
 }
 
-function Step({ n, title, children }: { n: number; title: string; children: React.ReactNode }) {
+function Step({ n, title, copy }: { n: number; title: string; copy: string }) {
   return (
-    <div className="text-center">
+    <div className="bg-background border border-border rounded-2xl p-6 text-center hover:border-primary/40 transition-colors">
       <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground font-bold flex items-center justify-center mx-auto mb-4 text-[15px]">
         {n}
       </div>
-      <h3 className="text-[17px] font-bold mb-2">{title}</h3>
-      <p className="text-sm text-muted-foreground leading-relaxed max-w-[260px] mx-auto">
-        {children}
-      </p>
+      <h3 className="text-[15px] font-bold mb-2">{title}</h3>
+      <p className="text-[12.5px] text-muted-foreground leading-relaxed">{copy}</p>
+    </div>
+  );
+}
+
+function MetricStat({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="bg-background border border-border rounded-2xl p-5 text-center">
+      <div className="text-[26px] sm:text-[32px] font-bold tracking-tight text-primary number leading-none">
+        {value}
+      </div>
+      <div className="text-[11px] uppercase tracking-wider text-muted-foreground mt-2 font-medium">
+        {label}
+      </div>
+    </div>
+  );
+}
+
+function Testimonial({ quote, name, role }: { quote: string; name: string; role: string }) {
+  return (
+    <div className="bg-background border border-border rounded-2xl p-7">
+      <div className="flex gap-0.5 mb-3 text-primary">
+        {[0, 1, 2, 3, 4].map((i) => (
+          <Star key={i} className="w-3.5 h-3.5 fill-current" />
+        ))}
+      </div>
+      <p className="text-[15px] leading-relaxed text-foreground mb-5">"{quote}"</p>
+      <div>
+        <div className="text-[13px] font-semibold">{name}</div>
+        <div className="text-[12px] text-muted-foreground">{role}</div>
+      </div>
     </div>
   );
 }
