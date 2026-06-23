@@ -75,7 +75,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             onClick={signOut}
             className="w-full justify-start text-muted-foreground hover:text-foreground"
           >
-            <LogOut className="w-4 h-4 mr-2" /> Sign out
+            <LogOut className="w-4 h-4 mr-2" /> Sign Out
           </Button>
         </div>
       </aside>
