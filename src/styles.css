@@ -132,4 +132,16 @@
   .number { font-feature-settings: "tnum" 1, "lnum" 1; }
   .shadow-soft { box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.12); }
   .shadow-card-hover { box-shadow: 0 10px 30px -10px rgba(204, 0, 0, 0.12); }
+  /* Legacy aliases — map old dark-theme utilities onto the new Apple-light system */
+  .glass {
+    background: var(--card);
+    border: 1px solid var(--border);
+  }
+  .grad-primary {
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+  }
+  .text-grad { color: var(--primary); }
+  .shadow-elevated { box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 8px 24px -12px rgba(0,0,0,0.08); }
 }
+
