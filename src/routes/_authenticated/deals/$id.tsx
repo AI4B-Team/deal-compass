@@ -11,6 +11,7 @@ import { rankBuyers, DEFAULT_WEIGHTS, type MatchResult } from "@/lib/matching";
 import { TierBadge } from "@/components/TierBadge";
 import { DealForm } from "@/components/DealForm";
 import { toast } from "sonner";
+import { PropertyIntelligencePanel } from "@/components/PropertyIntelligencePanel";
 
 export const Route = createFileRoute("/_authenticated/deals/$id")({
   head: () => ({ meta: [{ title: "Deal" }] }),
