@@ -151,7 +151,7 @@ function LandingPage() {
       {/* Trust strip */}
       <section className="py-12 border-t border-surface-2">
         <p className="text-center text-xs tracking-[0.08em] uppercase text-muted-foreground">
-          Built for wholesalers moving cash, rental, and land deals nationwide
+          Built For Wholesalers Moving Cash, Rental, And Land Deals Nationwide
         </p>
       </section>
 
