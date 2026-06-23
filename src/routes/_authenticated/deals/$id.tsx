@@ -124,7 +124,7 @@ function DealDetail() {
     return (
       <div>
         <Link to="/deals/$id" params={{ id }} className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-1 mb-4"><ArrowLeft className="w-3 h-3" /> Back</Link>
-        <PageHeader title={`Edit deal`} />
+        <PageHeader title={`Edit Deal`} />
         <DealForm initial={deal} onSaved={() => { setEditing(false); load(); }} />
       </div>
     );
