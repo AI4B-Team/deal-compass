@@ -249,6 +249,7 @@ function LandingPage() {
                 <CompareRow ok={false}>No ranking</CompareRow>
                 <CompareRow ok={false}>No buyer intent data</CompareRow>
                 <CompareRow ok={false}>Manual follow-up</CompareRow>
+                <CompareRow ok={false}>No auto marketing</CompareRow>
                 <CompareRow ok={false}>Hope someone bites</CompareRow>
               </ul>
             </div>
