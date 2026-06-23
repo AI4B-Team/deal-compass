@@ -33,7 +33,7 @@ function LandingPage() {
             </Link>
             <Link to="/auth">
               <Button className="grad-primary text-primary-foreground hover:opacity-90 h-9">
-                Get Started <ArrowRight className="w-4 h-4 ml-1" />
+                Get started <ArrowRight className="w-4 h-4 ml-1" />
               </Button>
             </Link>
           </div>
