@@ -11,7 +11,7 @@ function NewBuyer() {
   const navigate = useNavigate();
   return (
     <div>
-      <PageHeader title="Add buyer" subtitle="Capture their buy-box once — match deals forever." />
+      <PageHeader title="Add Buyer" subtitle="Capture their buy-box once — match deals forever." />
       <BuyerForm onSaved={(id) => navigate({ to: "/buyers/$id", params: { id } })} />
     </div>
   );
