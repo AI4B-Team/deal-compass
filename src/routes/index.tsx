@@ -138,9 +138,9 @@ function LandingPage() {
                 </div>
                 {/* Side stats */}
                 <div className="flex flex-col gap-3">
-                  <Stat label="Buyer types reached" value="4" />
-                  <Stat label="Match score" value="97%" valueColor="var(--success)" />
-                  <Stat label="Time to first offer" value="3 hrs" />
+                  <Stat label="Buyer Types Reached" value="4" />
+                  <Stat label="Match Score" value="97%" valueColor="var(--success)" />
+                  <Stat label="Time To First Offer" value="3 hrs" />
                 </div>
               </div>
             </div>
