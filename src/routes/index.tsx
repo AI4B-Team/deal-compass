@@ -160,7 +160,7 @@ function LandingPage() {
         <div className="max-w-[1180px] mx-auto px-6 sm:px-8">
           <div className="text-center max-w-[620px] mx-auto mb-14">
             <h2 className="text-3xl sm:text-[38px] font-bold tracking-tight mb-3.5">
-              One engine. Every buyer type.
+              One Engine. Every Buyer Type.
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
               Most dispo tools only know cash buyers. Deal Compass scores landlords, builders,
@@ -171,7 +171,7 @@ function LandingPage() {
             <BuyerTypeCard
               icon={Banknote}
               tone="cash"
-              title="Cash buyers"
+              title="Cash Buyers"
               copy="Flip & wholesale spread, ARV, rehab tolerance, proof of funds."
             />
             <BuyerTypeCard
@@ -189,7 +189,7 @@ function LandingPage() {
             <BuyerTypeCard
               icon={Building2}
               tone="builder"
-              title="Builders & land"
+              title="Builders & Land"
               copy="Acreage, zoning, utilities, topo, entitlements, lot count, build typology."
             />
           </div>
