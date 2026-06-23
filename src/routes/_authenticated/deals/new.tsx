@@ -11,7 +11,7 @@ function NewDeal() {
   const navigate = useNavigate();
   return (
     <div>
-      <PageHeader title="New deal" subtitle="Drop it in. We'll find your buyers instantly." />
+      <PageHeader title="New Deal" subtitle="Drop it in. We'll find your buyers instantly." />
       <DealForm onSaved={(id) => navigate({ to: "/deals/$id", params: { id } })} />
     </div>
   );
