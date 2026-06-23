@@ -277,6 +277,7 @@ function LandingPage() {
                 <CompareRow ok>AI buyer ranking</CompareRow>
                 <CompareRow ok>Match explanations</CompareRow>
                 <CompareRow ok>Smart targeting</CompareRow>
+                <CompareRow ok>Auto marketing</CompareRow>
               </ul>
             </div>
           </div>
