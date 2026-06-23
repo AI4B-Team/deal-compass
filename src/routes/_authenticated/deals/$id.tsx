@@ -169,11 +169,11 @@ function DealDetail() {
       <div className="glass rounded-2xl shadow-elevated overflow-hidden">
         <div className="px-5 py-4 border-b border-border flex items-center justify-between flex-wrap gap-2">
           <div>
-            <h2 className="font-semibold flex items-center gap-2"><Zap className="w-4 h-4 text-primary" /> Buyer matches</h2>
+            <h2 className="font-semibold flex items-center gap-2"><Zap className="w-4 h-4 text-primary" /> Buyer Matches</h2>
             <p className="text-xs text-muted-foreground mt-0.5">Ranked deterministically against every buyer in your list.</p>
           </div>
           <Button onClick={findBuyers} disabled={running} className="grad-primary text-primary-foreground">
-            <Zap className="w-4 h-4 mr-1" /> {running ? "Matching…" : matches.length ? "Re-run match" : "Find buyers"}
+            <Zap className="w-4 h-4 mr-1" /> {running ? "Matching…" : matches.length ? "Re-Run Match" : "Find Buyers"}
           </Button>
         </div>
 
