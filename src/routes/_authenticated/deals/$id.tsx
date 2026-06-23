@@ -255,7 +255,7 @@ function MatchRow({ m, onUpdate, onPitch, onWin }: { m: any; onUpdate: any; onPi
                 <Copy className="w-4 h-4 mr-1" /> Copy
               </Button>
             )}
-            {!m.is_winner && <Button size="sm" variant="outline" className="ml-auto" onClick={() => onWin(m)}><Trophy className="w-4 h-4 mr-1" /> Mark winner</Button>}
+            {!m.is_winner && <Button size="sm" variant="outline" className="ml-auto" onClick={() => onWin(m)}><Trophy className="w-4 h-4 mr-1" /> Mark Winner</Button>}
           </div>
           {m.pitch_subject && <div className="text-xs"><span className="text-muted-foreground">Subject:</span> <span className="font-medium">{m.pitch_subject}</span></div>}
           {m.generated_pitch && <Textarea value={m.generated_pitch} onChange={(e) => onUpdate(m.id, { generated_pitch: e.target.value })} rows={6} className="text-sm" />}
