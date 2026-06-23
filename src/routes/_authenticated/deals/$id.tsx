@@ -357,3 +357,15 @@ function MatchRow({ m, onUpdate, onPitch, onWin }: { m: any; onUpdate: any; onPi
     </div>
   );
 }
+
+function StatusPill({ status }: { status: string }) {
+  const map: Record<string, string> = {
+    sent: "bg-emerald-500/15 text-emerald-500",
+    drafted: "bg-amber-500/15 text-amber-500",
+    queued: "bg-blue-500/15 text-blue-500",
+    failed: "bg-destructive/15 text-destructive",
+    skipped_no_contact: "bg-muted text-muted-foreground",
+  };
+  const cls = map[status] ?? "bg-muted text-muted-foreground";
+  return <span className={`px-1.5 py-0.5 rounded text-[10px] uppercase tracking-wider ${cls}`}>{status.replace(/_/g, " ")}</span>;
+}
