@@ -90,12 +90,12 @@ function LandingPage() {
             <div className="flex items-center gap-8 pt-6 mt-2 border-t border-border/40">
               <div className="pt-6">
                 <div className="text-2xl font-bold number">$4.2B+</div>
-                <div className="text-muted-foreground text-sm">Deals Disposed</div>
+                <div className="text-muted-foreground text-sm">Deals disposed</div>
               </div>
               <div className="w-px h-10 bg-border/60 mt-6" />
               <div className="pt-6">
                 <div className="text-2xl font-bold number">12k+</div>
-                <div className="text-muted-foreground text-sm">Active Buyers</div>
+                <div className="text-muted-foreground text-sm">Active buyers</div>
               </div>
             </div>
           </div>
