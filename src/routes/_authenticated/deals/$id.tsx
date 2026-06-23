@@ -28,6 +28,13 @@ function DealDetail() {
   const navigate = useNavigate();
   const [deal, setDeal] = useState<any>(null);
   const [matches, setMatches] = useState<any[]>([]);
+  const [outreach, setOutreach] = useState<any[]>([]);
+  const [settings, setSettings] = useState<any>(null);
+  const [editing, setEditing] = useState(false);
+  const [running, setRunning] = useState(false);
+  const [marketing, setMarketing] = useState(false);
+  const [showStretch, setShowStretch] = useState(false);
+  const autoMarket = useServerFn(autoMarketDeal);
   const [editing, setEditing] = useState(false);
   const [running, setRunning] = useState(false);
   const [showStretch, setShowStretch] = useState(false);
