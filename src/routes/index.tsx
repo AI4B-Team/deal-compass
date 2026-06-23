@@ -99,8 +99,8 @@ function LandingPage() {
             AI Buyer Matching For Wholesalers
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-[60px] font-bold leading-[1.05] tracking-[-0.03em] max-w-[860px] mx-auto mb-6">
-            Stop Blasting Deals. <br />
-            <span className="text-primary">Start Matching Buyers.</span>
+            Everything You Need <br />
+            <span className="text-primary">To Dispo Deals Faster</span>
           </h1>
           <p className="text-base sm:text-lg text-muted-foreground max-w-[680px] mx-auto mb-9 leading-relaxed">
             Submit any property and Deal Compass automatically ranks cash buyers, landlords,
