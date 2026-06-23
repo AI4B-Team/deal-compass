@@ -152,7 +152,7 @@ function LandingPage() {
                 {/* Engagement bar */}
                 <div className="space-y-2 pt-1">
                   <div className="flex justify-between text-[10px] text-muted-foreground font-bold uppercase tracking-widest">
-                    <span>Buyer Engagement</span>
+                    <span>Buyer engagement</span>
                     <span>82%</span>
                   </div>
                   <div className="w-full bg-white/5 h-1.5 rounded-full overflow-hidden">
