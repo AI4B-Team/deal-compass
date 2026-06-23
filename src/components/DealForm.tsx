@@ -103,7 +103,7 @@ export function DealForm({ initial, onSaved }: { initial?: any; onSaved: (id: st
         </Grid>
       </Section>
 
-      <Section title="The clock">
+      <Section title="The Clock">
         <Grid>
           <Field label="Contract date"><Input type="date" value={f.contract_date ?? ""} onChange={(e) => set("contract_date", e.target.value || null)} /></Field>
           <Field label="Inspection deadline"><Input type="date" value={f.inspection_deadline ?? ""} onChange={(e) => set("inspection_deadline", e.target.value || null)} /></Field>
@@ -118,7 +118,7 @@ export function DealForm({ initial, onSaved }: { initial?: any; onSaved: (id: st
 
       <div className="flex justify-end">
         <Button onClick={save} disabled={saving} className="grad-primary text-primary-foreground hover:opacity-90 shadow-elevated">
-          <Save className="w-4 h-4 mr-1" /> {saving ? "Saving…" : "Save deal"}
+          <Save className="w-4 h-4 mr-1" /> {saving ? "Saving…" : "Save Deal"}
         </Button>
       </div>
     </div>
