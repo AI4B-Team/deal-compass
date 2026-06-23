@@ -30,6 +30,11 @@ import {
   Brain,
   Star,
   Clock,
+  ShieldCheck,
+  PiggyBank,
+  Link2,
+  Home,
+  Receipt,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -419,11 +424,81 @@ function LandingPage() {
         </div>
       </section>
 
+      {/* Buyer Intelligence — Linked Deals + Property Intel + Closing Reliability */}
+      <section className="py-20 sm:py-24 bg-surface">
+        <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
+          <div className="text-center max-w-[760px] mx-auto mb-14">
+            <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary bg-[color:var(--primary-soft)] px-3 py-1.5 rounded-full mb-4">
+              <Sparkles className="w-3 h-3" /> New In Deal Compass
+            </span>
+            <h2 className="text-3xl sm:text-[42px] font-bold tracking-tight mb-3.5">
+              See Every Buyer's Real Track Record — Before You Pitch.
+            </h2>
+            <p className="text-base sm:text-lg text-muted-foreground">
+              Linked deals, property intelligence, and a closing‑reliability score on every buyer. Know who actually performs — not just who picks up the phone.
+            </p>
+          </div>
+
+          {/* Mockup: buyer profile with linked deals + portfolio stats */}
+          <div className="max-w-[1080px] mx-auto bg-card rounded-2xl border border-border shadow-elevated overflow-hidden mb-10">
+            <div className="px-5 sm:px-6 py-4 border-b border-border flex items-center justify-between flex-wrap gap-3">
+              <div>
+                <div className="font-bold text-lg">Hamilton Investment Group LLC</div>
+                <div className="text-xs text-muted-foreground mt-0.5 flex items-center gap-1.5">
+                  <Sparkles className="w-3 h-3 text-primary" />
+                  Closes a deal every ~38 days, mostly flips at 61% of ARV.
+                </div>
+              </div>
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="text-[10px] font-bold uppercase px-2 py-1 rounded-full bg-[color:var(--primary-soft)] text-primary">Flipper</span>
+                <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase px-2 py-1 rounded-full bg-emerald-50 text-emerald-700">
+                  <Trophy className="w-2.5 h-2.5" /> 87% Close Rate
+                </span>
+                <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase px-2 py-1 rounded-full bg-[color:var(--surface-2)]">
+                  <Link2 className="w-2.5 h-2.5" /> 23 Linked Deals
+                </span>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 px-5 sm:px-6 py-5 bg-[color:var(--surface-2)]/40">
+              <PortfolioStat label="Portfolio Value" value="$8.4M" />
+              <PortfolioStat label="Avg Purchase" value="$182k" />
+              <PortfolioStat label="Avg Flip Time" value="94 days" />
+              <PortfolioStat label="Buy ARV%" value="61%" />
+            </div>
+            <div className="divide-y divide-border">
+              <LinkedDealRow addr="4015 E Osborne Ave, Tampa FL" type="flip" price="$165,000" date="Mar 2026" />
+              <LinkedDealRow addr="2208 Manhattan Ave, Tampa FL" type="flip" price="$198,500" date="Jan 2026" />
+              <LinkedDealRow addr="912 Lake Carlton Dr, Plant City FL" type="rental" price="$224,000" date="Dec 2025" />
+            </div>
+          </div>
+
+          {/* Three pillars */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <IntelCard
+              icon={Link2}
+              title="Linked Deals & Portfolio"
+              copy="Every buyer's full purchase history — flip count, rental count, lots owned, portfolio value, average ARV%. Self‑qualify before you reach out."
+            />
+            <IntelCard
+              icon={Home}
+              title="Property Intelligence"
+              copy="Owner, tax assessment, mortgage, lender, monthly payment, and live equity estimate on every deal you load. Vet without leaving Deal Compass."
+            />
+            <IntelCard
+              icon={ShieldCheck}
+              title="Closing Reliability Score"
+              copy="Offers closed ÷ offers made. Surfaces the buyers who actually perform — not just the ones with the loudest cash buyer list bio."
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Social proof */}
       <section className="py-20 sm:py-24 bg-surface">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
           <div className="text-center max-w-[680px] mx-auto mb-12">
             <h2 className="text-3xl sm:text-[42px] font-bold tracking-tight mb-3.5">
+
               Wholesalers Are Closing Faster With Deal Compass
             </h2>
           </div>
@@ -715,6 +790,52 @@ function Testimonial({ quote, name, role }: { quote: string; name: string; role:
         <div className="text-[13px] font-semibold">{name}</div>
         <div className="text-[12px] text-muted-foreground">{role}</div>
       </div>
+    </div>
+  );
+}
+
+function PortfolioStat({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="bg-card rounded-lg p-3 border border-border">
+      <div className="text-[10px] uppercase tracking-wider text-muted-foreground">{label}</div>
+      <div className="text-base font-bold number mt-0.5">{value}</div>
+    </div>
+  );
+}
+
+function LinkedDealRow({ addr, type, price, date }: { addr: string; type: string; price: string; date: string }) {
+  const clr =
+    type === "flip" ? "bg-[color:var(--primary-soft)] text-primary" :
+    type === "rental" ? "bg-blue-100 text-blue-900" :
+    "bg-amber-100 text-amber-900";
+  return (
+    <div className="px-5 sm:px-6 py-3 flex items-center justify-between gap-4">
+      <div className="min-w-0 flex-1">
+        <div className="font-medium text-sm flex items-center gap-2 flex-wrap">
+          <MapPin className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
+          <span className="truncate">{addr}</span>
+          <span className={`text-[10px] font-bold uppercase px-2 py-0.5 rounded-full ${clr}`}>{type}</span>
+          <span className="inline-flex items-center gap-1 text-[10px] text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded">
+            <ShieldCheck className="w-2.5 h-2.5" /> Verified
+          </span>
+        </div>
+      </div>
+      <div className="text-right shrink-0">
+        <div className="text-sm font-semibold number">{price}</div>
+        <div className="text-[10px] text-muted-foreground">{date}</div>
+      </div>
+    </div>
+  );
+}
+
+function IntelCard({ icon: Icon, title, copy }: { icon: any; title: string; copy: string }) {
+  return (
+    <div className="bg-card rounded-2xl border border-border p-6 hover:shadow-elevated transition-shadow">
+      <div className="w-10 h-10 rounded-lg bg-[color:var(--primary-soft)] flex items-center justify-center mb-4">
+        <Icon className="w-5 h-5 text-primary" />
+      </div>
+      <h3 className="font-bold text-lg mb-2">{title}</h3>
+      <p className="text-sm text-muted-foreground leading-relaxed">{copy}</p>
     </div>
   );
 }
