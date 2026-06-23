@@ -48,7 +48,7 @@ function BuyerDetail() {
 
   return (
     <div>
-      <Link to="/buyers" className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-1 mb-4"><ArrowLeft className="w-3 h-3" /> All buyers</Link>
+      <Link to="/buyers" className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-1 mb-4"><ArrowLeft className="w-3 h-3" /> All Buyers</Link>
       <PageHeader
         title={buyer.name}
         subtitle={buyer.company || undefined}

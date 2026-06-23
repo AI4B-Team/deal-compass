@@ -8,7 +8,7 @@ import { toast } from "sonner";
 import { Compass, ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/auth")({
-  head: () => ({ meta: [{ title: "Sign in — Deal Compass" }] }),
+  head: () => ({ meta: [{ title: "Sign In — Deal Compass" }] }),
   component: AuthPage,
 });
 
