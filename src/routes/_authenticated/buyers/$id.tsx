@@ -96,7 +96,7 @@ function BuyerDetail() {
       </div>
 
       <div className="glass rounded-2xl p-5 mt-4 shadow-elevated">
-        <h3 className="text-sm font-semibold mb-3">Matched deals ({matches.length})</h3>
+        <h3 className="text-sm font-semibold mb-3">Matched Deals ({matches.length})</h3>
         {matches.length === 0 ? (
           <p className="text-sm text-muted-foreground">No matches yet.</p>
         ) : (
