@@ -63,7 +63,7 @@ function AuthPage() {
         </div>
         <div className="bg-background border border-border rounded-2xl p-8 shadow-soft">
           <h1 className="text-2xl font-bold mb-1 tracking-tight">
-            {mode === "signin" ? "Welcome back" : "Create your account"}
+            {mode === "signin" ? "Welcome Back" : "Create Your Account"}
           </h1>
           <p className="text-sm text-muted-foreground mb-6">
             {mode === "signin"
