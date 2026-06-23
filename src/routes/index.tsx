@@ -239,8 +239,8 @@ function LandingPage() {
                   <Inbox className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-[15px] font-bold">Traditional Buyer Lists</div>
-                  <div className="text-xs text-muted-foreground">The old way</div>
+                  <div className="text-[15px] font-bold">Buyer Lists & Software</div>
+                  <div className="text-xs text-muted-foreground">Generic tools</div>
                 </div>
               </div>
               <ul className="space-y-3">
