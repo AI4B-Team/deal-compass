@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import {
   Compass,
   ArrowRight,
-  Sparkles,
   Banknote,
   Key,
   Hammer,
@@ -78,10 +77,6 @@ function LandingPage() {
       {/* Hero */}
       <section className="pt-24 pb-16 px-6 sm:px-8 text-center">
         <div className="max-w-[1180px] mx-auto">
-          <div className="inline-flex items-center gap-1.5 text-xs font-medium text-primary bg-primary-soft px-3.5 py-1.5 rounded-full mb-6">
-            <Sparkles className="w-3 h-3" />
-            AI buyer matching — now with land &amp; builder buyers
-          </div>
           <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-bold leading-[1.08] tracking-[-0.03em] max-w-[780px] mx-auto mb-5">
             Every deal finds its <span className="text-primary">perfect buyer.</span>
           </h1>
