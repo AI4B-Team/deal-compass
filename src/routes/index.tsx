@@ -600,12 +600,19 @@ function Tag({
   );
 }
 
+function typeTone(type: string): "cash" | "landlord" | "flipper" | "builder" {
+  const t = type.toLowerCase();
+  if (t === "flipper" || t === "flip") return "flipper";
+  if (t === "landlord" || t === "rental" || t === "buy_hold") return "landlord";
+  if (t === "builder" || t === "new_build" || t === "land") return "builder";
+  return "cash";
+}
+
 function MatchCard({
   initials,
   name,
   type,
   score,
-  response,
   probability,
   reasons,
   trackRecord,
@@ -614,11 +621,11 @@ function MatchCard({
   name: string;
   type: string;
   score: number;
-  response: string;
   probability: string;
   reasons: string[];
   trackRecord?: { deals: number; avgPrice: string; recent: { addr: string; type: string; price: string }[] };
 }) {
+  const tone = typeTone(type);
   const probColor =
     probability === "High" ? "var(--success)" : probability === "Medium" ? "var(--warning)" : "var(--muted-foreground)";
   return (
@@ -630,7 +637,10 @@ function MatchCard({
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 flex-wrap">
             <div className="font-semibold text-[15px]">{name}</div>
-            <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground bg-surface-2 px-2 py-0.5 rounded-full">
+            <span
+              className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full"
+              style={{ background: `var(--buyer-${tone}-bg)`, color: `var(--buyer-${tone}-fg)` }}
+            >
               {type}
             </span>
           </div>
@@ -658,23 +668,31 @@ function MatchCard({
             </div>
           </div>
           <div className="space-y-0.5">
-            {trackRecord.recent.map((r) => (
-              <div key={r.addr} className="flex items-center justify-between text-[11.5px] py-0.5">
-                <span className="flex items-center gap-1.5 min-w-0">
-                  <MapPin className="w-3 h-3 text-muted-foreground shrink-0" />
-                  <span className="truncate">{r.addr}</span>
-                  <span className="text-[9px] uppercase px-1.5 py-0.5 rounded bg-card text-muted-foreground shrink-0">{r.type}</span>
-                </span>
-                <span className="number font-semibold shrink-0">{r.price}</span>
-              </div>
-            ))}
+            {trackRecord.recent.map((r) => {
+              const rTone = typeTone(r.type);
+              return (
+                <div key={r.addr} className="flex items-center justify-between text-[11.5px] py-0.5">
+                  <span className="flex items-center gap-1.5 min-w-0">
+                    <MapPin className="w-3 h-3 text-muted-foreground shrink-0" />
+                    <span className="truncate">{r.addr}</span>
+                    <span
+                      className="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded shrink-0"
+                      style={{ background: `var(--buyer-${rTone}-bg)`, color: `var(--buyer-${rTone}-fg)` }}
+                    >
+                      {r.type}
+                    </span>
+                  </span>
+                  <span className="number font-semibold shrink-0">{r.price}</span>
+                </div>
+              );
+            })}
           </div>
         </div>
       )}
       <div className="mt-3 pt-3 border-t border-border grid grid-cols-3 gap-2 text-center">
-        <MiniStat icon={Clock} label="Response" value={response} />
+        <MiniStat label="Deals" value={trackRecord ? String(trackRecord.deals) : "—"} />
         <MiniStat label="Probability" value={probability} valueColor={probColor} />
-        <MiniStat label="Type" value={type} />
+        <MiniStat label="Type" value={type} valueColor={`var(--buyer-${tone}-fg)`} />
       </div>
     </div>
   );
