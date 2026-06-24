@@ -1,5 +1,5 @@
 import { deriveInvestorType } from "@/lib/buyer-helpers";
-import { Briefcase, Home, Hammer, Wrench, Building, Key } from "lucide-react";
+import { Briefcase, Hammer, Wrench, Building, Key } from "lucide-react";
 
 const ICON: Record<string, any> = {
   Flipper: Wrench,
