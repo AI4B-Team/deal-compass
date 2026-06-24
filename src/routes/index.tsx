@@ -132,7 +132,7 @@ function LandingPage() {
 
           {/* Proof bar */}
           <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 max-w-[900px] mx-auto mb-14">
-            <ProofStat value="10M+" label="Active Buyers" />
+            <ProofStat value="10M+" label="Property Records" />
             <ProofStat value="$2B+" label="Deals Facilitated" />
             <ProofStat value="98%" label="Match Accuracy" />
             <ProofStat value="24hr" label="Avg. Time To Offer" />
