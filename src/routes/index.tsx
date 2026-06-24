@@ -331,8 +331,8 @@ function LandingPage() {
       {/* Features */}
       <section id="features" className="py-20 sm:py-24 bg-surface">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
-          <div className="text-center max-w-[680px] mx-auto mb-14">
-            <h2 className="text-3xl sm:text-[42px] font-bold tracking-tight mb-3.5">
+          <div className="text-center max-w-[900px] mx-auto mb-14">
+            <h2 className="text-3xl sm:text-[42px] font-bold tracking-tight whitespace-nowrap">
               Everything You Need To Dispo Deals Faster
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
