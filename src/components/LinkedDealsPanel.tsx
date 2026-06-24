@@ -135,6 +135,8 @@ export function LinkedDealsPanel({ buyerId }: { buyerId: string }) {
           ))}
         </div>
       )}
+
+      <TransactionDetailDialog txn={openTxn} open={!!openTxn} onOpenChange={(v) => !v && setOpenTxn(null)} />
     </div>
   );
 }
