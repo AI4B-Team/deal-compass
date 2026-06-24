@@ -39,6 +39,7 @@ export function LinkedDealsPanel({ buyerId }: { buyerId: string }) {
   const [filter, setFilter] = useState<string>("all");
   const [adding, setAdding] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [openTxn, setOpenTxn] = useState<Txn | null>(null);
 
   const load = async () => {
     setLoading(true);
