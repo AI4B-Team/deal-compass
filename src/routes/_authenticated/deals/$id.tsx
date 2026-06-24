@@ -169,6 +169,7 @@ function DealDetail() {
   const ranked = matches.filter((m) => m.match_tier !== "Stretch");
   const stretched = matches.filter((m) => m.match_tier === "Stretch");
   const spread = deal.arv && deal.asking_price ? deal.arv - deal.asking_price - (deal.estimated_rehab ?? 0) : null;
+  const spreadArvPct = deal.arv && deal.asking_price ? (Number(deal.asking_price) / Number(deal.arv)) * 100 : null;
 
   return (
     <div>
