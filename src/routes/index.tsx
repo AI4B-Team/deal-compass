@@ -9,7 +9,6 @@ import {
   Key,
   Hammer,
   Building2,
-  Trees,
   Target,
   MapPin,
   Globe,
@@ -44,7 +43,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "AI-powered buyer matching for wholesalers. Submit any property — Deal Compass ranks cash buyers, landlords, flippers, builders, and land investors based on what they actually buy.",
+          "AI-powered buyer matching for wholesalers. Submit any property — Deal Compass ranks cash buyers, landlords, flippers, and builders based on what they actually buy.",
       },
     ],
   }),
@@ -104,7 +103,7 @@ function LandingPage() {
           </h1>
           <p className="text-base sm:text-lg text-muted-foreground max-w-[680px] mx-auto mb-9 leading-relaxed">
             Submit any property and Deal Compass automatically ranks cash buyers, landlords,
-            flippers, builders, and land investors based on what they actually buy.
+            flippers, and builders based on what they actually buy.
           </p>
           <div className="flex flex-wrap justify-center gap-3.5 mb-10">
             <Link to="/auth">
@@ -170,7 +169,7 @@ function LandingPage() {
                 <MatchCard
                   initials="TX"
                   name="Texas Land Partners"
-                  type="Land Investor"
+                  type="Builder"
                   score={93}
                   response="~ 2 hrs"
                   probability="High"
@@ -180,8 +179,8 @@ function LandingPage() {
                     "Active in San Antonio",
                   ]}
                   trackRecord={{ deals: 17, avgPrice: "$48k", recent: [
-                    { addr: "1820 Fawn Crk Lot 4", type: "land", price: "$52,000" },
-                    { addr: "29 Boerne Stage Rd", type: "land", price: "$41,500" },
+                    { addr: "1820 Fawn Crk Lot 4", type: "Builder", price: "$52,000" },
+                    { addr: "29 Boerne Stage Rd", type: "Builder", price: "$41,500" },
                   ] }}
                 />
                 <MatchCard
@@ -333,12 +332,6 @@ function LandingPage() {
               tone="builder"
               title="Builders"
               need="Lot dimensions, zoning, density."
-            />
-            <BuyerTypeCard
-              icon={Trees}
-              tone="cash"
-              title="Land Investors"
-              need="Access, utilities, entitlement potential."
             />
           </div>
         </div>
