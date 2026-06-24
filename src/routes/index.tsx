@@ -582,6 +582,15 @@ function TrustMetric({ icon: Icon, label }: { icon: typeof Users; label: string 
   );
 }
 
+function ProofStat({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="text-center">
+      <div className="text-2xl sm:text-3xl font-bold text-foreground">{value}</div>
+      <div className="text-xs sm:text-sm text-muted-foreground">{label}</div>
+    </div>
+  );
+}
+
 function Tag({
   tone,
   children,
