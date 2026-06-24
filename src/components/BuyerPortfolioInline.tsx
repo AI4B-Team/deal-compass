@@ -77,7 +77,7 @@ export function BuyerPortfolioInline({ buyerId, subjectArvPct }: { buyerId: stri
         </div>
       )}
 
-      <TransactionDetailDialog txn={open} open={!!open} onOpenChange={(v) => !v && setOpen(null)} />
+      <TransactionDetailDialog txn={open} open={!!open} onOpenChange={(v) => !v && setOpen(null)} subjectArvPct={subjectArvPct} />
     </div>
   );
 }
