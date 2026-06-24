@@ -98,7 +98,7 @@ function LandingPage() {
             AI Buyer Matching
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-[60px] font-bold leading-[1.05] tracking-[-0.03em] max-w-[860px] mx-auto mb-6">
-            Instantly Find The Buyers <br />
+            Instantly Find Buyers <br />
             <span className="text-primary">For Any Deal Faster</span>
           </h1>
           <p className="text-base sm:text-lg text-muted-foreground max-w-[680px] mx-auto mb-9 leading-relaxed">
