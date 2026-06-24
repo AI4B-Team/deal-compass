@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
+import { TransactionDetailDialog } from "@/components/TransactionDetailDialog";
 
 type Txn = {
   id: string;
@@ -38,6 +39,7 @@ export function LinkedDealsPanel({ buyerId }: { buyerId: string }) {
   const [filter, setFilter] = useState<string>("all");
   const [adding, setAdding] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [openTxn, setOpenTxn] = useState<Txn | null>(null);
 
   const load = async () => {
     setLoading(true);
@@ -111,7 +113,7 @@ export function LinkedDealsPanel({ buyerId }: { buyerId: string }) {
       ) : (
         <div className="divide-y divide-border">
           {filtered.map((t) => (
-            <div key={t.id} className="px-5 py-3 flex items-center justify-between gap-4 hover:bg-[color:var(--surface-2)]/40">
+            <button key={t.id} onClick={() => setOpenTxn(t)} className="w-full text-left px-5 py-3 flex items-center justify-between gap-4 hover:bg-[color:var(--surface-2)]/40 transition-colors">
               <div className="min-w-0 flex-1">
                 <div className="font-medium text-sm flex items-center gap-2 flex-wrap">
                   <MapPin className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
@@ -129,10 +131,12 @@ export function LinkedDealsPanel({ buyerId }: { buyerId: string }) {
                 <div className="text-sm font-semibold number">{fmtMoney(t.purchase_price)}</div>
                 <div className="text-[10px] text-muted-foreground">{t.purchase_date ?? "—"}</div>
               </div>
-            </div>
+            </button>
           ))}
         </div>
       )}
+
+      <TransactionDetailDialog txn={openTxn} open={!!openTxn} onOpenChange={(v) => !v && setOpenTxn(null)} />
     </div>
   );
 }
