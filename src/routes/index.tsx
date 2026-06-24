@@ -31,6 +31,7 @@ import {
   Clock,
   ShieldCheck,
   PiggyBank,
+  Phone,
   Link2,
   Home,
   Receipt,
