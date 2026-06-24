@@ -8,6 +8,13 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { toast } from "sonner";
 import { TransactionDetailDialog } from "@/components/TransactionDetailDialog";
 
+function fmtDate(date: string | null | undefined) {
+  if (!date) return "—";
+  const d = new Date(date);
+  return d.toLocaleDateString("en-US", { year: "numeric", month: "short" });
+}
+
+
 type Txn = {
   id: string;
   address: string;
