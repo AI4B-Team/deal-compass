@@ -912,9 +912,9 @@ function PortfolioStat({ label, value }: { label: string; value: string }) {
 
 function LinkedDealRow({ addr, type, purchasePrice, purchaseDate, soldPrice, soldDate, months, roi, beds, baths, sqft }: { addr: string; type: string; purchasePrice: string; purchaseDate: string; soldPrice?: string; soldDate?: string; months?: number; roi?: string; beds?: number; baths?: number; sqft?: number }) {
   const clr =
-    type === "flip" ? "bg-[color:var(--primary-soft)] text-primary" :
-    type === "rental" ? "bg-[color:var(--buyer-landlord-bg)] text-[color:var(--buyer-landlord-fg)]" :
-    "bg-[color:var(--buyer-builder-bg)] text-[color:var(--buyer-builder-fg)]";
+    type === "flip" ? "bg-[color:var(--primary-soft)] text-primary border border-primary" :
+    type === "rental" ? "bg-[color:var(--buyer-landlord-bg)] text-[color:var(--buyer-landlord-fg)] border border-[color:var(--buyer-landlord-fg)]" :
+    "bg-[color:var(--buyer-builder-bg)] text-[color:var(--buyer-builder-fg)] border border-[color:var(--buyer-builder-fg)]";
   return (
     <div className="px-5 sm:px-6 py-3 flex items-center justify-between gap-4 hover:bg-[color:var(--surface-2)]/40 transition-colors cursor-pointer">
       <div className="min-w-0 flex-1">
