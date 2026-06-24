@@ -333,7 +333,6 @@ function LandingPage() {
               title="Builders"
               need="Lot dimensions, zoning, density."
             />
-            />
           </div>
         </div>
       </section>
