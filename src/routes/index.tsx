@@ -408,8 +408,8 @@ function LandingPage() {
       {/* Process */}
       <section id="process" className="py-20 sm:py-24">
         <div className="max-w-[1100px] mx-auto px-6 sm:px-8">
-          <div className="text-center max-w-[760px] mx-auto mb-14">
-            <h2 className="text-3xl sm:text-[42px] font-bold tracking-tight">
+          <div className="text-center max-w-[900px] mx-auto mb-14">
+            <h2 className="text-3xl sm:text-[42px] font-bold tracking-tight whitespace-nowrap">
               From Locked-Up Deal To Buyer In Minutes
             </h2>
           </div>
