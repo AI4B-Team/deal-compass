@@ -91,12 +91,12 @@
   /* Buyer-type tag palette (mirrors HTML reference) */
   --buyer-cash-bg: #eaf3de;
   --buyer-cash-fg: #173404;
-  --buyer-landlord-bg: #e6f1fb;
-  --buyer-landlord-fg: #042c53;
-  --buyer-flipper-bg: #fcebeb;
-  --buyer-flipper-fg: #501313;
-  --buyer-builder-bg: #faeeda;
-  --buyer-builder-fg: #412402;
+  --buyer-landlord-bg: #fef9c3;
+  --buyer-landlord-fg: #a16207;
+  --buyer-flipper-bg: #dcfce7;
+  --buyer-flipper-fg: #15803d;
+  --buyer-builder-bg: #dbeafe;
+  --buyer-builder-fg: #1d4ed8;
 
   --tier-a: #0f6e56;
   --tier-b: #854f0b;
