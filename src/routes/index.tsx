@@ -844,13 +844,13 @@ function PortfolioStat({ label, value }: { label: string; value: string }) {
   );
 }
 
-function LinkedDealRow({ addr, type, price, date }: { addr: string; type: string; price: string; date: string }) {
+function LinkedDealRow({ addr, type, price, date, sold, months, roi, beds, baths, sqft }: { addr: string; type: string; price: string; date: string; sold?: string; months?: number; roi?: string; beds?: number; baths?: number; sqft?: number }) {
   const clr =
     type === "flip" ? "bg-[color:var(--primary-soft)] text-primary" :
     type === "rental" ? "bg-blue-100 text-blue-900" :
     "bg-amber-100 text-amber-900";
   return (
-    <div className="px-5 sm:px-6 py-3 flex items-center justify-between gap-4">
+    <div className="px-5 sm:px-6 py-3 flex items-center justify-between gap-4 hover:bg-[color:var(--surface-2)]/40 transition-colors cursor-pointer">
       <div className="min-w-0 flex-1">
         <div className="font-medium text-sm flex items-center gap-2 flex-wrap">
           <MapPin className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
@@ -860,10 +860,20 @@ function LinkedDealRow({ addr, type, price, date }: { addr: string; type: string
             <ShieldCheck className="w-2.5 h-2.5" /> Verified
           </span>
         </div>
+        {(beds || baths || sqft) && (
+          <div className="text-[11px] text-muted-foreground mt-0.5">
+            {beds ?? "—"}bd / {baths ?? "—"}ba · {sqft ? sqft.toLocaleString() : "—"} sqft
+            {months !== undefined && <> · held <span className="text-foreground font-medium">{months} mo</span></>}
+            {roi && <> · <span className="text-emerald-700 font-semibold">{roi} ROI</span></>}
+          </div>
+        )}
       </div>
       <div className="text-right shrink-0">
+        <div className="text-[10px] text-muted-foreground">Bought {date}</div>
         <div className="text-sm font-semibold number">{price}</div>
-        <div className="text-[10px] text-muted-foreground">{date}</div>
+        {sold && (
+          <div className="text-[11px] text-emerald-700 font-semibold number mt-0.5">→ {sold}</div>
+        )}
       </div>
     </div>
   );
