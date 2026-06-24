@@ -467,9 +467,9 @@ function LandingPage() {
               <PortfolioStat label="Buy ARV%" value="61%" />
             </div>
             <div className="divide-y divide-border">
-              <LinkedDealRow addr="4015 E Osborne Ave, Tampa FL" type="flip" price="$165,000" date="Mar 2026" sold="$248,000" months={4} roi="50%" beds={3} baths={2} sqft={1480} />
-              <LinkedDealRow addr="2208 Manhattan Ave, Tampa FL" type="flip" price="$198,500" date="Jan 2026" sold="$295,000" months={5} roi="49%" beds={4} baths={2} sqft={1820} />
-              <LinkedDealRow addr="912 Lake Carlton Dr, Plant City FL" type="rental" price="$224,000" date="Dec 2025" beds={3} baths={2.5} sqft={2010} />
+              <LinkedDealRow addr="4015 E Osborne Ave, Tampa FL" type="flip" purchasePrice="$165,000" purchaseDate="Mar 2026" soldPrice="$248,000" soldDate="Jul 2026" months={4} roi="50%" beds={3} baths={2} sqft={1480} />
+              <LinkedDealRow addr="2208 Manhattan Ave, Tampa FL" type="flip" purchasePrice="$198,500" purchaseDate="Jan 2026" soldPrice="$295,000" soldDate="Jun 2026" months={5} roi="49%" beds={4} baths={2} sqft={1820} />
+              <LinkedDealRow addr="912 Lake Carlton Dr, Plant City FL" type="rental" purchasePrice="$224,000" purchaseDate="Dec 2025" beds={3} baths={2.5} sqft={2010} />
             </div>
           </div>
 
@@ -848,7 +848,7 @@ function PortfolioStat({ label, value }: { label: string; value: string }) {
   );
 }
 
-function LinkedDealRow({ addr, type, price, date, sold, months, roi, beds, baths, sqft }: { addr: string; type: string; price: string; date: string; sold?: string; months?: number; roi?: string; beds?: number; baths?: number; sqft?: number }) {
+function LinkedDealRow({ addr, type, purchasePrice, purchaseDate, soldPrice, soldDate, months, roi, beds, baths, sqft }: { addr: string; type: string; purchasePrice: string; purchaseDate: string; soldPrice?: string; soldDate?: string; months?: number; roi?: string; beds?: number; baths?: number; sqft?: number }) {
   const clr =
     type === "flip" ? "bg-[color:var(--primary-soft)] text-primary" :
     type === "rental" ? "bg-blue-100 text-blue-900" :
@@ -872,12 +872,26 @@ function LinkedDealRow({ addr, type, price, date, sold, months, roi, beds, baths
           </div>
         )}
       </div>
-      <div className="text-right shrink-0">
-        <div className="text-[10px] text-muted-foreground">Bought {date}</div>
-        <div className="text-sm font-semibold number">{price}</div>
-        {sold && (
-          <div className="text-[11px] text-emerald-700 font-semibold number mt-0.5">→ {sold}</div>
-        )}
+      <div className="shrink-0 flex items-center gap-4 sm:gap-6">
+        <div>
+          <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Purchase</div>
+          <div className="text-sm font-semibold number">{purchasePrice}</div>
+          <div className="text-xs text-muted-foreground">{purchaseDate}</div>
+        </div>
+        <div>
+          <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Sale</div>
+          {soldPrice ? (
+            <>
+              <div className="text-sm font-semibold number text-emerald-700">{soldPrice}</div>
+              <div className="text-xs text-muted-foreground">{soldDate ?? "—"}</div>
+            </>
+          ) : (
+            <>
+              <div className="text-sm font-semibold number text-muted-foreground">—</div>
+              <div className="text-xs text-muted-foreground">Not sold</div>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
