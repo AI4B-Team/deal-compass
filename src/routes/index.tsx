@@ -116,11 +116,19 @@ function LandingPage() {
           </div>
 
           {/* Trust metrics */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-[820px] mx-auto mb-14">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-[820px] mx-auto mb-10">
             <TrustMetric icon={Users} label="50,000+ Buyers" />
             <TrustMetric icon={Map} label="All 50 States" />
             <TrustMetric icon={Brain} label="AI-Powered Matching" />
             <TrustMetric icon={Target} label="Ranked Automatically" />
+          </div>
+
+          {/* Proof bar */}
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-3 max-w-[900px] mx-auto mb-14">
+            <ProofStat value="10M+" label="Active Buyers" />
+            <ProofStat value="$2B+" label="Deals Facilitated" />
+            <ProofStat value="98%" label="Match Accuracy" />
+            <ProofStat value="24hr" label="Avg. Time To Offer" />
           </div>
 
           {/* Hero mockup — buyer matching interface */}
@@ -570,6 +578,15 @@ function TrustMetric({ icon: Icon, label }: { icon: typeof Users; label: string 
     <div className="flex items-center justify-center gap-2 text-sm font-medium text-foreground">
       <Icon className="w-4 h-4 text-primary" />
       <span>{label}</span>
+    </div>
+  );
+}
+
+function ProofStat({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="text-center">
+      <div className="text-2xl sm:text-3xl font-bold text-foreground">{value}</div>
+      <div className="text-xs sm:text-sm text-muted-foreground">{label}</div>
     </div>
   );
 }
