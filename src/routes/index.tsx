@@ -79,7 +79,7 @@ function LandingPage() {
               to="/auth"
               className="hidden sm:inline-flex h-9 items-center px-4 rounded-full text-sm font-medium hover:text-primary transition-colors"
             >
-              Sign In
+              Log In
             </Link>
             <Link to="/auth">
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90 h-9 rounded-full px-5 text-sm font-medium gap-1.5">
