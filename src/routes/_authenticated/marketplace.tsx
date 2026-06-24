@@ -119,7 +119,7 @@ function Marketplace() {
                     </div>
                     <div className="flex items-center gap-2 mt-1.5 flex-wrap">
                       {types.map((t: string) => (
-                        <span key={t} className={`text-[10px] font-bold uppercase px-2 py-0.5 rounded-full ${BUYER_TYPE_CLR[t] || "bg-muted text-muted-foreground"}`}>{t}</span>
+                        <span key={t} className={`text-[10px] font-bold uppercase px-2 py-0.5 rounded-full border ${BUYER_TYPE_CLR[t] || "bg-muted text-muted-foreground border-transparent"}`}>{t}</span>
                       ))}
                       {b._stats?.total_count > 0 && (
                         <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase px-2 py-0.5 rounded-full bg-[color:var(--surface-2)] text-foreground">
