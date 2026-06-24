@@ -88,7 +88,7 @@ function AuthPage() {
           </div>
 
           <div className="mb-8">
-            <h2 className="text-2xl font-bold tracking-tight mb-2">Start matching deals</h2>
+            <h2 className="text-2xl font-bold tracking-tight mb-2">Start Matching Deals</h2>
             <p className="text-sm text-muted-foreground">
               Create a free account to rank cash buyers, landlords, flippers, and builders.
             </p>
