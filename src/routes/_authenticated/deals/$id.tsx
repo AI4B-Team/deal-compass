@@ -218,7 +218,7 @@ function DealDetail() {
           <div>
             <div className="divide-y divide-border">
               {ranked.map((m) => (
-                <MatchRow key={m.id} m={m} onUpdate={updateMatch} onPitch={generatePitch} onWin={markWinner} />
+                <MatchRow key={m.id} m={m} onUpdate={updateMatch} onPitch={generatePitch} onWin={markWinner} subjectArvPct={spreadArvPct} />
               ))}
             </div>
             {stretched.length > 0 && (
@@ -229,7 +229,7 @@ function DealDetail() {
                 </button>
                 {showStretch && (
                   <div className="divide-y divide-border">
-                    {stretched.map((m) => <MatchRow key={m.id} m={m} onUpdate={updateMatch} onPitch={generatePitch} onWin={markWinner} />)}
+                    {stretched.map((m) => <MatchRow key={m.id} m={m} onUpdate={updateMatch} onPitch={generatePitch} onWin={markWinner} subjectArvPct={spreadArvPct} />)}
                   </div>
                 )}
               </div>
