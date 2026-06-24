@@ -167,20 +167,19 @@ function LandingPage() {
 
               <div className="grid gap-2.5">
                 <MatchCard
-                  initials="TX"
-                  name="Texas Land Partners"
-                  type="Builder"
+                  initials="SF"
+                  name="Southtown Flips LLC"
+                  type="Flipper"
                   score={93}
-                  response="~ 2 hrs"
                   probability="High"
                   reasons={[
-                    "Bought 17 lots in last 12 months",
-                    "Average lot size 1–5 acres",
+                    "Completed 17 flips in last 12 months",
+                    "Average hold time 4.5 months",
                     "Active in San Antonio",
                   ]}
-                  trackRecord={{ deals: 17, avgPrice: "$48k", recent: [
-                    { addr: "1820 Fawn Crk Lot 4", type: "Builder", price: "$52,000" },
-                    { addr: "29 Boerne Stage Rd", type: "Builder", price: "$41,500" },
+                  trackRecord={{ deals: 17, avgPrice: "$152k", recent: [
+                    { addr: "1820 Fawn Crk Lot 4", type: "flip", price: "$152,000" },
+                    { addr: "29 Boerne Stage Rd", type: "flip", price: "$148,500" },
                   ] }}
                 />
                 <MatchCard
@@ -188,7 +187,6 @@ function LandingPage() {
                   name="Redline Builders LLC"
                   type="Builder"
                   score={89}
-                  response="~ 4 hrs"
                   probability="High"
                   reasons={[
                     "Builds infill homes",
@@ -205,7 +203,6 @@ function LandingPage() {
                   name="Jordan Morales"
                   type="Landlord"
                   score={78}
-                  response="~ 1 day"
                   probability="Medium"
                   reasons={[
                     "Buy & hold investor",
