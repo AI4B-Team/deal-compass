@@ -5,7 +5,7 @@ import { Link } from "@tanstack/react-router";
 import { TransactionDetailDialog } from "@/components/TransactionDetailDialog";
 import { MapPin, ArrowRight } from "lucide-react";
 
-export function BuyerPortfolioInline({ buyerId }: { buyerId: string }) {
+export function BuyerPortfolioInline({ buyerId, subjectArvPct }: { buyerId: string; subjectArvPct?: number | null }) {
   const [stats, setStats] = useState<any | null>(null);
   const [recent, setRecent] = useState<any[]>([]);
   const [open, setOpen] = useState<any | null>(null);
