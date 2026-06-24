@@ -1,11 +1,10 @@
 import { deriveInvestorType } from "@/lib/buyer-helpers";
-import { Briefcase, Home, TreePine, Hammer, Wrench, Building } from "lucide-react";
+import { Briefcase, Home, Hammer, Wrench, Building } from "lucide-react";
 
 const ICON: Record<string, any> = {
   Flipper: Wrench,
   Landlord: Home,
   Wholetailer: Briefcase,
-  "Land Investor": TreePine,
   Builder: Hammer,
   "Multi-Strategy": Building,
 };

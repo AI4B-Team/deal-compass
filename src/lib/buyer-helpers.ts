@@ -7,7 +7,7 @@ export function deriveInvestorType(buyer: { deal_types?: string[] | null }): str
     flip: "Flipper",
     rental: "Landlord",
     wholetail: "Wholetailer",
-    land: "Land Investor",
+    land: "Builder",
     new_build: "Builder",
     buy_hold: "Landlord",
   };
