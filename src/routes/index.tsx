@@ -428,7 +428,7 @@ function LandingPage() {
         <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
           <div className="text-center max-w-[760px] mx-auto mb-14">
             <h2 className="text-3xl sm:text-[42px] font-bold tracking-tight mb-3.5">
-              See Every Buyer's Real Track Record — Before You Pitch.
+              See Every Buyer's Real Track Record
             </h2>
             <p className="text-base sm:text-lg text-muted-foreground">
               Linked deals, property intelligence, and a closing‑reliability score on every buyer. Know who actually performs — not just who picks up the phone.
