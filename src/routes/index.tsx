@@ -301,7 +301,7 @@ function LandingPage() {
               matters — with the criteria they actually use to buy.
             </p>
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             <BuyerTypeCard
               icon={Banknote}
               tone="cash"
