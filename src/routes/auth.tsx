@@ -93,7 +93,7 @@ function AuthPage() {
 
           <div className="mb-10">
             <h1 className="text-3xl sm:text-4xl font-bold leading-tight tracking-tight mb-4">
-              Find the Right Buyer For Every Deal
+              Find The Right Buyer For Every Deal
             </h1>
             <p className="text-base text-muted-foreground leading-relaxed">
               Submit any property and rank cash buyers, landlords, flippers, and builders by what they actually buy.
