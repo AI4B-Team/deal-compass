@@ -9,7 +9,6 @@ import {
   Key,
   Hammer,
   Building2,
-  Trees,
   Target,
   MapPin,
   Globe,
