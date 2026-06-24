@@ -550,6 +550,41 @@ function LandingPage() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="py-20 sm:py-24 px-6 sm:px-8 bg-surface">
+        <div className="max-w-[760px] mx-auto">
+          <h2 className="text-3xl sm:text-[42px] font-bold tracking-tight text-center mb-12">
+            Frequently Asked Questions
+          </h2>
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="land-builder">
+              <AccordionTrigger>Does Deal Compass support land and builder buyers?</AccordionTrigger>
+              <AccordionContent>
+                Yes. The buyer database includes cash buyers, landlords, flippers, and builders — and you can filter by buyer type, property type, and market so the right buyers see your land or new-construction deals.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="skiptrace">
+              <AccordionTrigger>Is skip tracing included for every buyer?</AccordionTrigger>
+              <AccordionContent>
+                Yes. Each buyer profile comes with verified phone numbers, emails, and mailing addresses surfaced inside Deal Compass, so you can reach decision-makers without paying for a separate skip-trace tool.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="self-service">
+              <AccordionTrigger>Can buyers request deals themselves?</AccordionTrigger>
+              <AccordionContent>
+                Yes. The Public Deal Marketplace lets buyers browse your branded deal page and request access to opportunities, so inbound interest flows directly into your pipeline.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="export">
+              <AccordionTrigger>Can I export buyer lists or deal data?</AccordionTrigger>
+              <AccordionContent>
+                Yes. You can export matched buyer lists, deal summaries, and offer activity to CSV for reporting, follow-up sequences, or sharing with your team.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section id="pricing" className="py-16 sm:py-20 px-4 sm:px-8">
         <div className="bg-primary text-primary-foreground rounded-[28px] mx-auto max-w-[1116px] px-8 sm:px-10 py-16 sm:py-[72px] text-center">
