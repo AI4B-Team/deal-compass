@@ -162,7 +162,7 @@ function AuthPage() {
       <div className="flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-12 bg-background">
         <div className="w-full max-w-md mx-auto">
           <div className="mb-8">
-            <h2 className="text-2xl font-bold tracking-tight mb-1">Welcome back</h2>
+            <h2 className="text-2xl font-bold tracking-tight mb-1">Welcome Back</h2>
             <p className="text-sm text-muted-foreground">Sign in to your buyers list.</p>
           </div>
 
