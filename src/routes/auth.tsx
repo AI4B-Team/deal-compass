@@ -232,7 +232,7 @@ function AuthPage() {
           )}
 
           <div className="text-center text-sm text-muted-foreground mt-6">
-            {isSignin ? "New here?" : "Already have an account?"}{" "}
+            {isSignin ? "New Here?" : "Already have an account?"}{" "}
             <button
               onClick={() => setMode(isSignin ? "signup" : "signin")}
               className="text-primary hover:underline font-medium"
