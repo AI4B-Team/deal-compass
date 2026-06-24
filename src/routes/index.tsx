@@ -69,10 +69,8 @@ function LandingPage() {
             <span>Deal Compass</span>
           </div>
           <div className="hidden md:flex gap-8 text-sm text-muted-foreground">
-            <a href="#why" className="hover:text-foreground transition-colors">Why Us</a>
-            <a href="#buyers" className="hover:text-foreground transition-colors">Buyer Types</a>
-            <a href="#features" className="hover:text-foreground transition-colors">Features</a>
             <a href="#process" className="hover:text-foreground transition-colors">How It Works</a>
+            <a href="#pricing" className="hover:text-foreground transition-colors">Pricing</a>
           </div>
           <div className="flex items-center gap-2">
             <Link
