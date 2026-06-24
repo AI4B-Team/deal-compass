@@ -314,24 +314,18 @@ function LandingPage() {
               matters — with the criteria they actually use to buy.
             </p>
           </div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-[900px] mx-auto">
             <BuyerTypeCard
-              icon={Banknote}
-              tone="cash"
-              title="Cash Buyers"
-              need="Speed, spread, proof of funds."
+              icon={Hammer}
+              tone="flipper"
+              title="Flippers"
+              need="Margin, renovation scope, resale value."
             />
             <BuyerTypeCard
               icon={Key}
               tone="landlord"
               title="Landlords"
               need="Rent estimates, occupancy, cash flow."
-            />
-            <BuyerTypeCard
-              icon={Hammer}
-              tone="flipper"
-              title="Flippers"
-              need="Margin, renovation scope, resale value."
             />
             <BuyerTypeCard
               icon={Building2}
