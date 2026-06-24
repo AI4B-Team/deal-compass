@@ -8,6 +8,13 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { toast } from "sonner";
 import { TransactionDetailDialog } from "@/components/TransactionDetailDialog";
 
+function fmtDate(date: string | null | undefined) {
+  if (!date) return "—";
+  const d = new Date(date);
+  return d.toLocaleDateString("en-US", { year: "numeric", month: "short" });
+}
+
+
 type Txn = {
   id: string;
   address: string;
@@ -127,9 +134,26 @@ export function LinkedDealsPanel({ buyerId }: { buyerId: string }) {
                   {[t.city, t.state].filter(Boolean).join(", ")} · {t.beds ?? "—"}bd/{t.baths ?? "—"}ba · {fmtNum(t.sqft)} sqft
                 </div>
               </div>
-              <div className="text-right shrink-0">
-                <div className="text-sm font-semibold number">{fmtMoney(t.purchase_price)}</div>
-                <div className="text-[10px] text-muted-foreground">{t.purchase_date ?? "—"}</div>
+              <div className="text-right shrink-0 flex items-center gap-4 sm:gap-6">
+                <div>
+                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Purchase</div>
+                  <div className="text-sm font-semibold number">{fmtMoney(t.purchase_price)}</div>
+                  <div className="text-xs text-muted-foreground">{fmtDate(t.purchase_date)}</div>
+                </div>
+                <div>
+                  <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Sale</div>
+                  {t.sold_price ? (
+                    <>
+                      <div className="text-sm font-semibold number text-emerald-700">{fmtMoney(t.sold_price)}</div>
+                      <div className="text-xs text-muted-foreground">{fmtDate(t.sold_date)}</div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="text-sm font-semibold number text-muted-foreground">—</div>
+                      <div className="text-xs text-muted-foreground">Not sold</div>
+                    </>
+                  )}
+                </div>
               </div>
             </button>
           ))}
