@@ -1,9 +1,9 @@
 import { deriveInvestorType } from "@/lib/buyer-helpers";
-import { Briefcase, Home, Hammer, Wrench, Building } from "lucide-react";
+import { Briefcase, Home, Hammer, Wrench, Building, Key } from "lucide-react";
 
 const ICON: Record<string, any> = {
   Flipper: Wrench,
-  Landlord: Home,
+  Landlord: Key,
   Wholetailer: Briefcase,
   Builder: Hammer,
   "Multi-Strategy": Building,
@@ -23,8 +23,8 @@ export function InvestorTypeBadge({ buyer, className = "" }: { buyer: any; class
   const tone = typeTone(label);
   return (
     <span
-      className={`inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${className}`}
-      style={{ background: `var(--buyer-${tone}-bg)`, color: `var(--buyer-${tone}-fg)` }}
+      className={`inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border ${className}`}
+      style={{ background: `var(--buyer-${tone}-bg)`, color: `var(--buyer-${tone}-fg)`, borderColor: `var(--buyer-${tone}-fg)` }}
     >
       <Icon className="w-3 h-3" />
       {label}
