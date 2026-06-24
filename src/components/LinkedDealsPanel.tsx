@@ -157,7 +157,7 @@ function ConfidenceBadge({ c }: { c: string }) {
 }
 
 function AddTxnForm({ buyerId, onDone }: { buyerId: string; onDone: () => void }) {
-  const [form, setForm] = useState({ address: "", city: "", state: "", deal_type: "flip", property_type: "single_family", purchase_price: "", purchase_date: "" });
+  const [form, setForm] = useState({ address: "", city: "", state: "", deal_type: "flip", property_type: "single_family", purchase_price: "", purchase_date: "", days_on_market: "" });
   const [saving, setSaving] = useState(false);
   const save = async () => {
     if (!form.address) { toast.error("Address required"); return; }
@@ -171,6 +171,7 @@ function AddTxnForm({ buyerId, onDone }: { buyerId: string; onDone: () => void }
       property_type: form.property_type || null,
       purchase_price: form.purchase_price ? Number(form.purchase_price) : null,
       purchase_date: form.purchase_date || null,
+      days_on_market: form.days_on_market ? Number(form.days_on_market) : null,
       confidence: "self_reported" as any,
       source: "self_reported",
     } as any);
@@ -195,6 +196,7 @@ function AddTxnForm({ buyerId, onDone }: { buyerId: string; onDone: () => void }
       </Select>
       <Input placeholder="Purchase price" type="number" value={form.purchase_price} onChange={(e) => setForm({ ...form, purchase_price: e.target.value })} />
       <Input placeholder="Date" type="date" value={form.purchase_date} onChange={(e) => setForm({ ...form, purchase_date: e.target.value })} />
+      <Input placeholder="Days on market" type="number" value={form.days_on_market} onChange={(e) => setForm({ ...form, days_on_market: e.target.value })} />
       <Button onClick={save} disabled={saving} className="grad-primary text-primary-foreground">{saving ? "Saving…" : "Save"}</Button>
     </div>
   );

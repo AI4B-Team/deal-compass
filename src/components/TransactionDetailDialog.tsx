@@ -2,16 +2,19 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { fmtMoney, fmtNum } from "@/lib/format";
 import { monthsBetween, zillowUrl } from "@/lib/buyer-helpers";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, MapPin, Calendar, Bed, Bath, Maximize, TrendingUp, Home } from "lucide-react";
+import { ExternalLink, MapPin, Calendar, Bed, Bath, Maximize, TrendingUp, Home, Timer, GitCompare } from "lucide-react";
 
 export function TransactionDetailDialog({
   txn,
   open,
   onOpenChange,
+  subjectArvPct,
 }: {
   txn: any | null;
   open: boolean;
   onOpenChange: (v: boolean) => void;
+  /** % of ARV the current subject deal is at, for buyer-comp comparison. */
+  subjectArvPct?: number | null;
 }) {
   if (!txn) return null;
 
@@ -57,6 +60,9 @@ export function TransactionDetailDialog({
             <Row label="Date" v={txn.purchase_date ?? "—"} icon={Calendar} />
             <Row label="ARV at purchase" v={fmtMoney(txn.arv_at_purchase)} />
             {arvPct !== null && <Row label="% of ARV" v={`${arvPct.toFixed(0)}%`} />}
+            {txn.days_on_market != null && (
+              <Row label="Days on market" v={`${txn.days_on_market} days`} icon={Timer} />
+            )}
           </Block>
           <Block title="Sold / Current">
             <Row label="Sold price" v={fmtMoney(txn.sold_price)} strong />
@@ -71,6 +77,27 @@ export function TransactionDetailDialog({
             )}
           </Block>
         </div>
+
+        {/* Comp vs subject deal */}
+        {subjectArvPct != null && arvPct != null && (
+          <div className="mt-3 p-3 rounded-lg border border-border bg-card text-xs flex items-start gap-2">
+            <GitCompare className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+            <div>
+              <span className="font-semibold">Vs. your deal:</span>{" "}
+              this buyer paid <span className="font-semibold">{arvPct.toFixed(0)}% of ARV</span> here.
+              Your deal is at <span className="font-semibold">{subjectArvPct.toFixed(0)}%</span> —{" "}
+              {subjectArvPct <= arvPct ? (
+                <span className="text-emerald-700 font-semibold">priced inside their box ✓</span>
+              ) : (
+                <span className="text-amber-700 font-semibold">
+                  {(subjectArvPct - arvPct).toFixed(0)} pts higher than they typically pay
+                </span>
+              )}
+              .
+            </div>
+          </div>
+        )}
+
 
         {(profit !== null && profit > 0) || months !== null ? (
           <div className="mt-3 p-3 rounded-lg bg-[color:var(--primary-soft)]/40 text-xs flex items-center gap-2">

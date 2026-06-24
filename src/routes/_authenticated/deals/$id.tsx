@@ -169,6 +169,7 @@ function DealDetail() {
   const ranked = matches.filter((m) => m.match_tier !== "Stretch");
   const stretched = matches.filter((m) => m.match_tier === "Stretch");
   const spread = deal.arv && deal.asking_price ? deal.arv - deal.asking_price - (deal.estimated_rehab ?? 0) : null;
+  const spreadArvPct = deal.arv && deal.asking_price ? (Number(deal.asking_price) / Number(deal.arv)) * 100 : null;
 
   return (
     <div>
@@ -218,7 +219,7 @@ function DealDetail() {
           <div>
             <div className="divide-y divide-border">
               {ranked.map((m) => (
-                <MatchRow key={m.id} m={m} onUpdate={updateMatch} onPitch={generatePitch} onWin={markWinner} />
+                <MatchRow key={m.id} m={m} onUpdate={updateMatch} onPitch={generatePitch} onWin={markWinner} subjectArvPct={spreadArvPct} />
               ))}
             </div>
             {stretched.length > 0 && (
@@ -229,7 +230,7 @@ function DealDetail() {
                 </button>
                 {showStretch && (
                   <div className="divide-y divide-border">
-                    {stretched.map((m) => <MatchRow key={m.id} m={m} onUpdate={updateMatch} onPitch={generatePitch} onWin={markWinner} />)}
+                    {stretched.map((m) => <MatchRow key={m.id} m={m} onUpdate={updateMatch} onPitch={generatePitch} onWin={markWinner} subjectArvPct={spreadArvPct} />)}
                   </div>
                 )}
               </div>
@@ -310,7 +311,7 @@ function Metric({ label, v, accent, cls }: { label: string; v: any; accent?: boo
   );
 }
 
-function MatchRow({ m, onUpdate, onPitch, onWin }: { m: any; onUpdate: any; onPitch: any; onWin: any }) {
+function MatchRow({ m, onUpdate, onPitch, onWin, subjectArvPct }: { m: any; onUpdate: any; onPitch: any; onWin: any; subjectArvPct?: number | null }) {
   const [open, setOpen] = useState(false);
   const [channel, setChannel] = useState<"text" | "email">("text");
   return (
@@ -328,7 +329,7 @@ function MatchRow({ m, onUpdate, onPitch, onWin }: { m: any; onUpdate: any; onPi
           </div>
           {m.buyers?.company && <div className="text-xs text-muted-foreground">{m.buyers.company}</div>}
           <div className="text-xs text-muted-foreground mt-1.5">{m.match_reasons}</div>
-          <BuyerPortfolioInline buyerId={m.buyer_id} />
+          <BuyerPortfolioInline buyerId={m.buyer_id} subjectArvPct={subjectArvPct} />
         </div>
         <div className="flex flex-col sm:flex-row gap-2 shrink-0">
           <Select value={m.interest_status} onValueChange={(v) => onUpdate(m.id, { interest_status: v, contacted_at: v !== "not_contacted" ? new Date().toISOString() : null })}>

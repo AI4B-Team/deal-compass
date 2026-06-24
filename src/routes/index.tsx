@@ -179,6 +179,10 @@ function LandingPage() {
                     "Average lot size 1–5 acres",
                     "Active in San Antonio",
                   ]}
+                  trackRecord={{ deals: 17, avgPrice: "$48k", recent: [
+                    { addr: "1820 Fawn Crk Lot 4", type: "land", price: "$52,000" },
+                    { addr: "29 Boerne Stage Rd", type: "land", price: "$41,500" },
+                  ] }}
                 />
                 <MatchCard
                   initials="RB"
@@ -192,6 +196,10 @@ function LandingPage() {
                     "Buys residential lots",
                     "Purchased nearby recently",
                   ]}
+                  trackRecord={{ deals: 31, avgPrice: "$96k", recent: [
+                    { addr: "112 Alamo Heights Ln", type: "new_build", price: "$112,000" },
+                    { addr: "508 Olmos Park Way", type: "new_build", price: "$88,500" },
+                  ] }}
                 />
                 <MatchCard
                   initials="JM"
@@ -205,7 +213,11 @@ function LandingPage() {
                     "Prefers rental corridors",
                     "Strong closing history",
                   ]}
+                  trackRecord={{ deals: 8, avgPrice: "$165k", recent: [
+                    { addr: "744 Southtown Blvd", type: "rental", price: "$172,000" },
+                  ] }}
                 />
+
               </div>
             </div>
           </div>
@@ -469,9 +481,9 @@ function LandingPage() {
               <PortfolioStat label="Buy ARV%" value="61%" />
             </div>
             <div className="divide-y divide-border">
-              <LinkedDealRow addr="4015 E Osborne Ave, Tampa FL" type="flip" price="$165,000" date="Mar 2026" />
-              <LinkedDealRow addr="2208 Manhattan Ave, Tampa FL" type="flip" price="$198,500" date="Jan 2026" />
-              <LinkedDealRow addr="912 Lake Carlton Dr, Plant City FL" type="rental" price="$224,000" date="Dec 2025" />
+              <LinkedDealRow addr="4015 E Osborne Ave, Tampa FL" type="flip" price="$165,000" date="Mar 2026" sold="$248,000" months={4} roi="50%" beds={3} baths={2} sqft={1480} />
+              <LinkedDealRow addr="2208 Manhattan Ave, Tampa FL" type="flip" price="$198,500" date="Jan 2026" sold="$295,000" months={5} roi="49%" beds={4} baths={2} sqft={1820} />
+              <LinkedDealRow addr="912 Lake Carlton Dr, Plant City FL" type="rental" price="$224,000" date="Dec 2025" beds={3} baths={2.5} sqft={2010} />
             </div>
           </div>
 
@@ -606,6 +618,7 @@ function MatchCard({
   response,
   probability,
   reasons,
+  trackRecord,
 }: {
   initials: string;
   name: string;
@@ -614,6 +627,7 @@ function MatchCard({
   response: string;
   probability: string;
   reasons: string[];
+  trackRecord?: { deals: number; avgPrice: string; recent: { addr: string; type: string; price: string }[] };
 }) {
   const probColor =
     probability === "High" ? "var(--success)" : probability === "Medium" ? "var(--warning)" : "var(--muted-foreground)";
@@ -644,6 +658,29 @@ function MatchCard({
           <div className="text-[24px] font-bold leading-none number text-primary">{score}</div>
         </div>
       </div>
+      {trackRecord && (
+        <div className="mt-3 rounded-lg bg-[color:var(--surface-2)]/60 border border-border p-2.5">
+          <div className="flex items-center justify-between mb-1.5">
+            <div className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold">Track Record</div>
+            <div className="text-[11px] text-muted-foreground">
+              <span className="text-foreground font-semibold">{trackRecord.deals}</span> deals · avg{" "}
+              <span className="text-foreground font-semibold">{trackRecord.avgPrice}</span>
+            </div>
+          </div>
+          <div className="space-y-0.5">
+            {trackRecord.recent.map((r) => (
+              <div key={r.addr} className="flex items-center justify-between text-[11.5px] py-0.5">
+                <span className="flex items-center gap-1.5 min-w-0">
+                  <MapPin className="w-3 h-3 text-muted-foreground shrink-0" />
+                  <span className="truncate">{r.addr}</span>
+                  <span className="text-[9px] uppercase px-1.5 py-0.5 rounded bg-card text-muted-foreground shrink-0">{r.type}</span>
+                </span>
+                <span className="number font-semibold shrink-0">{r.price}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
       <div className="mt-3 pt-3 border-t border-border grid grid-cols-3 gap-2 text-center">
         <MiniStat icon={Clock} label="Response" value={response} />
         <MiniStat label="Probability" value={probability} valueColor={probColor} />
@@ -652,6 +689,7 @@ function MatchCard({
     </div>
   );
 }
+
 
 function MiniStat({
   icon: Icon,
@@ -806,13 +844,13 @@ function PortfolioStat({ label, value }: { label: string; value: string }) {
   );
 }
 
-function LinkedDealRow({ addr, type, price, date }: { addr: string; type: string; price: string; date: string }) {
+function LinkedDealRow({ addr, type, price, date, sold, months, roi, beds, baths, sqft }: { addr: string; type: string; price: string; date: string; sold?: string; months?: number; roi?: string; beds?: number; baths?: number; sqft?: number }) {
   const clr =
     type === "flip" ? "bg-[color:var(--primary-soft)] text-primary" :
     type === "rental" ? "bg-blue-100 text-blue-900" :
     "bg-amber-100 text-amber-900";
   return (
-    <div className="px-5 sm:px-6 py-3 flex items-center justify-between gap-4">
+    <div className="px-5 sm:px-6 py-3 flex items-center justify-between gap-4 hover:bg-[color:var(--surface-2)]/40 transition-colors cursor-pointer">
       <div className="min-w-0 flex-1">
         <div className="font-medium text-sm flex items-center gap-2 flex-wrap">
           <MapPin className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
@@ -822,10 +860,20 @@ function LinkedDealRow({ addr, type, price, date }: { addr: string; type: string
             <ShieldCheck className="w-2.5 h-2.5" /> Verified
           </span>
         </div>
+        {(beds || baths || sqft) && (
+          <div className="text-[11px] text-muted-foreground mt-0.5">
+            {beds ?? "—"}bd / {baths ?? "—"}ba · {sqft ? sqft.toLocaleString() : "—"} sqft
+            {months !== undefined && <> · held <span className="text-foreground font-medium">{months} mo</span></>}
+            {roi && <> · <span className="text-emerald-700 font-semibold">{roi} ROI</span></>}
+          </div>
+        )}
       </div>
       <div className="text-right shrink-0">
+        <div className="text-[10px] text-muted-foreground">Bought {date}</div>
         <div className="text-sm font-semibold number">{price}</div>
-        <div className="text-[10px] text-muted-foreground">{date}</div>
+        {sold && (
+          <div className="text-[11px] text-emerald-700 font-semibold number mt-0.5">→ {sold}</div>
+        )}
       </div>
     </div>
   );

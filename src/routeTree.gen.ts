@@ -17,6 +17,7 @@ import { Route as AuthenticatedMarketplaceRouteImport } from './routes/_authenti
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedDealsIndexRouteImport } from './routes/_authenticated/deals/index'
 import { Route as AuthenticatedBuyersIndexRouteImport } from './routes/_authenticated/buyers/index'
+import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin/index'
 import { Route as AuthenticatedDealsNewRouteImport } from './routes/_authenticated/deals/new'
 import { Route as AuthenticatedDealsIdRouteImport } from './routes/_authenticated/deals/$id'
 import { Route as AuthenticatedBuyersNewRouteImport } from './routes/_authenticated/buyers/new'
@@ -63,6 +64,11 @@ const AuthenticatedBuyersIndexRoute =
     path: '/buyers/',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedAdminIndexRoute = AuthenticatedAdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedDealsNewRoute = AuthenticatedDealsNewRouteImport.update({
   id: '/deals/new',
   path: '/deals/new',
@@ -94,6 +100,7 @@ export interface FileRoutesByFullPath {
   '/buyers/new': typeof AuthenticatedBuyersNewRoute
   '/deals/$id': typeof AuthenticatedDealsIdRoute
   '/deals/new': typeof AuthenticatedDealsNewRoute
+  '/admin/': typeof AuthenticatedAdminIndexRoute
   '/buyers/': typeof AuthenticatedBuyersIndexRoute
   '/deals/': typeof AuthenticatedDealsIndexRoute
 }
@@ -107,6 +114,7 @@ export interface FileRoutesByTo {
   '/buyers/new': typeof AuthenticatedBuyersNewRoute
   '/deals/$id': typeof AuthenticatedDealsIdRoute
   '/deals/new': typeof AuthenticatedDealsNewRoute
+  '/admin': typeof AuthenticatedAdminIndexRoute
   '/buyers': typeof AuthenticatedBuyersIndexRoute
   '/deals': typeof AuthenticatedDealsIndexRoute
 }
@@ -122,6 +130,7 @@ export interface FileRoutesById {
   '/_authenticated/buyers/new': typeof AuthenticatedBuyersNewRoute
   '/_authenticated/deals/$id': typeof AuthenticatedDealsIdRoute
   '/_authenticated/deals/new': typeof AuthenticatedDealsNewRoute
+  '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
   '/_authenticated/buyers/': typeof AuthenticatedBuyersIndexRoute
   '/_authenticated/deals/': typeof AuthenticatedDealsIndexRoute
 }
@@ -137,6 +146,7 @@ export interface FileRouteTypes {
     | '/buyers/new'
     | '/deals/$id'
     | '/deals/new'
+    | '/admin/'
     | '/buyers/'
     | '/deals/'
   fileRoutesByTo: FileRoutesByTo
@@ -150,6 +160,7 @@ export interface FileRouteTypes {
     | '/buyers/new'
     | '/deals/$id'
     | '/deals/new'
+    | '/admin'
     | '/buyers'
     | '/deals'
   id:
@@ -164,6 +175,7 @@ export interface FileRouteTypes {
     | '/_authenticated/buyers/new'
     | '/_authenticated/deals/$id'
     | '/_authenticated/deals/new'
+    | '/_authenticated/admin/'
     | '/_authenticated/buyers/'
     | '/_authenticated/deals/'
   fileRoutesById: FileRoutesById
@@ -232,6 +244,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedBuyersIndexRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/admin/': {
+      id: '/_authenticated/admin/'
+      path: '/admin'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AuthenticatedAdminIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/deals/new': {
       id: '/_authenticated/deals/new'
       path: '/deals/new'
@@ -271,6 +290,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedBuyersNewRoute: typeof AuthenticatedBuyersNewRoute
   AuthenticatedDealsIdRoute: typeof AuthenticatedDealsIdRoute
   AuthenticatedDealsNewRoute: typeof AuthenticatedDealsNewRoute
+  AuthenticatedAdminIndexRoute: typeof AuthenticatedAdminIndexRoute
   AuthenticatedBuyersIndexRoute: typeof AuthenticatedBuyersIndexRoute
   AuthenticatedDealsIndexRoute: typeof AuthenticatedDealsIndexRoute
 }
@@ -283,6 +303,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedBuyersNewRoute: AuthenticatedBuyersNewRoute,
   AuthenticatedDealsIdRoute: AuthenticatedDealsIdRoute,
   AuthenticatedDealsNewRoute: AuthenticatedDealsNewRoute,
+  AuthenticatedAdminIndexRoute: AuthenticatedAdminIndexRoute,
   AuthenticatedBuyersIndexRoute: AuthenticatedBuyersIndexRoute,
   AuthenticatedDealsIndexRoute: AuthenticatedDealsIndexRoute,
 }
