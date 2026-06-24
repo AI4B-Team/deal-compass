@@ -134,13 +134,13 @@ export function LinkedDealsPanel({ buyerId }: { buyerId: string }) {
                   {[t.city, t.state].filter(Boolean).join(", ")} · {t.beds ?? "—"}bd/{t.baths ?? "—"}ba · {fmtNum(t.sqft)} sqft
                 </div>
               </div>
-              <div className="text-right shrink-0 flex items-center gap-4 sm:gap-6">
-                <div>
+              <div className="shrink-0 flex items-center gap-2 sm:gap-3">
+                <div className="bg-card border border-border rounded-lg px-3 py-2 min-w-[90px] text-center">
                   <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Purchase</div>
                   <div className="text-sm font-semibold number">{fmtMoney(t.purchase_price)}</div>
                   <div className="text-xs text-muted-foreground">{fmtDate(t.purchase_date)}</div>
                 </div>
-                <div>
+                <div className="bg-card border border-border rounded-lg px-3 py-2 min-w-[90px] text-center">
                   <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Sale</div>
                   {t.sold_price ? (
                     <>
