@@ -870,13 +870,13 @@ function LinkedDealRow({ addr, type, purchasePrice, purchaseDate, soldPrice, sol
           </div>
         )}
       </div>
-      <div className="shrink-0 flex items-center gap-4 sm:gap-6">
-        <div>
+      <div className="shrink-0 flex items-center gap-2 sm:gap-3">
+        <div className="bg-card border border-border rounded-lg px-3 py-2 min-w-[90px] text-center">
           <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Purchase</div>
           <div className="text-sm font-semibold number">{purchasePrice}</div>
           <div className="text-xs text-muted-foreground">{purchaseDate}</div>
         </div>
-        <div>
+        <div className="bg-card border border-border rounded-lg px-3 py-2 min-w-[90px] text-center">
           <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Sale</div>
           {soldPrice ? (
             <>
