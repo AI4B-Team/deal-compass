@@ -395,6 +395,11 @@ function LandingPage() {
               copy="View purchase history, preferences, and buying patterns for every buyer."
             />
             <FeatureCard
+              icon={Phone}
+              title="Skip Tracing"
+              copy="Verified phone, email, and mailing addresses for every buyer — all in one place."
+            />
+            <FeatureCard
               icon={Plug}
               title="CRM & SMS"
               copy="Manage conversations and follow-up without leaving Deal Compass."
