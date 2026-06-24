@@ -89,8 +89,8 @@
   --warning-foreground: #ffffff;
 
   /* Buyer-type tag palette (mirrors HTML reference) */
-  --buyer-cash-bg: #eaf3de;
-  --buyer-cash-fg: #173404;
+  --buyer-cash-bg: #ccfbf1;
+  --buyer-cash-fg: #0f766e;
   --buyer-landlord-bg: #fef9c3;
   --buyer-landlord-fg: #a16207;
   --buyer-flipper-bg: #e3efe3;
