@@ -125,7 +125,7 @@ export function LinkedDealsPanel({ buyerId }: { buyerId: string }) {
                 <div className="font-medium text-sm flex items-center gap-2 flex-wrap">
                   <MapPin className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
                   <span className="truncate">{t.address}</span>
-                  <span className={`text-[10px] font-bold uppercase px-2 py-0.5 rounded-full border ${DEALAL_TYPE_COLORS[t.deal_type] || "bg-muted text-muted-foreground border-transparent"}`}>
+                  <span className={`text-[10px] font-bold uppercase px-2 py-0.5 rounded-full border ${DEAL_TYPE_COLORS[t.deal_type] || "bg-muted text-muted-foreground border-transparent"}`}>
                     {t.deal_type}
                   </span>
                   <ConfidenceBadge c={t.confidence} />
