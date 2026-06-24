@@ -15,10 +15,10 @@ export const Route = createFileRoute("/_authenticated/marketplace")({
 });
 
 const BUYER_TYPE_CLR: Record<string, string> = {
-  cash: "bg-emerald-100 text-emerald-900",
-  flip: "bg-[color:var(--primary-soft)] text-primary",
-  rental: "bg-blue-100 text-blue-900",
-  landlord: "bg-blue-100 text-blue-900",
+  cash: "bg-[color:var(--buyer-cash-bg)] text-[color:var(--buyer-cash-fg)] border-[color:var(--buyer-cash-fg)]",
+  flip: "bg-[color:var(--buyer-flipper-bg)] text-[color:var(--buyer-flipper-fg)] border-[color:var(--buyer-flipper-fg)]",
+  rental: "bg-[color:var(--buyer-landlord-bg)] text-[color:var(--buyer-landlord-fg)] border-[color:var(--buyer-landlord-fg)]",
+  landlord: "bg-[color:var(--buyer-landlord-bg)] text-[color:var(--buyer-landlord-fg)] border-[color:var(--buyer-landlord-fg)]",
   land: "bg-amber-100 text-amber-900",
   builder: "bg-amber-100 text-amber-900",
 };
@@ -119,7 +119,7 @@ function Marketplace() {
                     </div>
                     <div className="flex items-center gap-2 mt-1.5 flex-wrap">
                       {types.map((t: string) => (
-                        <span key={t} className={`text-[10px] font-bold uppercase px-2 py-0.5 rounded-full ${BUYER_TYPE_CLR[t] || "bg-muted text-muted-foreground"}`}>{t}</span>
+                        <span key={t} className={`text-[10px] font-bold uppercase px-2 py-0.5 rounded-full border ${BUYER_TYPE_CLR[t] || "bg-muted text-muted-foreground border-transparent"}`}>{t}</span>
                       ))}
                       {b._stats?.total_count > 0 && (
                         <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase px-2 py-0.5 rounded-full bg-[color:var(--surface-2)] text-foreground">

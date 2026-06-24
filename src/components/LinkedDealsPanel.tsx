@@ -34,10 +34,10 @@ type Txn = {
 };
 
 const DEAL_TYPE_COLORS: Record<string, string> = {
-  flip: "bg-[color:var(--primary-soft)] text-primary",
-  rental: "bg-blue-100 text-blue-900",
-  land: "bg-amber-100 text-amber-900",
-  wholetail: "bg-emerald-100 text-emerald-900",
+  flip: "bg-[color:var(--buyer-flipper-bg)] text-[color:var(--buyer-flipper-fg)] border-[color:var(--buyer-flipper-fg)]",
+  rental: "bg-[color:var(--buyer-landlord-bg)] text-[color:var(--buyer-landlord-fg)] border-[color:var(--buyer-landlord-fg)]",
+  land: "bg-[color:var(--buyer-builder-bg)] text-[color:var(--buyer-builder-fg)] border-[color:var(--buyer-builder-fg)]",
+  wholetail: "bg-[color:var(--buyer-cash-bg)] text-[color:var(--buyer-cash-fg)] border-[color:var(--buyer-cash-fg)]",
 };
 
 export function LinkedDealsPanel({ buyerId }: { buyerId: string }) {
@@ -125,7 +125,7 @@ export function LinkedDealsPanel({ buyerId }: { buyerId: string }) {
                 <div className="font-medium text-sm flex items-center gap-2 flex-wrap">
                   <MapPin className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
                   <span className="truncate">{t.address}</span>
-                  <span className={`text-[10px] font-bold uppercase px-2 py-0.5 rounded-full ${DEAL_TYPE_COLORS[t.deal_type] || "bg-muted text-muted-foreground"}`}>
+                  <span className={`text-[10px] font-bold uppercase px-2 py-0.5 rounded-full border ${DEAL_TYPE_COLORS[t.deal_type] || "bg-muted text-muted-foreground border-transparent"}`}>
                     {t.deal_type}
                   </span>
                   <ConfidenceBadge c={t.confidence} />
