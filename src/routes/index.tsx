@@ -650,8 +650,8 @@ function Tag({
 }) {
   return (
     <span
-      className="text-[11px] font-medium px-2.5 py-1 rounded-full"
-      style={{ background: `var(--buyer-${tone}-bg)`, color: `var(--buyer-${tone}-fg)` }}
+      className="text-[11px] font-medium px-2.5 py-1 rounded-full border"
+      style={{ background: `var(--buyer-${tone}-bg)`, color: `var(--buyer-${tone}-fg)`, borderColor: `var(--buyer-${tone}-fg)` }}
     >
       {children}
     </span>
