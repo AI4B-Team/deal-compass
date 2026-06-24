@@ -1,11 +1,12 @@
 import { Link, useRouterState, useNavigate } from "@tanstack/react-router";
-import { LayoutDashboard, Users, Briefcase, Settings, LogOut, Compass, Menu, X, Search } from "lucide-react";
+import { LayoutDashboard, Users, Briefcase, Settings, LogOut, Compass, Menu, X, Search, Shield } from "lucide-react";
 import { useState, type ReactNode } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useIsAdmin } from "@/hooks/useIsAdmin";
 
-const nav = [
+const baseNav = [
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { to: "/marketplace", label: "Marketplace", icon: Search },
   { to: "/buyers", label: "Buyers", icon: Users },
@@ -17,6 +18,8 @@ export function AppShell({ children }: { children: ReactNode }) {
   const path = useRouterState({ select: (s) => s.location.pathname });
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
+  const isAdmin = useIsAdmin();
+  const nav = isAdmin ? [...baseNav, { to: "/admin", label: "Back Office", icon: Shield }] : baseNav;
 
   const signOut = async () => {
     await supabase.auth.signOut();
