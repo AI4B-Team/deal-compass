@@ -31,6 +31,7 @@ import {
   Clock,
   ShieldCheck,
   PiggyBank,
+  Phone,
   Link2,
   Home,
   Receipt,
@@ -393,6 +394,11 @@ function LandingPage() {
               icon={Briefcase}
               title="Buyer Profiles"
               copy="View purchase history, preferences, and buying patterns for every buyer."
+            />
+            <FeatureCard
+              icon={Phone}
+              title="Skip Tracing"
+              copy="Verified phone, email, and mailing addresses for every buyer — all in one place."
             />
             <FeatureCard
               icon={Plug}
