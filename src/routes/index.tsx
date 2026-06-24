@@ -96,11 +96,11 @@ function LandingPage() {
         <div className="max-w-[1200px] mx-auto">
           <div className="inline-flex items-center gap-2 text-[12px] font-medium text-primary bg-primary-soft px-3 py-1.5 rounded-full mb-6">
             <Sparkles className="w-3.5 h-3.5" />
-            AI Buyer Matching For Wholesalers
+            AI Buyer Matching
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-[60px] font-bold leading-[1.05] tracking-[-0.03em] max-w-[860px] mx-auto mb-6">
-            Everything You Need <br />
-            <span className="text-primary">To Dispo Deals Faster</span>
+            Instantly Find The Buyers <br />
+            <span className="text-primary">For Any Deal Faster</span>
           </h1>
           <p className="text-base sm:text-lg text-muted-foreground max-w-[680px] mx-auto mb-9 leading-relaxed">
             Submit any property and Deal Compass automatically ranks cash buyers, landlords,
