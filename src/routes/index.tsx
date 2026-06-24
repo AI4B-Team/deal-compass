@@ -89,7 +89,7 @@ function LandingPage() {
       </nav>
 
       {/* Hero */}
-      <section className="pt-20 sm:pt-24 pb-16 px-6 sm:px-8 text-center">
+      <section className="pt-10 sm:pt-12 pb-16 px-6 sm:px-8 text-center">
         <div className="max-w-[1200px] mx-auto">
           <h1 className="text-4xl sm:text-5xl lg:text-[60px] font-bold leading-[1.05] tracking-[-0.03em] max-w-[860px] mx-auto mb-6">
             Instantly Find Buyers <br />
