@@ -15,6 +15,8 @@ import { toast } from "sonner";
 import { PropertyIntelligencePanel } from "@/components/PropertyIntelligencePanel";
 import { useServerFn } from "@tanstack/react-start";
 import { autoMarketDeal } from "@/lib/api/auto-market.functions";
+import { InvestorTypeBadge } from "@/components/InvestorTypeBadge";
+import { BuyerPortfolioInline } from "@/components/BuyerPortfolioInline";
 
 export const Route = createFileRoute("/_authenticated/deals/$id")({
   head: () => ({ meta: [{ title: "Deal" }] }),
@@ -321,10 +323,12 @@ function MatchRow({ m, onUpdate, onPitch, onWin }: { m: any; onUpdate: any; onPi
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 flex-wrap">
             <Link to="/buyers/$id" params={{ id: m.buyer_id }} className="font-semibold hover:text-primary">{m.buyers?.name}</Link>
+            {m.buyers && <InvestorTypeBadge buyer={m.buyers} />}
             {m.is_winner && <span className="inline-flex items-center gap-1 text-xs text-[color:var(--tier-a)] font-semibold"><Trophy className="w-3 h-3" /> Winner</span>}
           </div>
           {m.buyers?.company && <div className="text-xs text-muted-foreground">{m.buyers.company}</div>}
           <div className="text-xs text-muted-foreground mt-1.5">{m.match_reasons}</div>
+          <BuyerPortfolioInline buyerId={m.buyer_id} />
         </div>
         <div className="flex flex-col sm:flex-row gap-2 shrink-0">
           <Select value={m.interest_status} onValueChange={(v) => onUpdate(m.id, { interest_status: v, contacted_at: v !== "not_contacted" ? new Date().toISOString() : null })}>
