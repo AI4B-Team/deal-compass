@@ -427,9 +427,6 @@ function LandingPage() {
       <section className="py-20 sm:py-24 bg-surface">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
           <div className="text-center max-w-[760px] mx-auto mb-14">
-            <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary bg-[color:var(--primary-soft)] px-3 py-1.5 rounded-full mb-4">
-              <Sparkles className="w-3 h-3" /> New In Deal Compass
-            </span>
             <h2 className="text-3xl sm:text-[42px] font-bold tracking-tight mb-3.5">
               See Every Buyer's Real Track Record — Before You Pitch.
             </h2>
