@@ -469,11 +469,11 @@ function LandingPage() {
                 </div>
               </div>
               <div className="flex items-center gap-2 flex-wrap">
-                <span className="text-[10px] font-bold uppercase px-2 py-1 rounded-full bg-[color:var(--primary-soft)] text-primary">Flipper</span>
-                <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase px-2 py-1 rounded-full bg-emerald-50 text-emerald-700">
+                <span className="text-[10px] font-bold uppercase px-2 py-1 rounded-full bg-[color:var(--primary-soft)] text-primary border border-primary">Flipper</span>
+                <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase px-2 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-current">
                   <Trophy className="w-2.5 h-2.5" /> 87% Close Rate
                 </span>
-                <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase px-2 py-1 rounded-full bg-[color:var(--surface-2)]">
+                <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase px-2 py-1 rounded-full bg-[color:var(--surface-2)] text-foreground border border-border">
                   <Link2 className="w-2.5 h-2.5" /> 23 Linked Deals
                 </span>
               </div>
@@ -696,8 +696,8 @@ function MatchCard({
           <div className="flex items-center gap-2 flex-wrap">
             <div className="font-semibold text-[15px]">{name}</div>
             <span
-              className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full"
-              style={{ background: `var(--buyer-${tone}-bg)`, color: `var(--buyer-${tone}-fg)` }}
+              className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border"
+              style={{ background: `var(--buyer-${tone}-bg)`, color: `var(--buyer-${tone}-fg)`, borderColor: `var(--buyer-${tone}-fg)` }}
             >
               {type}
             </span>
