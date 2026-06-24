@@ -5,19 +5,24 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
-import { Compass, ArrowRight } from "lucide-react";
+import { Compass, ArrowRight, Check } from "lucide-react";
 
 export const Route = createFileRoute("/auth")({
-  head: () => ({ meta: [{ title: "Sign In — Deal Compass" }] }),
+  head: () => ({ meta: [{ title: "Sign In or Sign Up — Deal Compass" }] }),
   component: AuthPage,
 });
 
 function AuthPage() {
   const navigate = useNavigate();
-  const [mode, setMode] = useState<"signin" | "signup">("signin");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
+
+  const [signinEmail, setSigninEmail] = useState("");
+  const [signinPassword, setSigninPassword] = useState("");
+  const [signinLoading, setSigninLoading] = useState(false);
+
+  const [signupEmail, setSignupEmail] = useState("");
+  const [signupPassword, setSignupPassword] = useState("");
+  const [signupConfirm, setSignupConfirm] = useState("");
+  const [signupLoading, setSignupLoading] = useState(false);
 
   useEffect(() => {
     supabase.auth.getUser().then(({ data }) => {
@@ -29,95 +34,178 @@ function AuthPage() {
     return () => sub.subscription.unsubscribe();
   }, [navigate]);
 
-  const onSubmit = async (e: React.FormEvent) => {
+  const onSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
+    setSigninLoading(true);
     try {
-      if (mode === "signup") {
-        const { error } = await supabase.auth.signUp({
-          email,
-          password,
-          options: { emailRedirectTo: window.location.origin },
-        });
-        if (error) throw error;
-        toast.success("Account created. You're in.");
-      } else {
-        const { error } = await supabase.auth.signInWithPassword({ email, password });
-        if (error) throw error;
-      }
+      const { error } = await supabase.auth.signInWithPassword({
+        email: signinEmail,
+        password: signinPassword,
+      });
+      if (error) throw error;
     } catch (err: any) {
-      toast.error(err.message ?? "Auth failed");
+      toast.error(err.message ?? "Sign in failed");
     } finally {
-      setLoading(false);
+      setSigninLoading(false);
+    }
+  };
+
+  const onSignUp = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (signupPassword !== signupConfirm) {
+      toast.error("Passwords do not match");
+      return;
+    }
+    setSignupLoading(true);
+    try {
+      const { error } = await supabase.auth.signUp({
+        email: signupEmail,
+        password: signupPassword,
+        options: { emailRedirectTo: window.location.origin },
+      });
+      if (error) throw error;
+      toast.success("Account created. Check your email to confirm.");
+      setSignupEmail("");
+      setSignupPassword("");
+      setSignupConfirm("");
+    } catch (err: any) {
+      toast.error(err.message ?? "Sign up failed");
+    } finally {
+      setSignupLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 bg-background">
-      <div className="w-full max-w-md">
-        <div className="flex items-center gap-2 mb-8 justify-center">
-          <div className="w-9 h-9 rounded-[8px] bg-primary flex items-center justify-center">
-            <Compass className="w-5 h-5 text-primary-foreground" />
+    <div className="min-h-screen grid grid-cols-1 lg:grid-cols-2 bg-background">
+      {/* Left panel — Sign up */}
+      <div className="flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-12 bg-surface border-r border-border">
+        <div className="w-full max-w-md mx-auto">
+          <div className="flex items-center gap-2 mb-8">
+            <div className="w-9 h-9 rounded-[8px] bg-primary flex items-center justify-center">
+              <Compass className="w-5 h-5 text-primary-foreground" />
+            </div>
+            <span className="text-xl font-bold tracking-tight">Deal Compass</span>
           </div>
-          <span className="text-xl font-bold tracking-tight">Deal Compass</span>
-        </div>
-        <div className="bg-background border border-border rounded-2xl p-8 shadow-soft">
-          <h1 className="text-2xl font-bold mb-1 tracking-tight">
-            {mode === "signin" ? "Welcome Back" : "Create Your Account"}
-          </h1>
-          <p className="text-sm text-muted-foreground mb-6">
-            {mode === "signin"
-              ? "Sign in to your buyers list."
-              : "Start matching deals to every buyer type."}
-          </p>
-          <form onSubmit={onSubmit} className="space-y-4">
+
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold tracking-tight mb-2">Start matching deals</h2>
+            <p className="text-sm text-muted-foreground">
+              Create a free account to rank cash buyers, landlords, flippers, and builders.
+            </p>
+          </div>
+
+          <ul className="space-y-3 mb-8 text-sm text-muted-foreground">
+            <li className="flex items-start gap-2">
+              <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+              <span>AI-powered buyer matching by deal type and location</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+              <span>Skip tracing and contact info included for every buyer</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <Check className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+              <span>Export matched buyer lists to CSV in one click</span>
+            </li>
+          </ul>
+
+          <form onSubmit={onSignUp} className="space-y-4">
             <div>
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="signup-email">Email</Label>
               <Input
-                id="email"
+                id="signup-email"
                 type="email"
                 required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={signupEmail}
+                onChange={(e) => setSignupEmail(e.target.value)}
+                className="mt-1.5 bg-background"
+              />
+            </div>
+            <div>
+              <Label htmlFor="signup-password">Password</Label>
+              <Input
+                id="signup-password"
+                type="password"
+                required
+                minLength={6}
+                value={signupPassword}
+                onChange={(e) => setSignupPassword(e.target.value)}
+                className="mt-1.5 bg-background"
+              />
+            </div>
+            <div>
+              <Label htmlFor="signup-confirm">Confirm Password</Label>
+              <Input
+                id="signup-confirm"
+                type="password"
+                required
+                minLength={6}
+                value={signupConfirm}
+                onChange={(e) => setSignupConfirm(e.target.value)}
+                className="mt-1.5 bg-background"
+              />
+            </div>
+            <Button
+              type="submit"
+              disabled={signupLoading}
+              variant="outline"
+              className="w-full h-11 rounded-full border-border hover:bg-background"
+            >
+              {signupLoading ? "..." : "Create Account"}
+              <ArrowRight className="w-4 h-4 ml-1" />
+            </Button>
+          </form>
+        </div>
+      </div>
+
+      {/* Right panel — Sign in */}
+      <div className="flex flex-col justify-center px-6 sm:px-10 lg:px-16 py-12 bg-background">
+        <div className="w-full max-w-md mx-auto">
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold tracking-tight mb-1">Welcome back</h2>
+            <p className="text-sm text-muted-foreground">Sign in to your buyers list.</p>
+          </div>
+
+          <form onSubmit={onSignIn} className="space-y-4">
+            <div>
+              <Label htmlFor="signin-email">Email</Label>
+              <Input
+                id="signin-email"
+                type="email"
+                required
+                value={signinEmail}
+                onChange={(e) => setSigninEmail(e.target.value)}
                 className="mt-1.5"
               />
             </div>
             <div>
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="signin-password">Password</Label>
               <Input
-                id="password"
+                id="signin-password"
                 type="password"
                 required
                 minLength={6}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={signinPassword}
+                onChange={(e) => setSigninPassword(e.target.value)}
                 className="mt-1.5"
               />
             </div>
             <Button
               type="submit"
-              disabled={loading}
+              disabled={signinLoading}
               className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-full"
             >
-              {loading ? "..." : mode === "signin" ? "Sign In" : "Create Account"}
+              {signinLoading ? "..." : "Sign In"}
               <ArrowRight className="w-4 h-4 ml-1" />
             </Button>
           </form>
-          <div className="text-center text-sm text-muted-foreground mt-6">
-            {mode === "signin" ? "New here?" : "Have an account?"}{" "}
-            <button
-              onClick={() => setMode(mode === "signin" ? "signup" : "signin")}
-              className="text-primary hover:underline font-medium"
-            >
-              {mode === "signin" ? "Create One" : "Sign In"}
-            </button>
-          </div>
+
+          <p className="text-xs text-muted-foreground text-center mt-8">
+            <Link to="/" className="hover:text-foreground">
+              ← Back Home
+            </Link>
+          </p>
         </div>
-        <p className="text-xs text-muted-foreground text-center mt-6">
-          <Link to="/" className="hover:text-foreground">
-            ← Back Home
-          </Link>
-        </p>
       </div>
     </div>
   );
