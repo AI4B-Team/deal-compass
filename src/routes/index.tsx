@@ -481,9 +481,9 @@ function LandingPage() {
               <PortfolioStat label="Buy ARV%" value="61%" />
             </div>
             <div className="divide-y divide-border">
-              <LinkedDealRow addr="4015 E Osborne Ave, Tampa FL" type="flip" price="$165,000" date="Mar 2026" />
-              <LinkedDealRow addr="2208 Manhattan Ave, Tampa FL" type="flip" price="$198,500" date="Jan 2026" />
-              <LinkedDealRow addr="912 Lake Carlton Dr, Plant City FL" type="rental" price="$224,000" date="Dec 2025" />
+              <LinkedDealRow addr="4015 E Osborne Ave, Tampa FL" type="flip" price="$165,000" date="Mar 2026" sold="$248,000" months={4} roi="50%" beds={3} baths={2} sqft={1480} />
+              <LinkedDealRow addr="2208 Manhattan Ave, Tampa FL" type="flip" price="$198,500" date="Jan 2026" sold="$295,000" months={5} roi="49%" beds={4} baths={2} sqft={1820} />
+              <LinkedDealRow addr="912 Lake Carlton Dr, Plant City FL" type="rental" price="$224,000" date="Dec 2025" beds={3} baths={2.5} sqft={2010} />
             </div>
           </div>
 
