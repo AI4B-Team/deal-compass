@@ -750,7 +750,7 @@ function MatchCard({
       <div className="mt-3 pt-3 border-t border-border grid grid-cols-3 gap-2 text-center">
         <MiniStat label="Deals" value={trackRecord ? String(trackRecord.deals) : "—"} />
         <MiniStat label="Probability" value={probability} valueColor={probColor} />
-        <MiniStat label="Type" value={type} valueColor={`var(--buyer-${tone}-fg)`} />
+        <MiniStat label="Avg Price" value={trackRecord ? trackRecord.avgPrice : "—"} />
       </div>
     </div>
   );
