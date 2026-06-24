@@ -469,11 +469,11 @@ function LandingPage() {
                 </div>
               </div>
               <div className="flex items-center gap-2 flex-wrap">
-                <span className="text-[10px] font-bold uppercase px-2 py-1 rounded-full bg-[color:var(--primary-soft)] text-primary">Flipper</span>
-                <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase px-2 py-1 rounded-full bg-emerald-50 text-emerald-700">
+                <span className="text-[10px] font-bold uppercase px-2 py-1 rounded-full bg-[color:var(--primary-soft)] text-primary border border-primary">Flipper</span>
+                <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase px-2 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-current">
                   <Trophy className="w-2.5 h-2.5" /> 87% Close Rate
                 </span>
-                <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase px-2 py-1 rounded-full bg-[color:var(--surface-2)]">
+                <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase px-2 py-1 rounded-full bg-[color:var(--surface-2)] text-foreground border border-border">
                   <Link2 className="w-2.5 h-2.5" /> 23 Linked Deals
                 </span>
               </div>
@@ -650,8 +650,8 @@ function Tag({
 }) {
   return (
     <span
-      className="text-[11px] font-medium px-2.5 py-1 rounded-full"
-      style={{ background: `var(--buyer-${tone}-bg)`, color: `var(--buyer-${tone}-fg)` }}
+      className="text-[11px] font-medium px-2.5 py-1 rounded-full border"
+      style={{ background: `var(--buyer-${tone}-bg)`, color: `var(--buyer-${tone}-fg)`, borderColor: `var(--buyer-${tone}-fg)` }}
     >
       {children}
     </span>
@@ -696,8 +696,8 @@ function MatchCard({
           <div className="flex items-center gap-2 flex-wrap">
             <div className="font-semibold text-[15px]">{name}</div>
             <span
-              className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full"
-              style={{ background: `var(--buyer-${tone}-bg)`, color: `var(--buyer-${tone}-fg)` }}
+              className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border"
+              style={{ background: `var(--buyer-${tone}-bg)`, color: `var(--buyer-${tone}-fg)`, borderColor: `var(--buyer-${tone}-fg)` }}
             >
               {type}
             </span>
@@ -912,9 +912,9 @@ function PortfolioStat({ label, value }: { label: string; value: string }) {
 
 function LinkedDealRow({ addr, type, purchasePrice, purchaseDate, soldPrice, soldDate, months, roi, beds, baths, sqft }: { addr: string; type: string; purchasePrice: string; purchaseDate: string; soldPrice?: string; soldDate?: string; months?: number; roi?: string; beds?: number; baths?: number; sqft?: number }) {
   const clr =
-    type === "flip" ? "bg-[color:var(--primary-soft)] text-primary" :
-    type === "rental" ? "bg-[color:var(--buyer-landlord-bg)] text-[color:var(--buyer-landlord-fg)]" :
-    "bg-[color:var(--buyer-builder-bg)] text-[color:var(--buyer-builder-fg)]";
+    type === "flip" ? "bg-[color:var(--primary-soft)] text-primary border border-primary" :
+    type === "rental" ? "bg-[color:var(--buyer-landlord-bg)] text-[color:var(--buyer-landlord-fg)] border border-[color:var(--buyer-landlord-fg)]" :
+    "bg-[color:var(--buyer-builder-bg)] text-[color:var(--buyer-builder-fg)] border border-[color:var(--buyer-builder-fg)]";
   return (
     <div className="px-5 sm:px-6 py-3 flex items-center justify-between gap-4 hover:bg-[color:var(--surface-2)]/40 transition-colors cursor-pointer">
       <div className="min-w-0 flex-1">
