@@ -112,7 +112,7 @@ function Marketplace() {
                       <span className="font-semibold">{b.name}</span>
                       {b.company && <span className="text-xs text-muted-foreground">· {b.company}</span>}
                       {b.proof_of_funds && (
-                        <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700">
+                        <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-current">
                           POF
                         </span>
                       )}
@@ -122,12 +122,12 @@ function Marketplace() {
                         <span key={t} className={`text-[10px] font-bold uppercase px-2 py-0.5 rounded-full border ${BUYER_TYPE_CLR[t] || "bg-muted text-muted-foreground border-transparent"}`}>{t}</span>
                       ))}
                       {b._stats?.total_count > 0 && (
-                        <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase px-2 py-0.5 rounded-full bg-[color:var(--surface-2)] text-foreground">
+                        <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase px-2 py-0.5 rounded-full bg-[color:var(--surface-2)] text-foreground border border-border">
                           <Link2 className="w-2.5 h-2.5" /> {b._stats.total_count} linked
                         </span>
                       )}
                       {b._reliability > 0 && (
-                        <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase px-2 py-0.5 rounded-full bg-amber-50 text-amber-800">
+                        <span className="inline-flex items-center gap-1 text-[10px] font-bold uppercase px-2 py-0.5 rounded-full bg-amber-50 text-amber-800 border border-current">
                           <Trophy className="w-2.5 h-2.5" /> {Math.round(b._reliability * 100)}% close rate
                         </span>
                       )}

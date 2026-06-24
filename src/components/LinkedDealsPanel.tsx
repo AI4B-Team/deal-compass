@@ -175,9 +175,9 @@ function Stat({ label, v }: { label: string; v: any }) {
 }
 
 function ConfidenceBadge({ c }: { c: string }) {
-  if (c === "verified") return <span className="inline-flex items-center gap-1 text-[10px] text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded"><ShieldCheck className="w-2.5 h-2.5" /> Verified</span>;
-  if (c === "estimated") return <span className="inline-flex items-center gap-1 text-[10px] text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded"><Clock className="w-2.5 h-2.5" /> Estimated</span>;
-  return <span className="inline-flex items-center gap-1 text-[10px] text-muted-foreground bg-muted px-1.5 py-0.5 rounded"><AlertTriangle className="w-2.5 h-2.5" /> Stale</span>;
+  if (c === "verified") return <span className="inline-flex items-center gap-1 text-[10px] text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-current"><ShieldCheck className="w-2.5 h-2.5" /> Verified</span>;
+  if (c === "estimated") return <span className="inline-flex items-center gap-1 text-[10px] text-amber-700 bg-amber-50 px-1.5 py-0.5 rounded border border-current"><Clock className="w-2.5 h-2.5" /> Estimated</span>;
+  return <span className="inline-flex items-center gap-1 text-[10px] text-muted-foreground bg-muted px-1.5 py-0.5 rounded border border-border"><AlertTriangle className="w-2.5 h-2.5" /> Stale</span>;
 }
 
 function AddTxnForm({ buyerId, onDone }: { buyerId: string; onDone: () => void }) {
