@@ -438,8 +438,11 @@ function LandingPage() {
             <h2 className="text-3xl sm:text-[42px] font-bold tracking-tight mb-3.5">
               See Every Buyer's Real Track Record
             </h2>
+            <p className="text-base sm:text-lg text-muted-foreground mb-2">
+              Linked deals, property intelligence, and a closing‑reliability score on every buyer.
+            </p>
             <p className="text-base sm:text-lg text-muted-foreground">
-              Linked deals, property intelligence, and a closing‑reliability score on every buyer. Know who actually performs — not just who picks up the phone.
+              Know who actually performs — not just who picks up the phone.
             </p>
           </div>
 
