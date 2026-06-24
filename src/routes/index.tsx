@@ -93,10 +93,6 @@ function LandingPage() {
       {/* Hero */}
       <section className="pt-20 sm:pt-24 pb-16 px-6 sm:px-8 text-center">
         <div className="max-w-[1200px] mx-auto">
-          <div className="inline-flex items-center gap-2 text-[12px] font-medium text-primary bg-primary-soft px-3 py-1.5 rounded-full mb-6">
-            <Sparkles className="w-3.5 h-3.5" />
-            AI Buyer Matching
-          </div>
           <h1 className="text-4xl sm:text-5xl lg:text-[60px] font-bold leading-[1.05] tracking-[-0.03em] max-w-[860px] mx-auto mb-6">
             Instantly Find Buyers <br />
             <span className="text-primary">For Any Deal Faster</span>
