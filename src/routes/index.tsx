@@ -179,6 +179,10 @@ function LandingPage() {
                     "Average lot size 1–5 acres",
                     "Active in San Antonio",
                   ]}
+                  trackRecord={{ deals: 17, avgPrice: "$48k", recent: [
+                    { addr: "1820 Fawn Crk Lot 4", type: "land", price: "$52,000" },
+                    { addr: "29 Boerne Stage Rd", type: "land", price: "$41,500" },
+                  ] }}
                 />
                 <MatchCard
                   initials="RB"
@@ -192,6 +196,10 @@ function LandingPage() {
                     "Buys residential lots",
                     "Purchased nearby recently",
                   ]}
+                  trackRecord={{ deals: 31, avgPrice: "$96k", recent: [
+                    { addr: "112 Alamo Heights Ln", type: "new_build", price: "$112,000" },
+                    { addr: "508 Olmos Park Way", type: "new_build", price: "$88,500" },
+                  ] }}
                 />
                 <MatchCard
                   initials="JM"
@@ -205,7 +213,11 @@ function LandingPage() {
                     "Prefers rental corridors",
                     "Strong closing history",
                   ]}
+                  trackRecord={{ deals: 8, avgPrice: "$165k", recent: [
+                    { addr: "744 Southtown Blvd", type: "rental", price: "$172,000" },
+                  ] }}
                 />
+
               </div>
             </div>
           </div>
